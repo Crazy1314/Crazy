@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="__PUBLIC__/index/css/style.css" rel="stylesheet" type="text/css" />
+        <style>
+           .center { MARGIN-RIGHT: auto; MARGIN-LEFT: auto; }
+        </style>
+    </head>
+    <body>
+        
+        <include file="./home/Tpl/Public/header.html" />
+        <div class="center" style="height:20px;padding-top: 10px;">当前位置：<a href='__APP__'>首页</a>>>用户中心</div>
+        <div  class="center" style="width:960px;border:1px solid #ccc;margin-top:10px;padding-left:20px;">
+            <form action="" method="post" enctype="multipart/form-data">
+            <h1 style="font-family:楷体">相册添加</h1>
+            <table>
+            <tr>
+            <td>相册标题：</td>
+            <td><input type="text" name="p_name"></td>
+            </tr>
+
+            <tr>
+            <td>所属分类：</td>
+            <td>
+            <select name="t_id">
+                    <foreach name='arr' item='val'>
+                    <option value="{$val.id}">{$val.t_name}</option>
+                    </foreach>
+            </select>
+            </td>
+            </tr>
+
+            <tr>
+            <td>封面：</td>
+            <td><input type="file" name="myfile"></td>
+            </tr>
+
+            <tr>
+            <td>相册描述：</td>
+            <td><textarea name="p_desc" rows="5" cols="18"></textarea></td>
+            </tr>
+
+            <tr>
+            <td colspan=2 align='center'><input type="submit" value="添加"></td>
+            </tr>
+            </table>
+            </form>
+        </div>
+        <include file="./home/Tpl/Public/footer.html" />  
+    </body>
+</html>

@@ -1,0 +1,38 @@
+1、ThinkPHP加到项目中
+
+2、建后台项目的入口文件
+
+3、静态页面中的js和images等文件夹放入Public\admin目录
+   \Public\admin\js
+   \Public\admin\images
+
+
+4、静态页面放到模板文件夹
+   \admin\Tpl\Index
+   批量修改模板中的图片路径、css路径、js路径等
+
+5、权限控制
+   
+   后台首页不能直接访问(session或cookie)
+   /admin.php/Index/index
+
+   登录和退出登录功能实现
+
+
+6、修改left.html中的菜单
+
+   相册类型管理
+       类型添加
+       类型列表
+   相册管理
+       相册添加
+       相册列表
+   图片管理
+       图片添加
+       图片列表
+
+7、数据表设计
+
+  相册类型：album_type
+  相册：album
+  图片：photo

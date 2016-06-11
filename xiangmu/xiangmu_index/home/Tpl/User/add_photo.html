@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="__PUBLIC__/index/css/style.css" rel="stylesheet" type="text/css" />
+        <style>
+           .center { MARGIN-RIGHT: auto; MARGIN-LEFT: auto; }
+        </style>
+    </head>
+    <body>
+        <include file="./home/Tpl/Public/header.html" />
+        <div class="center" style="height:20px;padding-top: 10px;">当前位置：<a href='__APP__'>首页</a>>>用户中心</div>
+        <div  class="center" style="width:760px;border:1px solid #ccc;margin-top:10px;padding-left:200px;">
+             <form action="" method="post" enctype="multipart/form-data">
+            <h1 style="font-family:楷体">图片添加</h1>
+            <table>
+            <tr>
+            <td>所属相册：</td>
+            <td>
+            <select name="t_id">
+                    <foreach name='arr' item='val'>
+                    <option value="{$val.id}">{$val.p_name}</option>
+                    </foreach>
+            </select>
+            </td>
+            </tr>
+            <tr>
+            <td>添加数量：</td>
+            <td><select name="t_count" id="t_count" onchange="fun()">
+                    <?php
+                    for($i=1;$i<=20;$i++)
+                    {
+                    echo "<option value='".$i."'>".$i."</option>";
+                    }
+                    ?>
+            </select></td>
+            </tr>
+            </table>
+            <div id="div4">
+            <p>图片名称：<input type="text" name="a_name[]"></p>
+            <p>图片LOGO：<input type="file" name="myfile[]"></p>
+            <p>图片描述：<textarea name="a_desc[]" rows="5" cols="18"></textarea></p>
+            </div>
+            <p><input type="submit" value="添加"></p>
+            </form>
+        </div>
+        <include file="./home/Tpl/Public/footer.html" />  
+    </body>
+    <script type="text/javascript">
+function fun()
+{
+var count=document.getElementById('t_count').value;
+var i;
+var str='';
+var str2='';
+for(i=1;i<=count;i++)
+	{
+     str+="<p>图片名称：<input type='text' name='a_name[]'></p>"+"<p>图片LOGO：<input type='file' name='myfile[]'></p>"+"<p>图片描述：<textarea name='a_desc[]' rows='5' cols='18'></textarea></p>";
+	}
+//alert(str);
+document.getElementById('div4').innerHTML=str;
+
+}
+
+</script>
+</html>

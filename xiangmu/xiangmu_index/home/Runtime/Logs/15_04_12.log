@@ -1,0 +1,106 @@
+[ 2015-04-12T22:14:14+08:00 ] 0.0.0.0 /oop/tp_t/
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001995s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002872s ]
+SQL: SHOW COLUMNS FROM `album_type` [ RunTime:0.089316s ]
+SQL: SELECT * FROM `album_type` ORDER BY sort desc LIMIT 4   [ RunTime:0.002711s ]
+SQL: SHOW COLUMNS FROM `album` [ RunTime:0.036081s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=3 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.030039s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=1 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.000599s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=2 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.000614s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=5 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.000559s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.015708s ]
+INFO: [ view_template ] --END-- [ RunTime:0.015974s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: uname D:\wamp\www\oop\tp_t\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 14 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.076788s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.076946s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000785s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001020s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000797s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001084s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003967s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002142s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002265s ]
+
+[ 2015-04-12T22:14:17+08:00 ] 0.0.0.0 /oop/tp_t/index.php/Public/register/
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.015039s ]
+INFO: [ route_check ] --END-- [ RunTime:0.015314s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001376s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001564s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001192s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001339s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: uname D:\wamp\www\oop\tp_t\home\Runtime\Cache\f82d19cfc8984b5ca7bf785e4abd8c45.php 第 17 行.
+NOTIC: [8] Undefined variable: tname D:\wamp\www\oop\tp_t\home\Runtime\Cache\f82d19cfc8984b5ca7bf785e4abd8c45.php 第 27 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.009177s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009272s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000477s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000430s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000306s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000487s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001935s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000650s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000782s ]
+
+[ 2015-04-12T22:17:12+08:00 ] 0.0.0.0 /oop/tp_t/
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001112s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001284s ]
+SQL: SHOW COLUMNS FROM `album_type` [ RunTime:0.009089s ]
+SQL: SELECT * FROM `album_type` ORDER BY sort desc LIMIT 4   [ RunTime:0.000858s ]
+SQL: SHOW COLUMNS FROM `album` [ RunTime:0.010474s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=3 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.001104s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=1 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.001028s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=2 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.001424s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=5 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.000957s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002078s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002510s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: uname D:\wamp\www\oop\tp_t\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 14 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.019986s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020388s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000790s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000792s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000698s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000872s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003536s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000917s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001030s ]
+
+[ 2015-04-12T22:17:14+08:00 ] 0.0.0.0 /oop/tp_t/index.php/Public/login/
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000839s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000953s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000562s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000659s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000646s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000756s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: uname D:\wamp\www\oop\tp_t\home\Runtime\Cache\dddf1b2d3634e21399753b7b65c08d54.php 第 17 行.
+NOTIC: [8] Undefined variable: tname D:\wamp\www\oop\tp_t\home\Runtime\Cache\dddf1b2d3634e21399753b7b65c08d54.php 第 27 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.007920s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008013s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000408s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000410s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000338s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000479s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001862s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000550s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000631s ]
+

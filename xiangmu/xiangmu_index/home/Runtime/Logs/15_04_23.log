@@ -1,0 +1,59 @@
+[ 2015-04-23T15:31:40+08:00 ] 0.0.0.0 /oop/tp_t/
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.003595s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.029424s ]
+SQL: SHOW COLUMNS FROM `album_type` [ RunTime:0.136976s ]
+SQL: SELECT * FROM `album_type` ORDER BY sort desc LIMIT 4   [ RunTime:0.003165s ]
+SQL: SHOW COLUMNS FROM `album` [ RunTime:0.109281s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=3 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.074531s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=1 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.000972s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=2 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.000817s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=5 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.000826s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.012619s ]
+INFO: [ view_template ] --END-- [ RunTime:0.012870s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: uname D:\wamp\www\oop\tp_t\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 14 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.144343s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.144557s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.014593s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.002391s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001371s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.003166s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.022132s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002452s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002698s ]
+
+[ 2015-04-23T15:31:54+08:00 ] 0.0.0.0 /oop/tp_t/index.php/Album/lists/atype/3
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.074219s ]
+INFO: [ route_check ] --END-- [ RunTime:0.074469s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001642s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001894s ]
+SQL: SHOW COLUMNS FROM `album_type` [ RunTime:0.012504s ]
+SQL: SELECT * FROM `album_type` WHERE ( album_type.id=3 ) LIMIT 1   [ RunTime:0.000864s ]
+SQL: SHOW COLUMNS FROM `album` [ RunTime:0.008261s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `album` WHERE ( album_type.id=3 ) LIMIT 1   [ RunTime:0.016175s ]
+ERR: Unknown column 'album_type.id' in 'where clause'
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `album` WHERE ( album_type.id=3 ) LIMIT 1  
+SQL: SELECT album.*,album_type.t_name,userinfo.nickname FROM `album` LEFT JOIN album_type on album.t_id=album_type.id LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album_type.id=3 ) ORDER BY album.id desc LIMIT 0,4   [ RunTime:0.000994s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002377s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002645s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: uname D:\wamp\www\oop\tp_t\home\Runtime\Cache\2300a791f02755d560f2faf87eb6cb45.php 第 17 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.046464s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.047174s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001690s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001347s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001451s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001497s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006710s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001663s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001875s ]
+
