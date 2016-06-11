@@ -1,0 +1,18 @@
+<div class="center" style="width:960px;height:80px;border:1px solid #ccc;">
+            <div> 
+                <span><img src="__PUBLIC__/index/images/wdxc_l.png"/></span>
+                <span style="float:right;padding-top:10px;padding-right:30px;">
+                    <a href='__APP__'>首页</a> |
+                    <if condition="$Think.cookie.uname eq ''" >
+                    <a href='__APP__/Public/register/'>注册</a> | 
+                    <a href='__APP__/Public/login/'>登录</a> | 
+                    
+                    <else/>
+                    &nbsp;&nbsp;欢迎您，{$Think.session.uname}。<a href='__APP__/Public/logout/'>退出</a>|
+                     <a href='__APP__/User/index/'>个人中心</a> |
+                    </if>
+                    <a href='__APP__/User/add_album/'>新建相册</a> |
+					<a href='__APP__/Album/lists/'>查看所有相册</a>
+                </span>
+            </div>
+        </div>

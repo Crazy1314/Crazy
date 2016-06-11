@@ -1,0 +1,187 @@
+[ 2015-06-01T07:01:16+08:00 ] 0.0.0.0 /oop/tp_t/
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002168s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002547s ]
+SQL: SHOW COLUMNS FROM `album_type` [ RunTime:0.035543s ]
+SQL: SELECT * FROM `album_type` ORDER BY sort desc LIMIT 4   [ RunTime:0.040552s ]
+SQL: SHOW COLUMNS FROM `album` [ RunTime:0.007259s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=3 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.001241s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=1 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.000834s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=2 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.000863s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=5 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.000821s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002788s ]
+INFO: [ view_template ] --END-- [ RunTime:0.003011s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: uname D:\wamp\www\oop\tp_t\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 14 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.063545s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.063766s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001889s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001762s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001622s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.002054s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007930s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002323s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002637s ]
+
+[ 2015-06-01T14:12:35+08:00 ] 0.0.0.0 /oop/tp_t/
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002269s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002609s ]
+SQL: SHOW COLUMNS FROM `album_type` [ RunTime:0.009725s ]
+SQL: SELECT * FROM `album_type` ORDER BY sort desc LIMIT 4   [ RunTime:0.000875s ]
+SQL: SHOW COLUMNS FROM `album` [ RunTime:0.008755s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=3 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.001235s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=1 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.001503s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=2 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.001043s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=5 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.001014s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.004452s ]
+INFO: [ view_template ] --END-- [ RunTime:0.004689s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: uname D:\wamp\www\oop\tp_t\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 14 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.083693s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.084006s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.004859s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.004189s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.003423s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.002718s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.016197s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001983s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002237s ]
+
+[ 2015-06-01T15:53:36+08:00 ] 0.0.0.0 /oop/tp_t/index.php/Public/login/
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001961s ]
+INFO: [ route_check ] --END-- [ RunTime:0.002156s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.034157s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.034337s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001543s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001710s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: uname D:\wamp\www\oop\tp_t\home\Runtime\Cache\dddf1b2d3634e21399753b7b65c08d54.php 第 17 行.
+NOTIC: [8] Undefined variable: tname D:\wamp\www\oop\tp_t\home\Runtime\Cache\dddf1b2d3634e21399753b7b65c08d54.php 第 28 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.012612s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012734s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001823s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001207s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000866s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001058s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005225s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000980s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001069s ]
+
+[ 2015-06-01T15:53:55+08:00 ] 0.0.0.0 /oop/tp_t/index.php
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000525s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000627s ]
+SQL: SHOW COLUMNS FROM `album_type` [ RunTime:0.010477s ]
+SQL: SELECT * FROM `album_type` ORDER BY sort desc LIMIT 4   [ RunTime:0.013152s ]
+SQL: SHOW COLUMNS FROM `album` [ RunTime:0.003339s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=3 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.000485s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=1 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.000348s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=2 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.000358s ]
+SQL: SELECT album.*,userinfo.nickname FROM `album` LEFT JOIN userinfo on album.uid=userinfo.id WHERE ( album.t_id=5 ) ORDER BY album.id desc LIMIT 4   [ RunTime:0.000337s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000933s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001030s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.072894s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.073062s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000780s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000603s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000575s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000517s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002843s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000646s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000729s ]
+
+[ 2015-06-01T15:54:00+08:00 ] 0.0.0.0 /oop/tp_t/index.php/User/index/
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001334s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001510s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000671s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000808s ]
+NOTIC: [8] Undefined index: atype D:\wamp\www\oop\tp_t\home\Lib\Action\UserAction.class.php 第 13 行.
+SQL: SHOW COLUMNS FROM `album` [ RunTime:0.056611s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `album` WHERE ( album.uid=1 ) LIMIT 1   [ RunTime:0.000458s ]
+SQL: SELECT album.*,album_type.t_name FROM `album` LEFT JOIN album_type on album.t_id=album_type.id WHERE ( album.uid=1 ) ORDER BY id desc LIMIT 0,4   [ RunTime:0.020076s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.070127s ]
+INFO: [ view_template ] --END-- [ RunTime:0.070241s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.045891s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046081s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000639s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000561s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000487s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000555s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002508s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000730s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000813s ]
+
+[ 2015-06-01T15:54:07+08:00 ] 0.0.0.0 /oop/tp_t/index.php/User/add_photo/
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000821s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000931s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000740s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000859s ]
+SQL: SHOW COLUMNS FROM `album` [ RunTime:0.016921s ]
+SQL: SELECT * FROM `album` ORDER BY id desc  [ RunTime:0.000492s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000868s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000962s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.033174s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.033286s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000531s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000470s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000488s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000555s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002276s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000731s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000812s ]
+
+[ 2015-06-01T15:54:34+08:00 ] 0.0.0.0 /oop/tp_t/index.php/User/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.002844s ]
+INFO: [ route_check ] --END-- [ RunTime:0.003091s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002679s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002939s ]
+NOTIC: [8] Undefined index: atype D:\wamp\www\oop\tp_t\home\Lib\Action\UserAction.class.php 第 13 行.
+SQL: SHOW COLUMNS FROM `album` [ RunTime:0.046220s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `album` WHERE ( album.uid=1 ) LIMIT 1   [ RunTime:0.000848s ]
+SQL: SELECT album.*,album_type.t_name FROM `album` LEFT JOIN album_type on album.t_id=album_type.id WHERE ( album.uid=1 ) ORDER BY id desc LIMIT 0,4   [ RunTime:0.001048s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.004097s ]
+INFO: [ view_template ] --END-- [ RunTime:0.004452s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.039752s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040212s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.003084s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.002163s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.002725s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.003175s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.012094s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.004243s ]
+INFO: [ view_end ] --END-- [ RunTime:0.004691s ]
+

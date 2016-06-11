@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="__PUBLIC__/index/css/style.css" rel="stylesheet" type="text/css" />
+        <style>
+           .center { MARGIN-RIGHT: auto; MARGIN-LEFT: auto; }
+        </style>
+    </head>
+    <body>
+        <include file="./home/Tpl/Public/header.html" />
+        <div class="center" style="height:20px;padding-top: 10px;">当前位置：<a href='__APP__'>首页</a>>><a href='__APP__/Album/lists/'>相册列表</a> >>{$uname}的相册</div>
+        <div  class="center" style="width:960px;border:1px solid #ccc;margin-top:10px;">
+             <table>
+                 <tr style="margin-left:45px;width:180px;">
+                <foreach name='arr' item='val' key="key">
+                    <td width="240" height="260">
+                        <table>
+                            <tr><td><a href='__APP__/Album/album_photo/id/{$val.id}'><img src="{$val.logo}" alt="" width="200px" height="160px"/></a></td></tr>
+                            <tr><td><span style="color:#ff0000">相册名称：</span>{$val.p_name}</td></tr>
+                            <tr><td>所属分类：<a href='__APP__/Album/lists/atype/{$val.t_id}'>{$val.t_name}</a></td></tr>
+                            <tr><td>相册描述：{$val.p_desc}</td></tr>
+                            <tr><td>图片个数：{$val.p_count}</td></tr>
+                        </table>
+                    </td>
+                    <if condition="($key+1)%4 eq 0"></tr></tr></if>
+                </foreach>
+                 </tr>
+             </table>
+            <div style="height:40px;text-align:center;">{$page}</div>
+        </div>
+        <include file="./home/Tpl/Public/footer.html" />  
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="__PUBLIC__/index/css/style.css" rel="stylesheet" type="text/css" />
+        <style>
+           .center { MARGIN-RIGHT: auto; MARGIN-LEFT: auto; }
+        </style>
+    </head>
+    <body>
+        <include file="./home/Tpl/Public/header.html" />
+        <div class="center" style="height:20px;padding-top: 10px;">当前位置：<a href='__APP__'>首页</a>>><a href='__APP__/Album/lists/'>相册分类</a> >>{$tname}</div>
+        <div  class="center" style="width:940px;border:1px solid #ccc;margin-top:10px;padding:10px;0px;10px;200px">
+             <h2>用户登录</h2>
+            <table width="500" height="200">
+            <form method="post" action="">
+                <tr><td>账号：</td><td><input type="text" name="username" /></td></tr>
+                <tr><td>密码：</td><td><input type="password" name="password" /></td></tr>
+				<tr><td colspan="2">
+				<span style="font-size:12px; color:blue;">下次自动登录</span>
+    <input id="rememberMe" name="rememberMe" type="checkbox" value="" />
+				</td></tr>
+                <tr><td colspan="2"><input type="submit" value="登 录" /><input type="reset" value="取 消" /></td></tr>
+            </form>
+            </table>
+        </div>
+        <include file="./home/Tpl/Public/footer.html" />  
+    </body>
+</html>
