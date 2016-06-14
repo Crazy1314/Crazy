@@ -201,17 +201,34 @@
         </tr>
         <?php if(is_array($goods)): foreach($goods as $key=>$v): ?><tr>
          <td class="images"><a href="__PUBLIC__/uploads/<?php echo ($v["goods_img_path"]); ?>"><img src="__PUBLIC__/images/<?php echo ($v["0"]["goods_img_path"]); ?>" alt="<?php echo ($v["0"]["goods_img_path"]); ?>" ></a></td>
-         <td class="bg name"><?php echo ($v[0]['goods_name']); ?></td>
+         <td class="bg name"><?php echo ($v[0]['goods_name']); ?>&nbsp;&nbsp;<?php echo ($v["0"]["goods_sku_nature"]); ?></td>
          <td class="bg price"><?php echo ($v["0"]["goods_sku_price"]); ?>元</td>
-         <td class="qty"><input type="text" name="" value="<?php echo ($v["goods_num"]); ?>" placeholder="<?php echo ($v["goods_num"]); ?>" />*<?php echo ($v["0"]["goods_sku_nature"]); ?></td>
+         <td class="qty"><input type="text" name="" value="<?php echo ($v["goods_num"]); ?>" placeholder="<?php echo ($v["goods_num"]); ?>" /></td>
          <td class="bg subtotal"><?php echo ($v["total"]); ?></td>
-         <td class="close"><a title="close" class="close" href="#"></a></td>
+         <td class="close"><a title="close" class="close" href="javascript:void(0)" id="closes" onclick="closes(<?php echo ($v[0]['goods_sku_id']); ?>)"></a></td>
         </tr><?php endforeach; endif; ?>
-        
+        <script>
+          function closes(goods_id){
+            var confirm = window.confirm('确定要删除吗？');
+            if(confirm == true){
+              $('#closes').parent().parent().remove();
+              $.ajax({
+                 type: "POST",
+                 url: "__APP__/Product/del",
+                 data: "goods_id="+goods_id,
+                 success: function(msg){
+                   alert( "Data Saved: " + msg );
+                 }
+              });
+            }else{
+              return false;
+            }  
+          } 
+        </script>
         <tr>
          <td colspan="7" class="cart_but">
           <button class="continue"><span>icon</span>继续购物</button>
-          <button class="update"><span>icon</span>修改购物车</button>
+          
          </td>
         </tr>
        </table>
@@ -219,8 +236,21 @@
        <div id="content_bottom">
         <div class="grid_4">
           <div class="bottom_block estimate">
-            <h3>选择收货地址</h3>
+            <h3>选择收货地址&nbsp;&nbsp;<a href="">点击新增收货地址</a></h3>
+            <?php if(is_array($address)): foreach($address as $k=>$v): ?><div class="address" id="<?php echo ($v["address_id"]); ?>" onclick="cliadd(<?php echo ($v["address_id"]); ?>)" style="cursor:pointer;border:1px #ccc dotted" >
+                <input type="hidden" value="<?php echo ($v["address_id"]); ?>">
+                <h5><?php echo ($v["address_name"]); ?>收</h5>
+                <h5><?php echo ($v["address_area"]); ?></br><?php echo ($v["address_phone"]); ?></h5>  
+              </div></br><?php endforeach; endif; ?>
+          
+              <script>
+              function cliadd(address_id){
+                $(".address").attr('style','cursor:pointer;border:1px #ccc dotted');
+                $("#"+address_id).attr('style','cursor:pointer;border:2px #2AB4C4 solid');
+              }
+              </script>
              <!-- <p>输入您的目的地、邮编</p>
+          
      <form>
         <p id="province">
          <strong>省（市）:</strong><sup class="surely">*</sup><br/>
@@ -291,16 +321,30 @@
           <div class="bottom_block total">
         <table class="subtotal">
          <tr>
-          <td>商品小计</td><td class="price"><?php echo ($total); ?>元</td>
+          <td>商品小计</td><td class="price"><?php echo ($total); ?>元
+              <input type="hidden" id="total" value="<?php echo ($total); ?>">
+          </td>
          </tr>
          <tr>
           <td>邮费</td><td class="price">10.00元</td>
          </tr>
          <tr class="grand_total">
-          <td>总计</td><td class="price"></td>
+          <td>总计</td><td class="price" id="price"></td>
          </tr>
         </table>
       <button class="checkout">结账</button>
+      <script>
+        $(function(){
+          var total = $("#total").val();
+          if(total){
+            total = parseInt(total)+10;
+          }else{
+            total = 10;
+          }
+          
+          $("#price").html(total+'元');
+        })
+      </script>
             <!-- <a href="#">Checkout with Multiple Addresses</a> -->
           </div><!-- .total -->
         </div><!-- .grid_4 -->

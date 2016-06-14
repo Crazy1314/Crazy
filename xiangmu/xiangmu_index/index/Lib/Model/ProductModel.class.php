@@ -22,6 +22,24 @@ class ProductModel extends Model{
 	}
 
 	/**
+	 * 查询收货地址
+	 */
+	public function selectAddress($user_id){
+		$model = M('address');
+		$data = $model->where('user_id = '.$user_id)->limit(2)->select();
+		return $data;
+	}
+
+	/**
+	 * 查询默认收货地址
+	 */
+	public function selectAddDefault($user_id){
+		$model = M('address');
+		$data = $model->where('user_id = '.$user_id .'AND address_status = 1')->select();
+		return $data;
+	}
+
+	/**
 	 * 查询市、县
 	 */
 	public function selectCity($region_id){

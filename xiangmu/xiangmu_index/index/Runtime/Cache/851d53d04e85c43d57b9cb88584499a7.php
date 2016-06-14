@@ -63,13 +63,13 @@
     <div id="top">
       <div class="grid_3">
         <div class="phone_top">
-          Call Us +777 (100) 1234
+          打电话给我们+ 777（100）1234 
         </div><!-- .phone_top -->
       </div><!-- .grid_3 -->
 
       <div class="grid_6">
         <div class="welcome">
-          Welcome visitor you can <a href="__APP__/Login/login">login</a> or <a href="__APP__/Login/login">create an account</a>.
+          欢迎光临，您可以 <a href="__APP__/Login/login">登录</a> 或 <a href="__APP__/Login/login">注册一个帐户。</a>
         </div><!-- .welcome -->
       </div><!-- .grid_6 -->
 
@@ -143,13 +143,13 @@
 
         <nav class="private">
           <ul>
-            <li><a href="#">My Account</a></li>
+            <li><a href="#">我的账户</a></li>
 		<li class="separator">|</li>
-            <li><a href="#">My Wishlist</a></li>
+            <li><a href="#">我的收藏</a></li>
 		<li class="separator">|</li>
-            <li><a href="__APP__/Login/login">Log In</a></li>
+            <li><a href="__APP__/Login/login">登录</a></li>
 		<li class="separator">|</li>
-            <li><a href="__APP__/Login/login">Sign Up</a></li>
+            <li><a href="__APP__/Login/login">注册</a></li>
           </ul>
         </nav><!-- .private -->
       </div><!-- .grid_6 -->
@@ -163,9 +163,9 @@
       <div class="grid_12">
         <nav class="primary">
           <ul>
-            <li class="curent"><a href="__APP__/Index/index">Home</a></li>
-            <li><a href="__APP__/Index/catalog_grid">Solids</a></li>
-            <li><a href="__APP__/Index/catalog_grid">Liquids</a></li>
+            <li class="curent"><a href="__APP__/Index/index">家</a></li>
+            <li><a href="__APP__/Index/catalog_grid">固体</a></li>
+            <li><a href="__APP__/Index/catalog_grid">液体</a></li>
             <li>
               <a href="__APP__/Index/catalog_grid">Spray</a>
               <ul class="sub">
@@ -277,7 +277,7 @@
       <div class="carousel">
         <div class="c_header">
           <div class="grid_10">
-            <h2>Best Sellers</h2>
+            <h2>畅销产品</h2>
           </div><!-- .grid_10 -->
 
           <div class="grid_2">
@@ -398,7 +398,7 @@
       <div class="carousel">
         <div class="c_header">
           <div class="grid_10">
-            <h2>Featured Products</h2>
+            <h2>特色产品</h2>
           </div><!-- .grid_10 -->
 
           <div class="grid_2">
@@ -574,7 +574,7 @@
     <div class="f_navigation">
       <div class="container_12">
         <div class="grid_3">
-          <h3>Contact Us</h3>
+          <h3>联系我们</h3>
           <ul class="f_contact">
             <li>49 Archdale, 2B Charlestone</li>
             <li>+777 (100) 1234</li>
@@ -583,7 +583,7 @@
         </div><!-- .grid_3 -->
 
         <div class="grid_3">
-          <h3>Information</h3>
+          <h3>信息</h3>
           <nav class="f_menu">
             <ul>
               <li><a href="#">About As</a></li>
@@ -595,7 +595,7 @@
         </div><!-- .grid_3 -->
 
         <div class="grid_3">
-          <h3>Costumer Servise</h3>
+          <h3>客户服务</h3>
           <nav class="f_menu">
             <ul>
               <li><a href="__APP__/Index/contact_us">Contact As</a></li>
@@ -607,7 +607,7 @@
         </div><!-- .grid_3 -->
 
         <div class="grid_3">
-          <h3>My Account</h3>
+          <h3>我的账户</h3>
           <nav class="f_menu">
             <ul>
               <li><a href="#">My Account</a></li>
