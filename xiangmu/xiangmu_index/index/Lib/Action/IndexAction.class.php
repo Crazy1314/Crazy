@@ -2,6 +2,13 @@
 class IndexAction extends Action {
 	// 首页
     public function index(){
+      $obj=D('Index');
+      //查看热销商品
+      $res=$obj->select_goods();
+      $this->assign('res',$res);
+      //查看特色商品
+      $res2=$obj->select_tese();
+      $this->assign('data',$res2);
 	  $this->display('index');
     }
     // 首页
