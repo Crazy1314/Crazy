@@ -289,18 +289,21 @@
         <div class="list_carousel">
 
         <ul id="list_product" class="list_product">
+          
+
+         
+    <?php foreach($res as $v){ ?>
           <li class="">
             <div class="grid_3 product">
               <img class="sale" src="__PUBLIC__/images/sale.png" alt="Sale"/>
               <div class="prev">
-                <a href="__APP__/Index/product_page"><img src="__PUBLIC__/images/product_1.png" alt="" title="" /></a>
+                <a href="__APP__/Index/product_page"><img src="__PUBLIC__/<?php echo $v['goods_img_path']?>" alt="" title="" /></a>
               </div><!-- .prev -->
-              <h3 class="title">Febreze Air Effects New Zealand Springs</h3>
+              <h3 class="title"><?php echo $v['goods_name']?></h3>
               <div class="cart">
                 <div class="price">
                 <div class="vert">
-                  <div class="price_new">$550.00</div>
-                  <div class="price_old">$725.00</div>
+                  <div class="price_new">$<?php echo $v['goods_sku_price']?></div>
                 </div>
                 </div>
                 <a href="#" class="obn"></a>
@@ -309,88 +312,7 @@
               </div><!-- .cart -->
             </div><!-- .grid_3 -->
           </li>
-
-          <li class="">
-            <div class="grid_3 product">
-              <img class="sale" src="__PUBLIC__/images/sale.png" alt="Sale"/>
-              <div class="prev">
-                <a href="__APP__/Index/product_page"><img src="__PUBLIC__/images/product_2.png" alt="" title="" /></a>
-              </div><!-- .prev -->
-              <h3 class="title">Febreze Air Effects New Zealand Springs</h3>
-              <div class="cart">
-                <div class="price">
-                <div class="vert">
-                  <div class="price_new">$550.00</div>
-                  <div class="price_old">$725.00</div>
-                </div>
-                </div>
-                <a href="#" class="obn"></a>
-                <a href="#" class="like"></a>
-                <a href="#" class="bay"></a>
-              </div><!-- .cart -->
-            </div><!-- .grid_3 -->
-          </li>
-
-          <li class="">
-            <div class="grid_3 product">
-              <div class="prev">
-                <a href="__APP__/Index/product_page"><img src="__PUBLIC__/images/product_3.png" alt="" title="" /></a>
-              </div><!-- .prev -->
-              <h3 class="title">Febreze Air Effects New Zealand Springs</h3>
-              <div class="cart">
-                <div class="price">
-                <div class="vert">
-                  <div class="price_new">$550.00</div>
-                </div>
-                </div>
-                <a href="#" class="obn"></a>
-                <a href="#" class="like"></a>
-                <a href="#" class="bay"></a>
-              </div><!-- .cart -->
-            </div><!-- .grid_3 -->
-          </li>
-
-          <li class="">
-            <div class="grid_3 product">
-              <img class="sale" src="__PUBLIC__/images/sale.png" alt="Sale"/>
-              <div class="prev">
-                <a href="__APP__/Index/product_page"><img src="__PUBLIC__/images/product_4.png" alt="" title="" /></a>
-              </div><!-- .prev -->
-              <h3 class="title">Febreze Air Effects New Zealand Springs</h3>
-              <div class="cart">
-                <div class="price">
-                <div class="vert">
-                  <div class="price_new">$550.00</div>
-                  <div class="price_old">$725.00</div>
-                </div>
-                </div>
-                <a href="#" class="obn"></a>
-                <a href="#" class="like"></a>
-                <a href="#" class="bay"></a>
-              </div><!-- .cart -->
-            </div><!-- .grid_3 -->
-          </li>
-
-          <li class="">
-            <div class="grid_3 product">
-              <div class="prev">
-                <a href="__APP__/Index/product_page"><img src="__PUBLIC__/images/product_8.png" alt="" title="" /></a>
-              </div><!-- .prev -->
-              <h3 class="title">Febreze Air Effects New Zealand Springs</h3>
-              <div class="cart">
-                <div class="price">
-                <div class="vert">
-                  <div class="price_new">$550.00</div>
-                  <div class="price_old">$725.00</div>
-                </div>
-                </div>
-                <a href="#" class="obn"></a>
-                <a href="#" class="like"></a>
-                <a href="#" class="bay"></a>
-              </div><!-- .cart -->
-            </div><!-- .grid_3 -->
-          </li>
-
+    <?php }?>
         </ul><!-- #list_product -->
         </div><!-- .list_carousel -->
       </div><!-- .carousel -->
@@ -398,7 +320,7 @@
       <div class="carousel">
         <div class="c_header">
           <div class="grid_10">
-            <h2>特色产品</h2>
+            <h2>最新产品</h2>
           </div><!-- .grid_10 -->
 
           <div class="grid_2">
@@ -409,18 +331,18 @@
 
         <div class="list_carousel">
         <ul id="list_product2" class="list_product">
+        <?php foreach($data as $v){ ?>
           <li class="">
             <div class="grid_3 product">
               <img class="sale" src="__PUBLIC__/images/sale.png" alt="Sale"/>
               <div class="prev">
                 <a href="__APP__/Index/product_page"><img src="__PUBLIC__/images/product_5.png" alt="" title="" /></a>
               </div><!-- .prev -->
-              <h3 class="title">Febreze Air Effects New Zealand Springs</h3>
+              <h3 class="title"><?php echo $v['goods_name']?></h3>
               <div class="cart">
                 <div class="price">
                 <div class="vert">
-                  <div class="price_new">$550.00</div>
-                  <div class="price_old">$725.00</div>
+                  <div class="price_new">$<?php echo $v['goods_sku_price']?></div>
                 </div>
                 </div>
                 <a href="#" class="obn"></a>
@@ -429,87 +351,8 @@
               </div><!-- .cart -->
             </div><!-- .grid_3 -->
           </li>
-
-          <li class="">
-            <div class="grid_3 product">
-              <img class="sale" src="__PUBLIC__/images/sale.png" alt="Sale"/>
-              <div class="prev">
-                <a href="__APP__/Index/product_page"><img src="__PUBLIC__/images/product_6.png" alt="" title="" /></a>
-              </div><!-- .prev -->
-              <h3 class="title">Febreze Air Effects New Zealand Springs</h3>
-              <div class="cart">
-                <div class="price">
-                <div class="vert">
-                  <div class="price_new">$550.00</div>
-                  <div class="price_old">$725.00</div>
-                </div>
-                </div>
-                <a href="#" class="obn"></a>
-                <a href="#" class="like"></a>
-                <a href="#" class="bay"></a>
-              </div><!-- .cart -->
-            </div><!-- .grid_3 -->
-          </li>
-
-          <li class="">
-            <div class="grid_3 product">
-              <div class="prev">
-                <a href="__APP__/Index/product_page"><img src="__PUBLIC__/images/product_7.png" alt="" title="" /></a>
-              </div><!-- .prev -->
-              <h3 class="title">Febreze Air Effects New Zealand Springs</h3>
-              <div class="cart">
-                <div class="price">
-                <div class="vert">
-                  <div class="price_new">$550.00</div>
-                </div>
-                </div>
-                <a href="#" class="obn"></a>
-                <a href="#" class="like"></a>
-                <a href="#" class="bay"></a>
-              </div><!-- .cart -->
-            </div><!-- .grid_3 -->
-          </li>
-
-          <li class="">
-            <div class="grid_3 product">
-              <img class="sale" src="__PUBLIC__/images/sale.png" alt="Sale"/>
-              <div class="prev">
-                <a href="__APP__/Index/product_page"><img src="__PUBLIC__/images/produkt_slid1.png" alt="" title="" /></a>
-              </div><!-- .prev -->
-              <h3 class="title">Febreze Air Effects New Zealand Springs</h3>
-              <div class="cart">
-                <div class="price">
-                <div class="vert">
-                  <div class="price_new">$550.00</div>
-                  <div class="price_old">$725.00</div>
-                </div>
-                </div>
-                <a href="#" class="obn"></a>
-                <a href="#" class="like"></a>
-                <a href="#" class="bay"></a>
-              </div><!-- .cart -->
-            </div><!-- .grid_3 -->
-          </li>
-
-          <li class="">
-            <div class="grid_3 product">
-              <div class="prev">
-                <a href="__APP__/Index/product_page"><img src="__PUBLIC__/images/product_9.png" alt="" title="" /></a>
-              </div><!-- .prev -->
-              <h3 class="title">Febreze Air Effects New Zealand Springs</h3>
-              <div class="cart">
-                <div class="price">
-                <div class="vert">
-                  <div class="price_new">$550.00</div>
-                  <div class="price_old">$725.00</div>
-                </div>
-                </div>
-                <a href="#" class="obn"></a>
-                <a href="#" class="like"></a>
-                <a href="#" class="bay"></a>
-              </div><!-- .cart -->
-            </div><!-- .grid_3 -->
-          </li>
+        <?php }?>
+         
 
         </ul><!-- #list_product2 -->
         </div><!-- .list_carousel -->
