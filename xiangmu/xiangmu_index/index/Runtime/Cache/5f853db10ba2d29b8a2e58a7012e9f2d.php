@@ -102,7 +102,7 @@
       <div class="grid_6">
         <ul id="cart_nav">
           <li>
-            <a class="cart_li" href="#">购物车<span><?php echo ($total); ?>元</span></a>
+            <a class="cart_li" href="#">购物车<span id="prices"><?php echo ($total); ?></span></a>
             <ul class="cart_cont">
               <li class="no_border"><p>最近添加的商品</p></li>
               <?php if(is_array($goods)): foreach($goods as $key=>$v): ?><li>
@@ -113,6 +113,11 @@
                 </div>
                 <a title="close" class="close" href="#"></a>
                 <div class="clear"></div>
+              </li>
+              <li>
+                <div class="cont_cart">
+                <h4>邮费:10.00元</h4>
+                </div>
               </li><?php endforeach; endif; ?>
              
         <li class="no_border">
@@ -203,27 +208,15 @@
          <td class="images"><a href="__PUBLIC__/uploads/<?php echo ($v["goods_img_path"]); ?>"><img src="__PUBLIC__/images/<?php echo ($v["0"]["goods_img_path"]); ?>" alt="<?php echo ($v["0"]["goods_img_path"]); ?>" ></a></td>
          <td class="bg name"><?php echo ($v[0]['goods_name']); ?>&nbsp;&nbsp;<?php echo ($v["0"]["goods_sku_nature"]); ?></td>
          <td class="bg price"><?php echo ($v["0"]["goods_sku_price"]); ?>元</td>
-         <td class="qty"><input type="text" name="" value="<?php echo ($v["goods_num"]); ?>" placeholder="<?php echo ($v["goods_num"]); ?>" /></td>
-         <td class="bg subtotal"><?php echo ($v["total"]); ?></td>
+         <td class="qty"><input type="text" name="" id="num<?php echo ($v["0"]["goods_sku_id"]); ?>" value="<?php echo ($v["goods_num"]); ?>" placeholder="<?php echo ($v["goods_num"]); ?>" onblur="numbers(<?php echo ($v["0"]["goods_sku_id"]); ?>)" />
+            <input type="hidden" id="price<?php echo ($v["0"]["goods_sku_id"]); ?>" value="<?php echo ($v["0"]["goods_sku_price"]); ?>">
+            <input type="hidden" id="old_num<?php echo ($v["0"]["goods_sku_id"]); ?>" value="<?php echo ($v["goods_num"]); ?>">
+         </td>
+         <td class="bg subtotal" id="subtotal<?php echo ($v["0"]["goods_sku_id"]); ?>"><?php echo ($v["total"]); ?></td>
          <td class="close"><a title="close" class="close" href="javascript:void(0)" id="closes" onclick="closes(<?php echo ($v[0]['goods_sku_id']); ?>)"></a></td>
         </tr><?php endforeach; endif; ?>
         <script>
-          function closes(goods_id){
-            var confirm = window.confirm('确定要删除吗？');
-            if(confirm == true){
-              $('#closes').parent().parent().remove();
-              $.ajax({
-                 type: "POST",
-                 url: "__APP__/Product/del",
-                 data: "goods_id="+goods_id,
-                 success: function(msg){
-                   alert( "Data Saved: " + msg );
-                 }
-              });
-            }else{
-              return false;
-            }  
-          } 
+          
         </script>
         <tr>
          <td colspan="7" class="cart_but">
@@ -242,11 +235,12 @@
                 <h5><?php echo ($v["address_name"]); ?>收</h5>
                 <h5><?php echo ($v["address_area"]); ?></br><?php echo ($v["address_phone"]); ?></h5>  
               </div></br><?php endforeach; endif; ?>
-          
+            <input type="hidden" id="address" value="">
               <script>
               function cliadd(address_id){
                 $(".address").attr('style','cursor:pointer;border:1px #ccc dotted');
                 $("#"+address_id).attr('style','cursor:pointer;border:2px #2AB4C4 solid');
+                $("#address").val(address_id);
               }
               </script>
              <!-- <p>输入您的目的地、邮编</p>
@@ -295,8 +289,6 @@
                   $("#p2")[0].options.add(op);
                 }
              $("#city").attr('style','display:block');
-              
-
              }
           });
         })      
@@ -321,29 +313,95 @@
           <div class="bottom_block total">
         <table class="subtotal">
          <tr>
-          <td>商品小计</td><td class="price"><?php echo ($total); ?>元
-              <input type="hidden" id="total" value="<?php echo ($total); ?>">
-          </td>
+          <td>商品小计</td><td class="price" id="t_total"><?php echo ($total); ?>
+              
+          </td><td>元</td>
          </tr>
          <tr>
-          <td>邮费</td><td class="price">10.00元</td>
+          <td>邮费</td><td class="price">10.00</td><td>元</td>
          </tr>
          <tr class="grand_total">
-          <td>总计</td><td class="price" id="price"></td>
+          <td>总计</td><td class="price" id="price"></td><td>元</td>
          </tr>
         </table>
       <button class="checkout">结账</button>
       <script>
+        //总价的计算
         $(function(){
-          var total = $("#total").val();
-          if(total){
-            total = parseInt(total)+10;
+          var total = $("#t_total").html();
+          if(total == 0){
+            total = 0;
           }else{
-            total = 10;
+            total = parseInt(total)+10;
           }
-          
-          $("#price").html(total+'元');
+          $("#price").html(total);
+          $("#prices").html(total+'元');
         })
+        //删除购物车商品
+        function closes(goods_id){
+            var confirm = window.confirm('确定要删除吗？');
+            if(confirm == true){
+              $('#closes').parent().parent().remove();
+              $.ajax({
+                 type: "POST",
+                 url: "__APP__/Product/del",
+                 data: "goods_id="+goods_id,
+              });
+            }else{
+              return false;
+            }  
+          }
+        // 修改数量对应的价格
+        function numbers(goods_sku_id){
+            //新的数量
+            var goods_num = $("#num"+goods_sku_id).val();
+            goods_num = parseInt(goods_num);
+            if(goods_num>=0){
+              //商品单价
+              var price = $("#price"+goods_sku_id).val();
+              //新的商品小计
+              var total = goods_num*price;
+              total = parseInt(total);
+              $("#subtotal"+goods_sku_id).html(total);
+              //旧的商品小计
+              var total_price = $("#t_total").html();
+              //alert(total_price+'不加运费的总价');
+              //旧的数量
+              var old_num = $("#old_num"+goods_sku_id).val();
+              //alert(old_num+'旧的数量');
+              //改变了的价格
+              var change_price = (parseInt(goods_num)-parseInt(old_num))*price;
+              //alert(change_price+'变了的价格');
+              total_price = parseInt(total_price)+(parseInt(goods_num)-parseInt(old_num))*price;
+              total = total_price+10; 
+              //alert(total_price+'不加运费的总价');
+              
+              $("#total").val(total_price);
+              $("#old_num"+goods_sku_id).val(goods_num);
+              $("#t_total").html(total_price+'元');
+              $("#price").html(total);
+              $("#prices").html(total+'元');
+              $.ajax({
+                 type: "POST",
+                 url: "__APP__/Product/upnum",
+                 data: "goods_num="+goods_num+"&goods_sku_id="+goods_sku_id+"&total="+total,
+                 
+              });
+            }else{
+              alert('您输入格式不正确');
+            }
+          }
+          $(".checkout").click(function(){
+            var total = $("#price").html();
+            var address_id = $("#address").val();
+            if(address_id){
+              location.href="__APP__/Order/CreatOrder?address_id="+address_id+"&total="+total;
+              
+            }else{
+              alert('请选择收货地址');
+            }
+            
+          })
       </script>
             <!-- <a href="#">Checkout with Multiple Addresses</a> -->
           </div><!-- .total -->

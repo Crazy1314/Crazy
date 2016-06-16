@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
 <html>
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
 
-  <title>购物车</title>
+  <title>订单</title>
 
   <link rel="shortcut icon" href="favicon.ico">
   <link href="__PUBLIC__/css/style.css" media="screen" rel="stylesheet" type="text/css">
@@ -102,15 +102,14 @@
       <div class="grid_6">
         <ul id="cart_nav">
           <li>
-            <a class="cart_li" href="#">购物车<span id="prices">{$total}</span></a>
+            <a class="cart_li" href="#">购物车<span id="prices"><?php echo ($total); ?></span></a>
             <ul class="cart_cont">
               <li class="no_border"><p>最近添加的商品</p></li>
-              <foreach name="goods" item="v">
-              <li>
-                <a href="product_page.html" class="prev_cart"><div class="cart_vert"><img src="__PUBLIC__/uploads/{$v.0.goods_img_path}" alt="" title="" /></div></a>
+              <?php if(is_array($goods)): foreach($goods as $key=>$v): ?><li>
+                <a href="product_page.html" class="prev_cart"><div class="cart_vert"><img src="__PUBLIC__/uploads/<?php echo ($v["0"]["goods_img_path"]); ?>" alt="" title="" /></div></a>
                 <div class="cont_cart">
-                  <h4>{$v.0.goods_name}</h4>
-                  <div class="price">{$v.goods_num} x {$v.0.goods_sku_price}</div>
+                  <h4><?php echo ($v["0"]["goods_name"]); ?></h4>
+                  <div class="price"><?php echo ($v["goods_num"]); ?> x <?php echo ($v["0"]["goods_sku_price"]); ?></div>
                 </div>
                 <a title="close" class="close" href="#"></a>
                 <div class="clear"></div>
@@ -119,8 +118,7 @@
                 <div class="cont_cart">
                 <h4>邮费:10.00元</h4>
                 </div>
-              </li>
-              </foreach>
+              </li><?php endforeach; endif; ?>
              
         <li class="no_border">
     <a href="__APP__/Product/index" class="view_cart">查看购物车</a>
@@ -195,30 +193,29 @@
   <section id="main" class="entire_width">
     <div class="container_12">
        <div class="grid_12">
-       <h1 class="page_title">购物车</h1>
+       <h1 class="page_title">订单</h1>
 
        <table class="cart_product">
+        <tr style="background:#eee"><th colspan="6" align="left" style="padding-left:20px;" >订单号：</th></tr>
         <tr>
-         <th class="images"></th>
-         <th class="bg name">产品名称</th>
-         <th class="bg price">单价</th>
-         <th class="qty">数量</th>
-         <th class="bg subtotal">小计</th>
-         <th class="close"> </th>
+         <td class="images"></td>
+         <td class="bg name">商品名称</td>
+         <td class="bg price">单价</td>
+         <td class="bg price">数量</td>
+         <td class="bg subtotal">小计</td>
+         <td class="bg price"> </td>
         </tr>
-        <foreach name="goods" item="v">
-        <tr>
-         <td class="images"><a href="__PUBLIC__/uploads/{$v.goods_img_path}"><img src="__PUBLIC__/images/{$v.0.goods_img_path}" alt="{$v.0.goods_img_path}" ></a></td>
-         <td class="bg name">{$v[0]['goods_name']}&nbsp;&nbsp;{$v.0.goods_sku_nature}</td>
-         <td class="bg price">{$v.0.goods_sku_price}元</td>
-         <td class="qty"><input type="text" name="" id="num{$v.0.goods_sku_id}" value="{$v.goods_num}" placeholder="{$v.goods_num}" onblur="numbers({$v.0.goods_sku_id})" />
-            <input type="hidden" id="price{$v.0.goods_sku_id}" value="{$v.0.goods_sku_price}">
-            <input type="hidden" id="old_num{$v.0.goods_sku_id}" value="{$v.goods_num}">
+        <?php if(is_array($goods)): foreach($goods as $key=>$v): ?><tr>
+         <td class="images"><a href="__PUBLIC__/uploads/<?php echo ($v["goods_img_path"]); ?>"><img src="__PUBLIC__/images/<?php echo ($v["0"]["goods_img_path"]); ?>" alt="<?php echo ($v["0"]["goods_img_path"]); ?>" ></a></td>
+         <td class="bg name"><?php echo ($v[0]['goods_name']); ?>&nbsp;&nbsp;<?php echo ($v["0"]["goods_sku_nature"]); ?></td>
+         <td class="bg price"><?php echo ($v["0"]["goods_sku_price"]); ?>元</td>
+         <td class="qty"><input type="text" name="" id="num<?php echo ($v["0"]["goods_sku_id"]); ?>" value="<?php echo ($v["goods_num"]); ?>" placeholder="<?php echo ($v["goods_num"]); ?>" onblur="numbers(<?php echo ($v["0"]["goods_sku_id"]); ?>)" />
+            <input type="hidden" id="price<?php echo ($v["0"]["goods_sku_id"]); ?>" value="<?php echo ($v["0"]["goods_sku_price"]); ?>">
+            <input type="hidden" id="old_num<?php echo ($v["0"]["goods_sku_id"]); ?>" value="<?php echo ($v["goods_num"]); ?>">
          </td>
-         <td class="bg subtotal" id="subtotal{$v.0.goods_sku_id}">{$v.total}</td>
-         <td class="close"><a title="close" class="close" href="javascript:void(0)" id="closes" onclick="closes({$v[0]['goods_sku_id']})"></a></td>
-        </tr>
-        </foreach>
+         <td class="bg subtotal" id="subtotal<?php echo ($v["0"]["goods_sku_id"]); ?>"><?php echo ($v["total"]); ?></td>
+         <td class="close"><a title="close" class="close" href="javascript:void(0)" id="closes" onclick="closes(<?php echo ($v[0]['goods_sku_id']); ?>)"></a></td>
+        </tr><?php endforeach; endif; ?>
         <script>
           
         </script>
@@ -234,14 +231,11 @@
         <div class="grid_4">
           <div class="bottom_block estimate">
             <h3>选择收货地址&nbsp;&nbsp;<a href="">点击新增收货地址</a></h3>
-            <foreach name="address" item="v" key="k">
-              <div class="address" id="{$v.address_id}" onclick="cliadd({$v.address_id})" style="cursor:pointer;border:1px #ccc dotted" >
-                <input type="hidden" value="{$v.address_id}">
-                <h5>{$v.address_name}收</h5>
-                <h5>{$v.address_area}</br>{$v.address_phone}</h5>  
-              </div></br>
-              
-            </foreach>
+            <?php if(is_array($address)): foreach($address as $k=>$v): ?><div class="address" id="<?php echo ($v["address_id"]); ?>" onclick="cliadd(<?php echo ($v["address_id"]); ?>)" style="cursor:pointer;border:1px #ccc dotted" >
+                <input type="hidden" value="<?php echo ($v["address_id"]); ?>">
+                <h5><?php echo ($v["address_name"]); ?>收</h5>
+                <h5><?php echo ($v["address_area"]); ?></br><?php echo ($v["address_phone"]); ?></h5>  
+              </div></br><?php endforeach; endif; ?>
             <input type="hidden" id="address" value="">
               <script>
               function cliadd(address_id){
@@ -257,10 +251,7 @@
          <strong>省（市）:</strong><sup class="surely">*</sup><br/>
          <select id="p1">
          <option value="-1">请选择</option>
-         <foreach name="province" item="v">
-         
-          <option value="{$v.region_id}">{$v.region_name}</option>
-         </foreach> 
+         <?php if(is_array($province)): foreach($province as $key=>$v): ?><option value="<?php echo ($v["region_id"]); ?>"><?php echo ($v["region_name"]); ?></option><?php endforeach; endif; ?> 
          </select>
         </p>
         <p id="city" style="display:none">
@@ -323,7 +314,7 @@
           <div class="bottom_block total">
         <table class="subtotal">
          <tr>
-          <td>商品小计</td><td class="price" id="t_total">{$total}
+          <td>商品小计</td><td class="price" id="t_total"><?php echo ($total); ?>
               
           </td><td>元</td>
          </tr>
@@ -619,4 +610,3 @@
 <div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
 </html>
-

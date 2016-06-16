@@ -47,4 +47,12 @@ class ProductModel extends Model{
 		$data = $model->where('parent_id = '.$region_id)->select();
 		return $data;
 	}
+
+	/**
+	 * 删除购物车商品
+	 */
+	public function del($goods_id){
+		$model = M('goods');
+
+	}
 }
