@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Order extends CI_Controller {
-	//订单列表显示 、分页
+	//订单列表显示 
 	public function lists(){
 		$this->load->model('Order_model');
  		$count=$this->Order_model->sel_cot();
@@ -49,6 +49,7 @@ class Order extends CI_Controller {
         		$data['arr']=$this->Order_model->sel_sou($u_name,$border_num,$total,$offset,$length);
         		echo json_encode($data);
 	}
+	//分页方法
 	public function ajax_page2(){
 		$this->load->model('Order_model');
  		$count=$this->Order_model->sel_cot();
@@ -69,6 +70,13 @@ class Order extends CI_Controller {
 		$data['page']=$str;
         		$data['arr']=$this->Order_model->sel_pro($offset,$length);
         		echo json_encode($data);
+	}
+	//查看订单详情
+	public function lookat(){
+		$border_id=$_GET['border_id'];
+		$this->load->model('Order_model');
+		$data['arr']=$this->Order_model->sel_one($border_id);
+		$this->load->view('order/order_one.html',$data);
 	}
 }
 ?>
