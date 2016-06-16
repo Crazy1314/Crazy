@@ -51,4 +51,8 @@ class Order_model extends CI_Model {
         }
          return $this->db->query("select * from border inner join user on border.user_id=user.user_id inner join address where address.address_id=border.address_id $where limit $offset,$length")->result_array();
     }   
+    //查看订单信息
+    public function sel_one($border_id){
+        return $this->db->query("select * from border_goods inner join goods on border_goods.goods_id=goods.goods_id inner join goods_sku on goods_sku.goods_id=border_goods.goods_id inner join brand on goods.brand_id=brand.brand_id inner join goods_type on goods.goods_type_id=goods_type.goods_type_id where border_goods.border_id=$border_id")->result_array();
+    }
 }
