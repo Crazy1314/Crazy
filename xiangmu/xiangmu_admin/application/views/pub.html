@@ -1,3 +1,5 @@
+
+
 <div class="topbar-wrap white">
     <div class="topbar-inner clearfix">
         <div class="topbar-logo-wrap clearfix">
@@ -21,39 +23,22 @@
         <div class="sidebar-title">
             <h1>菜单</h1>
         </div>
+        <?php
+            $re=$_SESSION['res'];
+        ?>
         <div class="sidebar-content">
+            <?php foreach($re as $val):?>
             <ul class="sidebar-list">
                 <li>
-                    <a href="#"><i class="icon-font">&#xe003;</i>商品管理</a>
+                    <?php if($val['leval']==0):?>
+                    <a href="#"><i class="icon-font">&#xe003;</i><?php echo $val['power_name']?></a>
+                    <?php elseif($val['leval']==1):?>
                     <ul class="sub-menu">
-                        <li><a href="<?php echo site_url('Welcome/insert')?>"><i class="icon-font">&#xe008;</i>商品添加</a></li>
-                        <li><a href="<?php echo site_url('Welcome/design')?>"><i class="icon-font">&#xe005;</i>商品列表</a></li>
-
+                        <li><a href="<?php echo site_url()."/".$val['path']?>"><i class="icon-font">&#xe003;</i> <?php echo $val['power_name']?></a></li>
                     </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="icon-font">&#xe003;</i>品牌管理</a>
-                    <ul class="sub-menu">
-                        <li><a href="<?php echo site_url('Brand/insert')?>"><i class="icon-font">&#xe008;</i>添加品牌</a></li>
-                        <li><a href="<?php echo site_url('Brand/list')?>"><i class="icon-font">&#xe005;</i>品牌列表</a></li>
-
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="icon-font">&#xe003;</i>订单管理</a>
-                    <ul class="sub-menu">
-                        <li><a href="<?php echo site_url('Order/lists')?>"><i class="icon-font">&#xe005;</i>订单列表</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="icon-font">&#xe018;</i>系统管理</a>
-                    <ul class="sub-menu">
-                        <li><a href="system.html"><i class="icon-font">&#xe017;</i>系统设置</a></li>
-                        <li><a href="system.html"><i class="icon-font">&#xe037;</i>清理缓存</a></li>
-                        <li><a href="system.html"><i class="icon-font">&#xe046;</i>数据备份</a></li>
-                        <li><a href="system.html"><i class="icon-font">&#xe045;</i>数据还原</a></li>
-                    </ul>
+                    <?php endif;?>
                 </li>
             </ul>
+            <?php endforeach;?>
         </div>
     </div>
