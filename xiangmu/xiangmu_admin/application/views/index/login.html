@@ -10,15 +10,18 @@
     <h1>后台管理</h1>
     <div class="adming_login_border">
         <div class="admin_input">
-            <form action="<?php echo site_url('Welcome/index1')?>" method="post">
+            <form action="<?php echo site_url('Welcome/index1')?>" method="post" id="admin_input">
                 <ul class="admin_items">
                     <li>
                         <label for="user">用户名：</label>
-                        <input type="text" name="username" value="admin" id="user" size="40" class="admin_input_style" />
+                        <!--<input type="text" name="user_name" id="user" size="40" class="admin_input_style" />-->
+                        <input type="text" class="admin_input_style" size="30"  name="user_name" id="name" required="required" placeholder="请输入用户名" form="admin_input" autofocus="autofocus" pattern='^[\u4e00-\u9fa5]{2,4}' onblur="u_name()"/>
+                        <div id="ur_name" style="font-size: 12px;color: red;"></div>
                     </li>
                     <li>
                         <label for="pwd">密码：</label>
-                        <input type="password" name="pwd" value="admin" id="pwd" size="40" class="admin_input_style" />
+                        <!--<input type="password" name="user_pwd"  id="pwd" size="40" class="admin_input_style" />-->
+                        <input type="text" class="admin_input_style" size="30"  name="user_pwd" id="pwd" required="required" placeholder="请输入密码" form="admin_input" autofocus="autofocus" pattern='\d{3,6}'/>
                     </li>
                     <li>
                         <input type="submit" tabindex="3" value="提交" class="btn btn-primary" />
@@ -31,3 +34,18 @@
 </div>
 </body>
 </html>
+<script src="<?php echo base_url('jquery-2.1.4.min.js')?>"></script>
+<script>
+    function u_name(){
+        var name=$('#name').val();
+        $.ajax({
+            type:'post',
+            url:"<?php echo site_url('Welcome/u_name')?>",
+            data:'name='+name,
+            success:function(data){
+                $('#ur_name').html(data);
+            }
+        })
+    }
+</script>
+
