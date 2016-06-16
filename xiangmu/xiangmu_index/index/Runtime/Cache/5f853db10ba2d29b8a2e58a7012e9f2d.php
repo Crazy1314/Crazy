@@ -206,8 +206,9 @@
         </tr>
         <?php if(is_array($goods)): foreach($goods as $key=>$v): ?><tr>
          <td class="images"><a href="__PUBLIC__/uploads/<?php echo ($v["goods_img_path"]); ?>"><img src="__PUBLIC__/images/<?php echo ($v["0"]["goods_img_path"]); ?>" alt="<?php echo ($v["0"]["goods_img_path"]); ?>" ></a></td>
-         <td class="bg name"><?php echo ($v[0]['goods_name']); ?>&nbsp;&nbsp;<?php echo ($v["0"]["goods_sku_nature"]); ?></td>
+         <td class="bg name"><?php echo ($v[0]['goods_name']); ?></td>
          <td class="bg price"><?php echo ($v["0"]["goods_sku_price"]); ?>元</td>
+<<<<<<< HEAD
          <td class="qty"><input type="text" name="" id="num<?php echo ($v["0"]["goods_sku_id"]); ?>" value="<?php echo ($v["goods_num"]); ?>" placeholder="<?php echo ($v["goods_num"]); ?>" onblur="numbers(<?php echo ($v["0"]["goods_sku_id"]); ?>)" />
             <input type="hidden" id="price<?php echo ($v["0"]["goods_sku_id"]); ?>" value="<?php echo ($v["0"]["goods_sku_price"]); ?>">
             <input type="hidden" id="old_num<?php echo ($v["0"]["goods_sku_id"]); ?>" value="<?php echo ($v["goods_num"]); ?>">
@@ -218,10 +219,17 @@
         <script>
           
         </script>
+=======
+         <td class="qty"><input type="text" name="" value="<?php echo ($v["goods_num"]); ?>" placeholder="<?php echo ($v["goods_num"]); ?>" />*<?php echo ($v["0"]["goods_sku_nature"]); ?></td>
+         <td class="bg subtotal"><?php echo ($v["total"]); ?></td>
+         <td class="close"><a title="close" class="close" href="#"></a></td>
+        </tr><?php endforeach; endif; ?>
+        
+>>>>>>> 9bafc8d78a63a4d15076c40ce26bece692b0afc2
         <tr>
          <td colspan="7" class="cart_but">
           <button class="continue"><span>icon</span>继续购物</button>
-          
+          <button class="update"><span>icon</span>修改购物车</button>
          </td>
         </tr>
        </table>
@@ -229,6 +237,7 @@
        <div id="content_bottom">
         <div class="grid_4">
           <div class="bottom_block estimate">
+<<<<<<< HEAD
             <h3>选择收货地址&nbsp;&nbsp;<a href="">点击新增收货地址</a></h3>
             <?php if(is_array($address)): foreach($address as $k=>$v): ?><div class="address" id="<?php echo ($v["address_id"]); ?>" onclick="cliadd(<?php echo ($v["address_id"]); ?>)" style="cursor:pointer;border:1px #ccc dotted" >
                 <input type="hidden" value="<?php echo ($v["address_id"]); ?>">
@@ -243,8 +252,10 @@
                 $("#address").val(address_id);
               }
               </script>
+=======
+            <h3>选择收货地址</h3>
+>>>>>>> 9bafc8d78a63a4d15076c40ce26bece692b0afc2
              <!-- <p>输入您的目的地、邮编</p>
-          
      <form>
         <p id="province">
          <strong>省（市）:</strong><sup class="surely">*</sup><br/>
@@ -313,14 +324,19 @@
           <div class="bottom_block total">
         <table class="subtotal">
          <tr>
+<<<<<<< HEAD
           <td>商品小计</td><td class="price" id="t_total"><?php echo ($total); ?>
               
           </td><td>元</td>
+=======
+          <td>商品小计</td><td class="price"><?php echo ($total); ?>元</td>
+>>>>>>> 9bafc8d78a63a4d15076c40ce26bece692b0afc2
          </tr>
          <tr>
           <td>邮费</td><td class="price">10.00</td><td>元</td>
          </tr>
          <tr class="grand_total">
+<<<<<<< HEAD
           <td>总计</td><td class="price" id="price"></td><td>元</td>
          </tr>
         </table>
@@ -403,6 +419,12 @@
             
           })
       </script>
+=======
+          <td>总计</td><td class="price"></td>
+         </tr>
+        </table>
+      <button class="checkout">结账</button>
+>>>>>>> 9bafc8d78a63a4d15076c40ce26bece692b0afc2
             <!-- <a href="#">Checkout with Multiple Addresses</a> -->
           </div><!-- .total -->
         </div><!-- .grid_4 -->

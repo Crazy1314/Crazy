@@ -10,6 +10,7 @@ class ProductAction extends Action {
     	//选择第一个数据库
     	$redis->select(0);
     	//购物车信息需要存购物车id,,用户名id,商品id，属性id,购买的数量，小计价格
+<<<<<<< HEAD
     	$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 1;
     	/*$goods_sku_id = 2;
     	$goods_id = 1;
@@ -26,15 +27,20 @@ class ProductAction extends Action {
 	    	}	      
 	    }
 		$data = array('user_id'=>$user_id,'goods_id'=>$goods_id, 'goods_sku_id'=>$goods_sku_id, 'goods_num'=>$goods_num, 'total'=>$total);   	
+=======
+    	/*$user_id = $_session['user_id'];
+    	$goods_sku_id = 1;
+    	$goods_num = 2;
+    	$total = 1900;
+    	$data = array('user_id'=>$user_id,'goods_id'=>$goods_id, 'goods_sku_id'=>$goods_sku_id, 'goods_num'=>$goods_num, 'total'=>$total);
+>>>>>>> 9bafc8d78a63a4d15076c40ce26bece692b0afc2
     	$data = json_encode($data);
-    	$value[] = $data;
-    	$redis->flushdb();
-    	foreach ($value as $k => $v) {
-    		$redis->lpush('data',$v);
-    	}*/
-
-    	$num = $redis->llen('data')-1; 
+    	$redis->lpush('data',$data);*/
+    	$num = $redis->llen('data')-1;
+    	//$redis->set('data',$data);
+    	//$redis->hmset('product1');
 	    $data = $redis->lrange('data',0,$num);
+<<<<<<< HEAD
   		$goods = array();
 	    if($user_id != null){
 		    foreach ($data as $k => $v) {
@@ -53,18 +59,25 @@ class ProductAction extends Action {
 
 	    	$address = '';
 			$total = 0;
+=======
+	    $goods = array();
+	    foreach ($data as $k => $v) {
+	    	$re[$k] = json_decode($v);
+	    	$db = D('Product');
+	    	$goods[$k] = $db->selectGoods($re[$k]->goods_sku_id);
+	    	$goods[$k]['goods_num'] = $re[$k]->goods_num;
+	    	$goods[$k]['total'] = $re[$k]->total;
+	    	$total += 100;	    
+>>>>>>> 9bafc8d78a63a4d15076c40ce26bece692b0afc2
 	    }
-	    
-	    //查询默认地址
-	    //$adddefault = $db->selectAddDefault();
-	
-	    $this->assign('address',$address);
-	    //$this->assign('adddefault',$adddefault);
+	    //查询省
+	    $province =  $db->selectProvince();
+	    //print_r($goods);
 	    $this->assign('goods',$goods);
+	    $this->assign('province',$province);
 	    $this->assign('total',$total);
 	    $this->display('shopping_cart');
     }
-
 
     /** 
      * 查询市县
@@ -76,6 +89,7 @@ class ProductAction extends Action {
     	$city = json_encode($city);
     	echo $city;
     }
+<<<<<<< HEAD
 
 	/**
 	 * 删除购物车商品
@@ -143,4 +157,7 @@ class ProductAction extends Action {
 	    	}	    		    	
 	    }
 	}
+=======
+   
+>>>>>>> 9bafc8d78a63a4d15076c40ce26bece692b0afc2
 }

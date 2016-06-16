@@ -253,11 +253,15 @@
 					<input class="niceCheck" type="checkbox" name="Remember_password" />
 					<span class="rem">Remember password</span>
 				</div><!-- .remember -->
-				
+        
 				<div class="submit">										
 					<input type="submit" value="Login" />
 					<sup class="surely">*</sup><span>Required Field</span>
 				</div><!-- .submit -->
+        <div class="password">
+          <a class="surely" href="#">您可以使用以下方式进行登陆</a><br>
+          <img src="__PUBLIC__/images/qq_blue_76X24.png" alt="">
+        </div><!-- .password -->
 			</form><!-- .registed -->
                 </div><!-- .grid_6 -->
        </div><!-- #content -->

@@ -75,7 +75,11 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
+<<<<<<< HEAD
 	'hostname' => 'localhost',
+=======
+	'hostname' => '192.168.1.126',
+>>>>>>> 9bafc8d78a63a4d15076c40ce26bece692b0afc2
 	'username' => 'root',
 	'password' => 'root',
 	'database' => 'da_hufupin',
@@ -85,12 +89,6 @@ $db['default'] = array(
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
 	'cachedir' => '',
-	'char_set' => 'utf8',
-	'dbcollat' => 'utf8_general_ci',
-	'swap_pre' => '',
-	'encrypt' => FALSE,
-	'compress' => FALSE,
-	'stricton' => FALSE,
-	'failover' => array(),
-	'save_queries' => TRUE
+	'char_set' => 'utf8'
+	
 );
