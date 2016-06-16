@@ -10,8 +10,7 @@ class Brand extends CI_Controller {
 		$this->load->model("Brand_model");
 		$res=$this->Brand_model->insert_brand($data);
 		if($res){
-			echo "<script>alert('添加成功')</script>";
-			$this->insert();
+			echo "<script>alert('添加成功');location.href='insert';</script>";
 		}
 	}
 
