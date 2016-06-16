@@ -6,8 +6,8 @@ class Order_model extends CI_Model {
         return $this->db->count_all('border');
     }
     //订单列表分页
-    public function sel_pro($per_page,$page){
-         return $this->db->query("select * from border inner join user on border.user_id=user.user_id inner join address where address.address_id=border.address_id limit $page,$per_page")->result_array();
+    public function sel_pro($offset,$length){
+         return $this->db->query("select * from border inner join user on border.user_id=user.user_id inner join address where address.address_id=border.address_id limit $offset,$length")->result_array();
     }    
     //搜索后查询订单总数
     public function sel_co($u_name,$border_num,$total){
@@ -31,7 +31,7 @@ class Order_model extends CI_Model {
         return $this->db->query("select count(*) as c from border inner join user on border.user_id=user.user_id inner join address where address.address_id=border.address_id $where")->result_array();
     }
     //订单搜索
-    public function sel_sou($u_name,$border_num,$total,$per_page,$page){
+    public function sel_sou($u_name,$border_num,$total,$offset,$length){
         if($border_num==''&&$u_name==''&&$total==''){
             $where=" ";
         }else if($total==''&&$u_name==''){
@@ -49,6 +49,6 @@ class Order_model extends CI_Model {
         }else  if($border_num!=''&&$u_name!=''&&$total!=''){
             $where="and border.border_state='$total' and user.user_name='$u_name' and border.border_number='$border_num'";
         }
-         return $this->db->query("select * from border inner join user on border.user_id=user.user_id inner join address where address.address_id=border.address_id $where limit $page,$per_page")->result_array();
+         return $this->db->query("select * from border inner join user on border.user_id=user.user_id inner join address where address.address_id=border.address_id $where limit $offset,$length")->result_array();
     }   
 }
