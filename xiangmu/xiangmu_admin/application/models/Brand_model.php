@@ -7,4 +7,9 @@ class Brand_model extends CI_Model {
       	return $res;
       }
       
+      //查询品牌信息
+	function sel(){
+		$query=$this->db->get('brand');
+		return $query->result_array();
+	}
 }
