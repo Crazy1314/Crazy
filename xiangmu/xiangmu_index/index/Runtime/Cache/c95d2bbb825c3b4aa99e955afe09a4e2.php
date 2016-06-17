@@ -7,29 +7,23 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
 
-  <title>Login</title>
+  <title>Products comparison</title>
 
   <link rel="shortcut icon" href="favicon.ico">
   <link href="__PUBLIC__/css/style.css" media="screen" rel="stylesheet" type="text/css">
   <link href="__PUBLIC__/css/grid.css" media="screen" rel="stylesheet" type="text/css">
- 
+
   <script src="__PUBLIC__/js/jquery-1.7.2.min.js" ></script>
   <script src="__PUBLIC__/js/html5.js" ></script>
-  <script src="__PUBLIC__/js/jflow.plus.js"></script>
+  <script src="__PUBLIC__/js/jflow.plus.js" ></script>
   <script src="__PUBLIC__/js/jquery.carouFredSel-5.2.2-packed.js"></script>
   <script src="__PUBLIC__/js/checkbox.js"></script>
   <script src="__PUBLIC__/js/radio.js"></script>
   <script src="__PUBLIC__/js/selectBox.js"></script>
 
   <script>
-	$(document).ready(function() {
-		$("select").selectBox();
-	});
-  </script>
-
-  <script>
 	$(document).ready(function(){
-		$("#myController").jFlow({
+	      $("#myController").jFlow({
 			controller: ".control", // must be class, use . sign
 			slideWrapper : "#jFlowSlider", // must be id, use # sign
 			slides: "#slider",  // the div where all your sliding divs are nested in
@@ -39,9 +33,9 @@
 			duration: 400,  // time in miliseconds to transition one slide
 			prev: ".slidprev", // must be class, use . sign
 			next: ".slidnext", // must be class, use . sign
-			auto: true	
-		});
-	});
+			auto: true
+	      });
+       });
   </script>
   <script>
 	$(function() {
@@ -55,12 +49,6 @@
 		next: '#next_c2',
 		auto: false
 	  });
-	  $('#list_banners').carouFredSel({
-		prev: '#ban_prev',
-		next: '#ban_next',
-		scroll: 1,
-		auto: false
-	  });
 	  $(window).resize();
 	});
   </script>
@@ -68,10 +56,15 @@
        $(document).ready(function(){
 	      $("button").click(function(){
 		     $(this).addClass('click')
-	      });             
+	      });
        })
   </script>
-    
+  <script>
+       $(document).ready(function() {
+	$("select").selectBox();
+       });
+  </script>
+
 </head>
 <body>
   <div class="container_12">
@@ -81,13 +74,13 @@
           Call Us +777 (100) 1234
         </div><!-- .phone_top -->
       </div><!-- .grid_3 -->
-   
+
       <div class="grid_6">
         <div class="welcome">
           Welcome visitor you can <a href="login.html">login</a> or <a href="login.html">create an account</a>.
         </div><!-- .welcome -->
       </div><!-- .grid_6 -->
-   
+
       <div class="grid_3">
         <div class="valuta">
           <ul>
@@ -96,7 +89,7 @@
             <li><a href="#">&#163;</a></li>
           </ul>
         </div><!-- .valuta -->
-    
+
         <div class="lang">
           <ul>
             <li class="curent"><a href="#">EN</a></li>
@@ -106,23 +99,23 @@
         </div><!-- .lang -->
       </div><!-- .grid_3 -->
     </div><!-- #top -->
-  
+
     <div class="clear"></div>
-   
+
     <header id="branding">
       <div class="grid_3">
         <hgroup>
-          <h1 id="site_logo"><a href="index.html" title=""><img src="__PUBLIC__/images/logo.png" alt="Online Store Theme Logo"/></a></h1>
+          <h1 id="site_logo" ><a href="index.html" title=""><img src="__PUBLIC__/images/logo.png" alt="Online Store Theme Logo"/></a></h1>
           <h2 id="site_description">Online Store Theme</h2>
         </hgroup>
       </div><!-- .grid_3 -->
-      
+
       <div class="grid_3">
         <form class="search">
           <input type="text" name="search" class="entry_form" value="" placeholder="Search entire store here..."/>
 	</form>
       </div><!-- .grid_3 -->
-      
+
       <div class="grid_6">
         <ul id="cart_nav">
           <li>
@@ -155,7 +148,7 @@
             </ul>
           </li>
         </ul>
-        
+
         <nav class="private">
           <ul>
             <li><a href="#">My Account</a></li>
@@ -166,13 +159,13 @@
 		<li class="separator">|</li>
             <li><a href="login.html">Sign Up</a></li>
           </ul>
-        </nav><!-- .private -->        
+        </nav><!-- .private -->
       </div><!-- .grid_6 -->
     </header><!-- #branding -->
   </div><!-- .container_12 -->
-  
+
   <div class="clear"></div>
-  
+
   <div id="block_nav_primary">
     <div class="container_12">
       <div class="grid_12">
@@ -215,63 +208,121 @@
       </div><!-- .grid_12 -->
     </div><!-- .container_12 -->
   </div><!-- .block_nav_primary -->
-  
+
   <div class="clear"></div>
-  
+
   <section id="main" class="entire_width">
-    <div class="container_12">      
-       <div id="content">
-		<div class="grid_12">
-			<h1 class="page_title">Login or Create an Account</h1>
-		</div><!-- .grid_12 -->
-		
-		<div class="grid_6 new_customers">
-			<h2>New Customers</h2>
-			<p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
-			<div class="clear"></div>
-			<button class="account">Create An Account</button>
-                </div><!-- .grid_6 -->
-		
-		<div class="grid_6">
-			<form class="registed">
-				<h2>Registed Customers</h2>
-							
-				<p>If you have an account with us, please log in.</p>
-							
-				<div class="email">
-					<strong>Email Adress:</strong><sup class="surely">*</sup><br/>
-					<input type="email" name="" class="" value="" />
-				</div><!-- .email -->
-							
-				<div class="password">
-					<strong>Password:</strong><sup class="surely">*</sup><br/>
-					<input type="text" name="" class="" value="" />
-					<a class="forgot" href="#">Forgot Your Password?</a>
-				</div><!-- .password -->
-				
-				<div class="remember">
-					<input class="niceCheck" type="checkbox" name="Remember_password" />
-					<span class="rem">Remember password</span>
-				</div><!-- .remember -->
-        
-				<div class="submit">										
-					<input type="submit" value="Login" />
-					<sup class="surely">*</sup><span>Required Field</span>
-				</div><!-- .submit -->
-        <div class="password">
-          <a class="surely" href="#">您可以使用以下方式进行登陆</a><br>
-          <img src="__PUBLIC__/images/qq_blue_76X24.png" alt="">
-        </div><!-- .password -->
-			</form><!-- .registed -->
-                </div><!-- .grid_6 -->
-       </div><!-- #content -->
-       
-      <div class="clear"></div>
+    <div class="container_12">
+       <div class="grid_12">
+       <h1 class="page_title">Compare Products</h1>
+
+       <table class="compare">
+	      <tr class="close_top">
+		     <td class="desc"></td>
+		     <td><a title="close" class="close" href="#"></a></td>
+		     <td><a title="close" class="close" href="#"></a></td>
+		     <td><a title="close" class="close" href="#"></a></td>
+	      </tr>
+	      <tr>
+		     <th class="desc">Product Name</th>
+		     <th class="bg name">Product Name</th>
+		     <th class="edit"> </th>
+		     <th class="bg price">Unit Price</th>
+	      </tr>
+	      <tr class="images">
+		     <td class="desc">Image</td>
+		     <td class="bg"><a href="product_page.html"><div><img src="__PUBLIC__/images/produkt_slid1.png" alt="Product slide 1"></div></a></td>
+		     <td><a href="product_page.html"><div><img src="__PUBLIC__/images/product_6.png" alt="Product 6"></div></a></td>
+		     <td class="bg"><a href="product_page.html"><div><img src="__PUBLIC__/images/product_2.png" alt="Product 2"></div></a></td>
+	      </tr>
+	      <tr class="prise">
+		     <td class="desc">Price</td>
+		     <td class="bg">$550.00<div class="price_old">$725.00</div></td>
+		     <td>$550.00<div class="price_old">$725.00</div></td>
+		     <td class="bg">$550.00<div class="price_old">$725.00</div></td>
+	      </tr>
+	      <tr class="model">
+		     <td class="desc">Model</td>
+		     <td class="bg">Willert Home Keep it Dry Closet <br/>Moisture Remover Crystal</td>
+		     <td>Willert Home Keep it Dry Closet <br/>Moisture Remover Crystal</td>
+		     <td class="bg">Willert Home Keep it Dry Closet <br/>Moisture Remover Crystal</td>
+	      </tr>
+	      <tr class="brand">
+		     <td class="desc">Brand</td>
+		     <td class="bg">Breeze</td>
+		     <td>Breeze</td>
+		     <td class="bg">Breeze</td>
+	      </tr>
+	      <tr class="availbility">
+		     <td class="desc">Availbility</td>
+		     <td class="bg">In Stock</td>
+		     <td>In Stock</td>
+		     <td class="bg">In Stock</td>
+	      </tr>
+	      <tr class="rating">
+		     <td class="desc">Rating</td>
+		     <td class="bg">
+			    <div class="quality">
+				   <a class="plus" href="#"></a>
+				   <a class="plus" href="#"></a>
+				   <a class="plus" href="#"></a>
+				   <a href="#"></a>
+				   <a href="#"></a>
+			    </div>
+		     </td>
+		     <td>
+			    <div class="quality">
+				   <a class="plus" href="#"></a>
+				   <a class="plus" href="#"></a>
+				   <a class="plus" href="#"></a>
+				   <a href="#"></a>
+				   <a href="#"></a>
+			    </div>
+		     </td>
+		     <td class="bg">
+			    <div class="quality">
+				   <a class="plus" href="#"></a>
+				   <a class="plus" href="#"></a>
+				   <a class="plus" href="#"></a>
+				   <a href="#"></a>
+				   <a href="#"></a>
+			    </div>
+		     </td>
+	      </tr>
+	      <tr class="description">
+		     <td class="desc">Description</td>
+		     <td class="bg">
+			    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pharetra faucibus congue. Aenean luctus dolor et purus malesuada luctus. Quisque ullamcorper ante viverra lectus fermentum quis rutrum erat sollicitudin. Fusce tortor massa.</p><br/>
+			    <p>Cras ullamcorper nisl non odio congue accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam erat volutpat.</p>
+		     </td>
+		     <td>
+			    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pharetra faucibus congue. Aenean luctus dolor et purus malesuada luctus. Quisque ullamcorper ante viverra lectus fermentum quis rutrum erat sollicitudin. Fusce tortor massa.</p><br/>
+			    <p>Cras ullamcorper nisl non odio congue accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam erat volutpat.</p>
+		     </td>
+		     <td class="bg">
+			    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pharetra faucibus congue. Aenean luctus dolor et purus malesuada luctus. Quisque ullamcorper ante viverra lectus fermentum quis rutrum erat sollicitudin. Fusce tortor massa.</p><br/>
+			    <p>Cras ullamcorper nisl non odio congue accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam erat volutpat.</p>
+		     </td>
+	      </tr>
+	      <tr class="add_cart">
+		     <td class="desc"></td>
+		     <td class="bg"><button class="add">Add to Cart</button></td>
+		     <td><button class="add">Add to Cart</button></td>
+		     <td class="bg"><button class="add">Add to Cart</button></td>
+	      </tr>
+	      <tr class="close_botttom">
+		     <td class="desc"></td>
+		     <td><a title="close" class="close" href="#"></a></td>
+		     <td><a title="close" class="close" href="#"></a></td>
+		     <td><a title="close" class="close" href="#"></a></td>
+	      </tr>
+       </table>
+       </div><!-- .grid_12 -->
     </div><!-- .container_12 -->
   </section><!-- #main -->
-  
+
   <div class="clear"></div>
-    
+
   <footer>
     <div class="f_navigation">
       <div class="container_12">
@@ -283,7 +334,7 @@
             <li>mail@example.com</li>
           </ul><!-- .f_contact -->
         </div><!-- .grid_3 -->
-      
+
         <div class="grid_3">
           <h3>Information</h3>
           <nav class="f_menu">
@@ -295,7 +346,7 @@
             </ul>
           </nav><!-- .private -->
         </div><!-- .grid_3 -->
-        
+
         <div class="grid_3">
           <h3>Costumer Servise</h3>
           <nav class="f_menu">
@@ -307,7 +358,7 @@
             </ul>
           </nav><!-- .private -->
         </div><!-- .grid_3 -->
-        
+
         <div class="grid_3">
           <h3>My Account</h3>
           <nav class="f_menu">
@@ -319,17 +370,17 @@
             </ul>
           </nav><!-- .private -->
         </div><!-- .grid_3 -->
-        
+
         <div class="clear"></div>
       </div><!-- .container_12 -->
     </div><!-- .f_navigation -->
-    
+
     <div class="f_info">
       <div class="container_12">
         <div class="grid_6">
           <p class="copyright">Copyright &copy; 2014.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
         </div><!-- .grid_6 -->
-        
+
         <div class="grid_6">
           <div class="soc">
             <a class="google" href="#"></a>
@@ -337,12 +388,12 @@
             <a class="facebook" href="#"></a>
           </div><!-- .soc -->
         </div><!-- .grid_6 -->
-        
+
         <div class="clear"></div>
       </div><!-- .container_12 -->
     </div><!-- .f_info -->
   </footer>
- 
+
 <div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
 </html>

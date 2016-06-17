@@ -35,7 +35,6 @@
                                     <option value="2">已付款</option>
                                     <option value="3">已发货</option>
                                     <option value="4">已完成</option>
-                                    <option value="0">退货</option>
                                 </select>
                             </td>
                             <td><input class="btn btn-primary btn2" onclick="sou()" value="查询" type="button"></td>
@@ -68,11 +67,9 @@
                             <td><?php echo $v['border_number'] ?></td>
                             <td><?php echo $v['user_name'] ?></td>
                             <td><?php echo $v['address_area'] ?></td>
-                            <td>$<?php echo $v['border_total'] ?></td>
+                            <td><?php echo $v['border_total'] ?></td>
                             <td><?php
-                            if($v['border_state']==0){
-                                echo"退货";
-                            }elseif($v['border_state']==1){
+                            if($v['border_state']==1){
                                 echo"待付款";
                             }elseif($v['border_state']==2){
                                 echo"已付款";
@@ -83,7 +80,7 @@
                             }
                             ?></td>
                             <td>
-                                <a class="link-update" href="#">查看</a>
+                                <a class="link-update" href="<?php echo site_url('Order/lookat?border_id=').$v['border_id'] ?>">查看</a>
                             </td>
                         </tr>
                         <?php } ?>
@@ -99,6 +96,7 @@
 
 <script src="<?php echo base_url('Public/jquery.js') ?>"></script>
 <script>
+//搜索
     function sou(){
         var u_name=$("#u_name").val();
         var border_num=$("#border_num").val();
@@ -127,7 +125,7 @@
                         html+='<td>'+item.border_number+'</td>';
                         html+='<td>'+item.user_name+'</td>';
                         html+='<td>'+item.address_area+'</td>';
-                        html+='<td>$'+item.border_total+'</td>';
+                        html+='<td>'+item.border_total+'</td>';
                         if(item.border_state==1){ 
                             aa='<?php echo '待付款';?>';
                         } else if(item.border_state==2){
@@ -136,11 +134,9 @@
                             aa='<?php echo '已发货';?>';
                         }else if(item.border_state==4){
                             aa='<?php echo '已完成';?>';
-                        }else if(item.border_state==0){
-                            aa='<?php echo '退货';?>';
                         }
                         html+="<td >"+aa+"</td>";
-                        html+='<td><a class="link-update" href="#">查看</a></td>';
+                        html+='<td><a class="link-update" href="<?php echo site_url('Order/lookat?border_id=') ?>'+item.border_id+'">查看</a></td>';
                         html+='</tr>';
                         });
                         html+='</table>';
@@ -149,6 +145,7 @@
                     }
                 });
     }
+//搜索后分页
      function sou2(page){
         var u_name=$("#u_name").val();
         var border_num=$("#border_num").val();
@@ -177,7 +174,7 @@
                         html+='<td>'+item.border_number+'</td>';
                         html+='<td>'+item.user_name+'</td>';
                         html+='<td>'+item.address_area+'</td>';
-                        html+='<td>$'+item.border_total+'</td>';
+                        html+='<td>'+item.border_total+'</td>';
                         if(item.border_state==1){ 
                             aa='<?php echo '待付款';?>';
                         } else if(item.border_state==2){
@@ -186,11 +183,9 @@
                             aa='<?php echo '已发货';?>';
                         }else if(item.border_state==4){
                             aa='<?php echo '已完成';?>';
-                        }else if(item.border_state==0){
-                            aa='<?php echo '退货';?>';
                         }
                         html+="<td >"+aa+"</td>";
-                        html+='<td><a class="link-update" href="#">查看</a></td>';
+                        html+='<td><a class="link-update" href="<?php echo site_url('Order/lookat?border_id=') ?>'+item.border_id+'">查看</a></td>';
                         html+='</tr>';
                         });
                         html+='</table>';
@@ -225,7 +220,7 @@
                         html+='<td>'+item.border_number+'</td>';
                         html+='<td>'+item.user_name+'</td>';
                         html+='<td>'+item.address_area+'</td>';
-                        html+='<td>$'+item.border_total+'</td>';
+                        html+='<td>'+item.border_total+'</td>';
                         if(item.border_state==1){ 
                             aa='<?php echo '待付款';?>';
                         } else if(item.border_state==2){
@@ -234,11 +229,9 @@
                             aa='<?php echo '已发货';?>';
                         }else if(item.border_state==4){
                             aa='<?php echo '已完成';?>';
-                        }else if(item.border_state==0){
-                            aa='<?php echo '退货';?>';
                         }
                         html+="<td >"+aa+"</td>";
-                        html+='<td><a class="link-update" href="#">查看</a></td>';
+                        html+='<td><a class="link-update" href="<?php echo site_url('Order/lookat?border_id=') ?>'+item.border_id+'">查看</a></td>';
                         html+='</tr>';
                         });
                         html+='</table>';

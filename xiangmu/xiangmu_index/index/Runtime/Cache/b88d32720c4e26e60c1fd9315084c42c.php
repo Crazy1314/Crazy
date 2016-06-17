@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
 
-  <title>Login</title>
+  <title>Contact us</title>
 
   <link rel="shortcut icon" href="favicon.ico">
   <link href="__PUBLIC__/css/style.css" media="screen" rel="stylesheet" type="text/css">
@@ -27,7 +27,7 @@
 	});
   </script>
 
-  <script>
+ <script>
 	$(document).ready(function(){
 		$("#myController").jFlow({
 			controller: ".control", // must be class, use . sign
@@ -222,48 +222,56 @@
     <div class="container_12">      
        <div id="content">
 		<div class="grid_12">
-			<h1 class="page_title">Login or Create an Account</h1>
+			<h1 class="page_title">Contact Us</h1>
 		</div><!-- .grid_12 -->
 		
-		<div class="grid_6 new_customers">
-			<h2>New Customers</h2>
-			<p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
-			<div class="clear"></div>
-			<button class="account">Create An Account</button>
-                </div><!-- .grid_6 -->
+		<div class="grid_4 adress">
+			<h3>Address</h3>
+			<p>49 Archdale, 2B Charleston, New York City, USA</p>
+			<hr>
+			
+			<h3>Phones</h3>
+			<p>Support: <span>+777 (100) 1234</span><br/>
+			Sales manager: <span>+777 (100) 4321</span><br/>
+			Director: <span>+777 (100) 1243</span></p>
+			<hr>
+			
+			<h3>Email Addresses</h3>
+			<p>Support: <span>support@example.com</span><br/>
+			Sales manager: <span>manager@example.com</span><br/>
+			Director: <span>chief@example.com</span></p>
+                </div><!-- .adress -->
 		
-		<div class="grid_6">
-			<form class="registed">
-				<h2>Registed Customers</h2>
+		<div class="grid_8">
+			<form class="contact">
+				<h2>Quick Contact</h2>
 							
-				<p>If you have an account with us, please log in.</p>
-							
+				<div class="name">
+					<strong>Name:</strong><sup class="surely">*</sup><br/>
+					<input type="text" name="name" value="" />
+				</div><!-- .name -->
+				
 				<div class="email">
-					<strong>Email Adress:</strong><sup class="surely">*</sup><br/>
-					<input type="email" name="" class="" value="" />
+					<strong>Email Adress: </strong><sup class="surely">*</sup><br/>
+					<input type="email" name="email" value="" />
 				</div><!-- .email -->
 							
-				<div class="password">
-					<strong>Password:</strong><sup class="surely">*</sup><br/>
-					<input type="text" name="" class="" value="" />
-					<a class="forgot" href="#">Forgot Your Password?</a>
-				</div><!-- .password -->
+				<div class="phone">
+					<strong>Telephone:</strong><br/>
+					<input type="text" name="phone" value="" />
+				</div><!-- .phone -->
 				
-				<div class="remember">
-					<input class="niceCheck" type="checkbox" name="Remember_password" />
-					<span class="rem">Remember password</span>
-				</div><!-- .remember -->
-        
-				<div class="submit">										
-					<input type="submit" value="Login" />
-					<sup class="surely">*</sup><span>Required Field</span>
+				<div class="comment">
+					<strong>Comment:</strong><sup class="surely">*</sup><br/>
+					<textarea name="comment"></textarea>
+				</div><!-- .comment -->
+				
+				<div class="submit">
+					<div class="field"><sup class="surely">*</sup><span>Required Field</span></div>
+					<input type="submit" value="Submit" />
 				</div><!-- .submit -->
-        <div class="password">
-          <a class="surely" href="#">您可以使用以下方式进行登陆</a><br>
-          <img src="__PUBLIC__/images/qq_blue_76X24.png" alt="">
-        </div><!-- .password -->
-			</form><!-- .registed -->
-                </div><!-- .grid_6 -->
+			</form><!-- .contact -->
+                </div><!-- .grid_8 -->
        </div><!-- #content -->
        
       <div class="clear"></div>

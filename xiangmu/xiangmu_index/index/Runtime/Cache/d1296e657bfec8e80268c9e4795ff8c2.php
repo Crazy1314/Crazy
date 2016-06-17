@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
 
-  <title>Login</title>
+  <title>Proceed to checkout</title>
 
   <link rel="shortcut icon" href="favicon.ico">
   <link href="__PUBLIC__/css/style.css" media="screen" rel="stylesheet" type="text/css">
@@ -29,7 +29,7 @@
 
   <script>
 	$(document).ready(function(){
-		$("#myController").jFlow({
+	    $("#myController").jFlow({
 			controller: ".control", // must be class, use . sign
 			slideWrapper : "#jFlowSlider", // must be id, use # sign
 			slides: "#slider",  // the div where all your sliding divs are nested in
@@ -84,7 +84,7 @@
    
       <div class="grid_6">
         <div class="welcome">
-          Welcome visitor you can <a href="login.html">login</a> or <a href="login.html">create an account</a>.
+          Welcome visitor you can <a href="__APP__/Loign/login">login</a> or <a href="__APP__/Loign/login">create an account</a>.
         </div><!-- .welcome -->
       </div><!-- .grid_6 -->
    
@@ -112,7 +112,7 @@
     <header id="branding">
       <div class="grid_3">
         <hgroup>
-          <h1 id="site_logo"><a href="index.html" title=""><img src="__PUBLIC__/images/logo.png" alt="Online Store Theme Logo"/></a></h1>
+          <h1 id="site_logo"><a href="__APP__/Login/index" title=""><img src="__PUBLIC__/images/logo.png" alt="Online Store Theme Logo"/></a></h1>
           <h2 id="site_description">Online Store Theme</h2>
         </hgroup>
       </div><!-- .grid_3 -->
@@ -130,7 +130,7 @@
             <ul class="cart_cont">
               <li class="no_border"><p>Recently added item(s)</p></li>
               <li>
-                <a href="product_page.html" class="prev_cart"><div class="cart_vert"><img src="__PUBLIC__/images/cart_img.png" alt="" title="" /></div></a>
+                <a href="__APP__/Index/product_page" class="prev_cart"><div class="cart_vert"><img src="__PUBLIC__/images/cart_img.png" alt="" title="" /></div></a>
                 <div class="cont_cart">
                   <h4>Caldrea Linen and Room Spray</h4>
                   <div class="price">1 x $399.00</div>
@@ -140,7 +140,7 @@
               </li>
               
               <li>
-                <a href="product_page.html" class="prev_cart"><div class="cart_vert"><img src="__PUBLIC__/images/produkt_slid1.png" alt="" title="" /></div></a>
+                <a href="__APP__/Index/product_page" class="prev_cart"><div class="cart_vert"><img src="__PUBLIC__/images/produkt_slid1.png" alt="" title="" /></div></a>
                 <div class="cont_cart">
                   <h4>Caldrea Linen and Room Spray</h4>
                   <div class="price">1 x $399.00</div>
@@ -149,8 +149,8 @@
                 <div class="clear"></div>
               </li>
 	      <li class="no_border">
-		<a href="shopping_cart.html" class="view_cart">View shopping cart</a>
-		<a href="checkout.html" class="checkout">Procced to Checkout</a>
+		<a href="__APP__/Index/shopping_cart" class="view_cart">View shopping cart</a>
+		<a href="__APP__/Index/checkout" class="checkout">Procced to Checkout</a>
 	      </li>
             </ul>
           </li>
@@ -162,9 +162,9 @@
 		<li class="separator">|</li>
             <li><a href="#">My Wishlist</a></li>
 		<li class="separator">|</li>
-            <li><a href="login.html">Log In</a></li>
+            <li><a href="__APP__/Loign/login">Log In</a></li>
 		<li class="separator">|</li>
-            <li><a href="login.html">Sign Up</a></li>
+            <li><a href="__APP__/Loign/login">Sign Up</a></li>
           </ul>
         </nav><!-- .private -->        
       </div><!-- .grid_6 -->
@@ -178,36 +178,36 @@
       <div class="grid_12">
         <nav class="primary">
           <ul>
-            <li class="curent"><a href="index.html">Home</a></li>
-            <li><a href="catalog_grid.html">Solids</a></li>
-            <li><a href="catalog_grid.html">Liquids</a></li>
+            <li class="curent"><a href="__APP__/Login/index">Home</a></li>
+            <li><a href="__APP__/Index/catalog_grid">Solids</a></li>
+            <li><a href="__APP__/Index/catalog_grid">Liquids</a></li>
             <li>
-              <a href="catalog_grid.html">Spray</a>
+              <a href="__APP__/Index/catalog_grid">Spray</a>
               <ul class="sub">
-                <li><a href="catalog_grid.html">For home</a></li>
-                <li><a href="catalog_grid.html">For Garden</a></li>
-                <li><a href="catalog_grid.html">For Car</a></li>
-                <li><a href="catalog_grid.html">Other spray</a></li>
+                <li><a href="__APP__/Index/catalog_grid">For home</a></li>
+                <li><a href="__APP__/Index/catalog_grid">For Garden</a></li>
+                <li><a href="__APP__/Index/catalog_grid">For Car</a></li>
+                <li><a href="__APP__/Index/catalog_grid">Other spray</a></li>
               </ul>
             </li>
-            <li><a href="catalog_grid.html">Electric</a></li>
-            <li><a href="catalog_grid.html">For cars</a></li>
+            <li><a href="__APP__/Index/catalog_grid">Electric</a></li>
+            <li><a href="__APP__/Index/catalog_grid">For cars</a></li>
 	    <li>
               <a href="#">All pages</a>
               <ul class="sub">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="text_page.html">Typography and basic styles</a></li>
-		<li><a href="catalog_grid.html">Catalog (grid view)</a></li>
-		<li><a href="catalog_list.html">Catalog (list type view)</a></li>
-		<li><a href="product_page.html">Product view</a></li>
-		<li><a href="shopping_cart.html">Shoping cart</a></li>
-		<li><a href="checkout.html">Proceed to checkout</a></li>
-		<li><a href="compare.html">Products comparison</a></li>
-		<li><a href="login.html">Login</a></li>
-		<li><a href="contact_us.html">Contact us</a></li>
+                <li><a href="__APP__/Login/index">Home</a></li>
+                <li><a href="__APP__/Index/text_page">Typography and basic styles</a></li>
+		<li><a href="__APP__/Index/catalog_grid">Catalog (grid view)</a></li>
+		<li><a href="__APP__/Index/catalog_list">Catalog (list type view)</a></li>
+		<li><a href="__APP__/Index/product_page">Product view</a></li>
+		<li><a href="__APP__/Index/shopping_cart">Shoping cart</a></li>
+		<li><a href="__APP__/Index/checkout">Proceed to checkout</a></li>
+		<li><a href="__APP__/Index/compare">Products comparison</a></li>
+		<li><a href="__APP__/Loign/login">Login</a></li>
+		<li><a href="__APP__/Index/contact_us">Contact us</a></li>
 		<li><a href="404.html">404</a></li>
-		<li><a href="blog.html">Blog posts</a></li>
-		<li><a href="blog_post.html">Blog post view</a></li>
+		<li><a href="__APP__/Index/blog">Blog posts</a></li>
+		<li><a href="__APP__/Index/blog_post">Blog post view</a></li>
               </ul>
             </li>
           </ul>
@@ -222,48 +222,86 @@
     <div class="container_12">      
        <div id="content">
 		<div class="grid_12">
-			<h1 class="page_title">Login or Create an Account</h1>
+			<h1 class="page_title">Checkout</h1>
 		</div><!-- .grid_12 -->
 		
-		<div class="grid_6 new_customers">
-			<h2>New Customers</h2>
-			<p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
-			<div class="clear"></div>
-			<button class="account">Create An Account</button>
-                </div><!-- .grid_6 -->
-		
-		<div class="grid_6">
-			<form class="registed">
-				<h2>Registed Customers</h2>
+		<div class="grid_9" id="checkout_info">
+			<ul class="checkout_list">
+				<li class="active">
+					<div class="list_header">Checkout Method<div class="number">1</div></div>
+					<div class="list_body">
+						<form class="checkout_or">
+							<h3>Checkout as a Guest or Register</h3>
+							<p>Register with us for future convenience:</p>
+							<ul class="radio">
+								<li><input class="niceRadio" type="radio" name="register"/> Checkout as Guest</li>
+								<li><input class="niceRadio" type="radio" name="register"/> Register</li>
+							</ul>
+							<p><strong>Register and save time!</strong><br/>
+							Register with us for future convenience:</p>
+							<ul>
+								<li>Fast and easy check out</li>
+								<li>Easy access to your order history and status</li>
+							</ul>
+							<input type="submit" value="Continue" />
+						</form>
+						<form class="login">
+							<h3>Login</h3>
+							<p>If you have an account with us, please log in.</p>
 							
-				<p>If you have an account with us, please log in.</p>
+							<div class="email">
+								<strong>Email Adress:</strong><sup class="surely">*</sup><br/>
+								<input type="email" name="" class="" value="" />
+							</div><!-- .email -->
 							
-				<div class="email">
-					<strong>Email Adress:</strong><sup class="surely">*</sup><br/>
-					<input type="email" name="" class="" value="" />
-				</div><!-- .email -->
-							
-				<div class="password">
-					<strong>Password:</strong><sup class="surely">*</sup><br/>
-					<input type="text" name="" class="" value="" />
-					<a class="forgot" href="#">Forgot Your Password?</a>
-				</div><!-- .password -->
+							<div class="password">
+								<strong>Password:</strong><sup class="surely">*</sup><br/>
+								<input type="text" name="" class="" value="" />
+							</div><!-- .password -->
 				
-				<div class="remember">
-					<input class="niceCheck" type="checkbox" name="Remember_password" />
-					<span class="rem">Remember password</span>
-				</div><!-- .remember -->
-        
-				<div class="submit">										
-					<input type="submit" value="Login" />
-					<sup class="surely">*</sup><span>Required Field</span>
-				</div><!-- .submit -->
-        <div class="password">
-          <a class="surely" href="#">您可以使用以下方式进行登陆</a><br>
-          <img src="__PUBLIC__/images/qq_blue_76X24.png" alt="">
-        </div><!-- .password -->
-			</form><!-- .registed -->
-                </div><!-- .grid_6 -->
+							<div class="remember">
+								<a class="forgot" href="#">Forgot Your Password?</a>
+								<input class="niceCheck" type="checkbox" name="Remember_password" />
+								<span>Remember password</span>
+							</div><!-- .remember -->
+				
+							<div class="submit">										
+								<input type="submit" value="Login" />
+								<sup class="surely">*</sup><span>Required Field</span>
+							</div><!-- .submit -->
+						</form>
+						<div class="clear"></div>
+					</div>
+				</li>
+				<li>
+					<a href="#" class="list_header">Billing Information<div class="number">2</div></a>
+				</li>
+				<li>
+					<div class="list_header">Shipping Information<div class="number">3</div></div>
+				</li>
+				<li>
+					<div class="list_header">Shipping Method<div class="number">4</div></div>
+				</li>
+				<li>
+					<div class="list_header">Payment Information<div class="number">5</div></div>
+				</li>
+				<li>
+					<div class="list_header">Order Review<div class="number">6</div></div>
+				</li>
+			</ul>
+                </div><!-- .grid_9 -->
+		
+		<div class="grid_3" id="sidebar_right">
+			<aside id="checkout_progress">
+				<h3>Your Checkout Progress</h3>
+				<ul>
+					<li>Billing Address<a title="Edit" href="#">Edit</a></li>
+					<li>Shipping Address<a title="Edit" href="#">Edit</a></li>
+					<li>Shipping Method<a title="Edit" href="#">Edit</a></li>
+					<li>Payment Method<a title="Edit" href="#">Edit</a></li>
+				</ul>
+			</aside>
+                </div><!-- #sidebar_right -->
        </div><!-- #content -->
        
       <div class="clear"></div>
@@ -300,7 +338,7 @@
           <h3>Costumer Servise</h3>
           <nav class="f_menu">
             <ul>
-              <li><a href="contact_us.html">Contact As</a></li>
+              <li><a href="__APP__/Index/contact_us">Contact As</a></li>
               <li><a href="#">Return</a></li>
               <li><a href="#">FAQ</a></li>
               <li><a href="#">Site Map</a></li>
