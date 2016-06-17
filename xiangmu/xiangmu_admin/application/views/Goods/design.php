@@ -21,15 +21,16 @@
         </div>
         <div class="search-wrap">
             <div class="search-content">
-                <form action="/jscss/admin/design/index" method="post">
+                <!-- <form action="/jscss/admin/design/index" method="post"> -->
                     <table class="search-tab">
                         <tr>
-                            <th width="70">关键字:</th>
-                            <td><input class="common-text" placeholder="关键字" name="keywords" value="" id="" type="text"></td>
-                            <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
+                            <th width="100">商品名称搜索:</th>
+                            <td><input class="common-text" placeholder="关键字" id="keywords" value="" id="" type="text"></td>
+                            <!-- <td><input class="btn btn-primary btn2" id="search" value="查询" type="submit"></td> -->
+                            <td><input class="btn btn-primary btn2" id="search" value="查询" type="button"></td>
                         </tr>
                     </table>
-                </form>
+                <!-- </form>  -->
             </div>
         </div>
         <div class="result-wrap">
@@ -37,14 +38,14 @@
                 <div class="result-title">
                     <div class="result-list">
                         <a href="<?php echo site_url('Welcome/insert')?>"><i class="icon-font"></i>新增作品</a>
-                        <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
+                        <a id="batchDel" class="del" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
                         <a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>
                     </div>
                 </div>
                 <div class="result-content">
                     <table class="result-tab" width="100%">
                         <tr>
-                            <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
+                            <th class="tc" width="5%"><input class="allChoose" type="checkbox"></th>
                             <th>ID</th>
                             <th>商品名称</th>
                             <th>商品详情</th>
@@ -58,7 +59,7 @@
                         </tr>
                         <?php foreach($goods as $k=>$v):?>
                             <tr>
-                                <td class="tc"><input name="id[]" value="59" type="checkbox"></td>
+                                <td class="tc"><input class="" value="59" type="checkbox"  value="<?php echo $v['goods_id']?>"></td>
                                 <td><?php echo $v['goods_id']?></td>
                                 <td><?php echo $v['goods_name']?></td>
                                 <td><?php echo $v['goods_content']?></td>
@@ -88,13 +89,18 @@
                                  ?></td>
                                 <td>
                                     <a class="link-update" href="#">修改</a>
-                                    <a class="link-del" href="#">删除</a>
                                     <a class="link-del" href="">添加属性</a>
                                 </td>
                             </tr>
                     <?php endforeach?>
                     </table>
-                    <div class="list-page"> 2 条 1/1 页</div>
+                    <div class="list-page">
+                        <a href="javascript:void(0)" value="1" class="last">首页</a>
+                        <?php for($i=1;$i<=$goods['0']['page_num'];$i++){
+                            echo "<a href='javascript:void(0)' value=".$i." class='last'>".$i."</a>";
+                        }?>
+                        <a href="javascript:void(0)" value="<?php echo $goods['0']['page_num']?>" class="last">尾页</a>
+                    </div>
                 </div>
             </form>
         </div>
@@ -103,3 +109,6 @@
 </div>
 </body>
 </html>
+
+<script src="<?php echo base_url('public/js/jquery-1.8.3.min.js')?>"></script>
+<script src="<?php echo base_url('public/js/goods.js')?>"></script>
