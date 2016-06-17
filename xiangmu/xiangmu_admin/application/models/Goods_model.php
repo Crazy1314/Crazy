@@ -11,12 +11,6 @@
 			}
 		}
 
-		//查询所有商品
-		function goods_list(){
-			$query=$this->db->query("SELECT * FROM `goods` inner join goods_type on goods.goods_type_id=goods_type.goods_type_id inner join brand on goods.brand_id=brand.brand_id");
-			return $query->result_array();
-		}
-
 		//所有商品数据
 		function goods_data($search)
 		{
