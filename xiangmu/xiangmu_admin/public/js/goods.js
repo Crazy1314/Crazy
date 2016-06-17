@@ -28,9 +28,9 @@ $(".allChoose").click(function(){
 //删除
 $(".del").click(function(){
 	alert(1);
-	/*goods_id=$(this).attr('value');
+	goods_id=$(this).attr('value');
 	$.get("del",{goods_id:goods_id},
 		function(data){
 			alert(data)
-	});*/
+	});
 })
