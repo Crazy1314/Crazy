@@ -70,9 +70,49 @@ class Goods extends CI_Controller {
 
 	//商品列表
 	function goods_list(){
+		$search=isset($_COOKIE['search'])?$_COOKIE['search']:1;
 		//查询商品的所有数据
-    	$data['goods']=$this->Goods_model->goods_list();
-        $this->load->view('goods/design',$data);
+		$data['goods']=$this->Goods_model->goods_data($search);
+
+    	if(is_array($data)){
+			$this->load->view('goods/design',$data);
+		}
+	}
+
+	//分页
+	function page(){
+		$search=isset($_COOKIE['search'])?$_COOKIE['search']:1;
+		//查询商品的所有数据
+		$data['goods']=$this->Goods_model->goods_data($search);
+
+    	if(is_array($data)){
+			$this->load->view('goods/design_fenye',$data);
+		}
+	}
+
+	//搜索后分页
+	function search(){
+		isset($_GET['search'])?$search=$_GET['search']:$search="";
+		setcookie('search',$search);
+
+		//查询商品的所有数据
+		$sear_goods=$this->Goods_model->goods_data($search);
+		//print_r($sear_goods);die;
+		//判断是否有数据
+		if(!isset($sear_goods['0']['goods_id'])){
+			echo "无查询数据";die;
+		}
+		$data['goods']=$sear_goods;
+		//print_r($data);die;
+		if(is_array($data)){
+			$this->load->view('goods/design_fenye',$data);
+		}
+	}
+
+	//删除
+	function del(){
+		$goods_id=$_GET['goods_id'];
+		$this->Goods_model->del($goods_id);
 	}
 }
 ?>
