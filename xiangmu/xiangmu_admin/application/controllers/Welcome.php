@@ -30,6 +30,7 @@ class Welcome extends CI_Controller {
         //print_r($res);die;
         if($res){
             if($user_pwd==$res[0]['user_pwd']){
+                $this->load->library('session');
                 $this->session->set_userdata('user_id',$res[0]['user_id']);
                 //$this->load->view('index/index.html');
                 redirect('Welcome/lists');
@@ -41,6 +42,7 @@ class Welcome extends CI_Controller {
 
     //权限
     public function  lists(){
+        $this->load->library('session');
         $user_id=$_SESSION['user_id'];
         $data=$this->db->query("select role_name,power.power_id,power_name,path,parent_id from user_role
                                     INNER join role on role.role_id=user_role.role_id

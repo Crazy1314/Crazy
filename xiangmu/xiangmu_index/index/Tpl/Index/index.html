@@ -210,38 +210,24 @@
         <div class="slidprev"><span>Prev</span></div>
         <div class="slidnext"><span>Next</span></div>
         <div id="slider">
-          <div id="slide1">
-            <img src="__PUBLIC__/images/content/slide1.jpg" alt="" title="" />
-            <div class="slid_text">
-              <h3 class="slid_title"><span>Breeze Theme</span></h3>
-              <p><span>Breeze is the 14 stylish HTML templates,</span></p>
-              <p><span>which will helps you boost sales</span></p>
-              <p><span>and receive good feedback from your clients.</span></p>
-            </div>
-          </div>
+        <?php foreach($arr as $key=>$v){ ?>
+          <div id="slide<?php echo $key; ?>">
+            <img src="{$v.goods_img_path}">
 
-          <div id="slide2">
-            <img src="__PUBLIC__/images/content/slide2.jpg" alt="" title="" />
-            <div class="slid_text">
-              <h3 class="slid_title"><span>Flexibility</span></h3>
-              <p><span>Every product, which you are selling,</span></p>
-              <p><span>will look great with Breeze theme.</span></p>
-            </div>
-          </div>
 
-          <div id="slide3">
-            <img src="__PUBLIC__/images/content/slide3.jpg" alt="" title="" />
             <div class="slid_text">
-              <h3 class="slid_title"><span>Accuracy and Easiness</span></h3>
-              <p><span>Breeze design is mere and accurate,</span></p>
-              <p><span>so it will satisfy everybody.</span></p>
+              <h3 class="slid_title"><span><?php echo $v['goods_name'] ?></span></h3>
+              <p><span><?php echo $v['goods_content'] ?></span></p>
+              
             </div>
           </div>
+          <?php } ?>
+       
         </div><!-- .slider -->
         <div id="myController">
-          <div class="control"><span>1</span></div>
-          <div class="control"><span>2</span></div>
-          <div class="control"><span>3</span></div>
+          <?php foreach($arr as $key=>$v){ ?>
+          <div class="control"><span><?php echo $key; ?></span></div>
+          <?php } ?>
         </div>
 
 
