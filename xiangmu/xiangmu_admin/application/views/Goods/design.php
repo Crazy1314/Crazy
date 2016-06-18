@@ -37,7 +37,7 @@
             <form name="myform" id="myform" method="post">
                 <div class="result-title">
                     <div class="result-list">
-                        <a href="<?php echo site_url('Welcome/insert')?>"><i class="icon-font"></i>新增作品</a>
+                        <a href="<?php echo site_url('goods/insert')?>"><i class="icon-font"></i>新增作品</a>
                         <a id="batchDel" class="del" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
                     </div>
                 </div>
