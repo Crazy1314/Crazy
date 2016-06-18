@@ -1,6 +1,6 @@
 <table class="result-tab" width="100%">
         <tr>
-            <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
+            <th class="tc" width="5%"><input id="all" class="allChoose" type="checkbox"></th>
             <th>ID</th>
             <th>商品名称</th>
             <th>商品详情</th>
@@ -14,7 +14,7 @@
         </tr>
         <?php foreach($goods as $k=>$v):?>
             <tr>
-                <td class="tc"><input name="id[]" value="59" type="checkbox"></td>
+                <td class="tc"><input class="checkall" type="checkbox"  value="<?php echo $v['goods_id']?>"></td>
                 <td><?php echo $v['goods_id']?></td>
                 <td><?php echo $v['goods_name']?></td>
                 <td><?php echo $v['goods_content']?></td>
@@ -43,8 +43,8 @@
                     }
                  ?></td>
                 <td>
-                    <a class="link-update" href="#">修改</a>
-                    <a class="link-del" href="">添加属性</a>
+                    <a class="link-update" href="<?php echo site_url("goods/up?goods_id=").$v['goods_id']?>">修改</a>
+                                    <a class="link-del" href="<?php echo site_url("goods/add_sku?goods_id=").$v['goods_id']?>">添加属性</a>
                 </td>
             </tr>
     <?php endforeach?>
@@ -56,7 +56,6 @@
         }?>
         <a href="javascript:void(0)" value="<?php echo $goods['0']['page_num']?>" class="last">尾页</a>
     </div>
-
 
 <script src="<?php echo base_url('public/js/jquery-1.8.3.min.js')?>"></script>
 <script src="<?php echo base_url('public/js/goods.js')?>"></script>
