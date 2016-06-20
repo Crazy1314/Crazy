@@ -37,15 +37,14 @@
             <form name="myform" id="myform" method="post">
                 <div class="result-title">
                     <div class="result-list">
-                        <a href="<?php echo site_url('Welcome/insert')?>"><i class="icon-font"></i>新增作品</a>
+                        <a href="<?php echo site_url('goods/insert')?>"><i class="icon-font"></i>新增作品</a>
                         <a id="batchDel" class="del" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
-                        <a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>
                     </div>
                 </div>
                 <div class="result-content">
                     <table class="result-tab" width="100%">
                         <tr>
-                            <th class="tc" width="5%"><input class="allChoose" type="checkbox"></th>
+                            <th class="tc" width="5%"><input id="all" class="allChoose" type="checkbox"></th>
                             <th>ID</th>
                             <th>商品名称</th>
                             <th>商品详情</th>
@@ -57,9 +56,11 @@
                             <th>是否为新品</th>
                             <th>操作</th>
                         </tr>
-                        <?php foreach($goods as $k=>$v):?>
+                        <?php if(isset($goods[0]['goods_id'])){
+
+                         foreach($goods as $k=>$v):?>
                             <tr>
-                                <td class="tc"><input class="" value="59" type="checkbox"  value="<?php echo $v['goods_id']?>"></td>
+                                <td class="tc"><input class="checkall" type="checkbox"  value="<?php echo $v['goods_id']?>"></td>
                                 <td><?php echo $v['goods_id']?></td>
                                 <td><?php echo $v['goods_name']?></td>
                                 <td><?php echo $v['goods_content']?></td>
@@ -88,11 +89,14 @@
                                     }
                                  ?></td>
                                 <td>
-                                    <a class="link-update" href="#">修改</a>
-                                    <a class="link-del" href="">添加属性</a>
+                                    <a class="link-update" href="<?php echo site_url("goods/up?goods_id=").$v['goods_id']?>">修改</a>
+                                    <a class="link-del" href="<?php echo site_url("goods/add_sku?goods_id=").$v['goods_id']?>">添加属性</a>
                                 </td>
                             </tr>
-                    <?php endforeach?>
+                     <?php endforeach;?>
+                     <?php }else{
+                        echo "无数据";die;
+                    }?>
                     </table>
                     <div class="list-page">
                         <a href="javascript:void(0)" value="1" class="last">首页</a>

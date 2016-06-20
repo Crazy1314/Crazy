@@ -38,15 +38,22 @@
 				->limit($page_size,$limits)
 				->get('goods');
 			//$query=$this->db->query("SELECT * FROM `goods` inner join goods_type on goods.goods_type_id=goods_type.goods_type_id inner join brand on goods.brand_id=brand.brand_id limit $limits,$page_size");
-			//$query=$this->db->limit($page_size,$limits)->join('goods_type')->where('goods.goods_type_id=goods_type.goods_type_id')->get("goods");
 			$data=$query->result_array();
-			//print_r($data);die;
+			
 			$data['0']['page_num']=$page_num;
 			$data['0']['page']=$page;
 			return $data;
 		}
 
 		//删除
-		//function 
+		function del($goods_id)
+		{
+			return $this->db->where("goods_id in ($goods_id)")->delete('goods');
+		}
+
+		//修改
+		function up_data($goods_id,$arr){
+			return $this->db->where("goods_id=$goods_id")->update("goods",$arr);
+		}
 	}
 ?>
