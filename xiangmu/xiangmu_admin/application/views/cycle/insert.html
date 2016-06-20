@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>『有主机上线』后台管理</title>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('public')?>/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('public')?>/css/main.css"/>
+    <script type="text/javascript" src="<?php echo base_url('public')?>/js/libs/modernizr.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url('public')?>/js/jquery-2.2.0.js"></script>
+</head>
+<body>
+
+<?php $this->load->view('pub.html'); ?>
+    <!--/sidebar-->
+    <div class="main-wrap">
+
+        <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin/design/">首页</a><span class="crumb-step">&gt;</span><a class="crumb-name" href="<?php echo site_url('Cycleimg/design') ?>">轮播图管理</a><span class="crumb-step">&gt;</span><span>新增轮播图</span></div>
+        </div>
+        <div class="result-wrap">
+            <div class="result-content">
+                <form action="<?php echo site_url('Cycleimg/add') ?>" method="post" id="myform" name="myform" enctype="multipart/form-data">
+                    <table class="insert-tab" width="100%">
+                        <tbody>
+                        <tr>
+                            <th width="120"><i class="require-red">*</i>选择商品:</th>
+                            <td>
+                                <input type="text" id="goods_name" placeholder="搜索的商品名">
+                                <select name="goods_id" id="catid" class="required" style="display:none;">
+                                    
+                                   
+                                </select>
+                                <input type="button" value="搜索商品" id="search" class="btn btn6">
+                            </td>
+                        </tr>
+                        <tr height="200">
+                            <th width="120"><i class="require-red">*</i>商品图:</th>
+                            <td>
+                                <img width="200" id="goods_img" height="200" src="" alt="暂时无图">
+                            </td>
+                        </tr>
+                        <tr height="200">
+                            <th width="120"><i class="require-red">*</i><input type="checkbox" value="1" name="is_show" >:</th>
+                            <td>
+                                <li class="require-red">立即显示</li>
+                            </td>
+                        </tr>
+                            
+                                <th></th>
+                                <td>
+                                    <input class="btn btn-primary btn6 mr10" value="提交" type="submit">
+                                    <input class="btn btn6" onclick="history.go(-1)" value="返回" type="button">
+                                </td>
+                            </tr>
+                        </tbody></table>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <!--/main-->
+</div>
+</body>
+<script>
+$('#search').click(function(){
+    var goods_name=$('#goods_name').val();
+    $.ajax({
+            type: "GET",
+            url: "<?php echo site_url('Cycleimg/search'); ?>?goods_name="+goods_name,
+            success:function(msg){
+                //alert(msg);
+                var json = eval('('+msg+')');
+                //alert(json);
+                var html = '';
+                var json = eval('('+msg+')');
+                // alert(json);
+                // console.log(json);
+                //alert(conslog(json));
+                $.each(json,function(i,item){
+                    //alert(item.goods_id)
+                    html += '<option value="'+item.goods_id+'">'+item.goods_name+'</option>'
+                });
+                
+                //alert(html);
+                $('#catid').html(html);
+                $('#catid').show();
+
+            }
+        });
+})
+
+$('#catid').change(function(){
+    var goods_id = $('#catid').val();
+    //alert(goods_id);
+    $.ajax({
+        type:'GET',
+        url:"<?php echo site_url('Cycleimg/getimg'); ?>?goods_id="+goods_id,
+        success:function(msg){
+            //alert("./Crazy/"+msg);
+            $('#goods_img').attr('src',"./Crazy/xiangmu/../../../../"+msg);
+        }
+        });
+})
+</script>
+</html>
