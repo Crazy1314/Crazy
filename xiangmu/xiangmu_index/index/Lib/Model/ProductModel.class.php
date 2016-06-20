@@ -11,13 +11,22 @@ class ProductModel extends Model{
 		$data = $model->join('goods ON goods_sku.goods_id = goods.goods_id')->where('goods_sku_id ='.$goods_sku_id)->select();
 		return $data;
 	}
-
+							
 	/**
 	 * 查询省
 	 */
 	public function selectProvince(){
 		$model = M('region');
 		$data = $model->where('parent_id = 1')->select();
+		return $data;
+	}
+
+	/**
+	 * 查询收货地址
+	 */
+	public function selectAddress($user_id){
+		$model = M('address');
+		$data = $model->where('user_id = '.$user_id)->limit(2)->select();
 		return $data;
 	}
 

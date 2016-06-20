@@ -45,4 +45,14 @@ class OrderAction extends Action {
 	    $this->display('order');
 		
 	}
+
+	//取消订单和订单中的商品
+	public function del(){
+		$border_id = $_GET['border_id'];
+		$db = M('border_goods');
+		$db->where('border_id ='.$border_id)->delete();
+		$model = M('border');
+		$model->where('border_id ='.$border_id)->delete();
+		$this->redirect('CreatOrder');
+	}
 }
