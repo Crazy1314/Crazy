@@ -97,7 +97,7 @@ $('#catid').change(function(){
         url:"<?php echo site_url('Cycleimg/getimg'); ?>?goods_id="+goods_id,
         success:function(msg){
             //alert("./Crazy/"+msg);
-            $('#goods_img').attr('src',"./Crazy/xiangmu/../../../../"+msg);
+            $('#goods_img').attr('src',"../"+msg);
         }
         });
 })
