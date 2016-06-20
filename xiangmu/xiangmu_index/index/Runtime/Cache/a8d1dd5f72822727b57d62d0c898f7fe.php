@@ -261,6 +261,7 @@
         <div class="password">
           <a class="surely" href="#">您可以使用以下方式进行登陆</a><br>
           <img src="__PUBLIC__/images/qq_blue_76X24.png" alt="">
+          <a href="https://api.weibo.com/oauth2/authorize?client_id=4016097123&redirect_uri=http%3A%2F%2Fhua1521.cc%2Fweibo_%2Fcallback.php&response_type=code "><img src="__PUBLIC__/images/weibo_240.png" alt=""></a>
         </div><!-- .password -->
 			</form><!-- .registed -->
                 </div><!-- .grid_6 -->

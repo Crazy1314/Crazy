@@ -71,6 +71,12 @@ class ProductAction extends Action {
 
 	    }
 		}
+		$username = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : '';
+
+		//查询推荐商品
+		$com_goods = $db->selectComGoods();
+		$this->assign('com_goods',$com_goods);
+		$this->assign('user_name',$username);
 		$this->assign('address',$address);
 	    $this->assign('goods',$goods);
 	    $this->assign('province',$province);

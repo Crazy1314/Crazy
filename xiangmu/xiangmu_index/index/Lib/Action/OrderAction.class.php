@@ -5,7 +5,7 @@ class OrderAction extends Action {
 	 * 生成订单
 	 */
 	public function CreatOrder(){
-		$user_id = isset($_SESSION['user_id'])?$_SESSION['user_id']:1;
+		$user_id = isset($_SESSION['user_id'])?$_SESSION['user_id']:'';
 		$db = D('Order');
 		if($_GET['total']){
 			$address_id = $_GET['address_id'];
@@ -41,6 +41,10 @@ class OrderAction extends Action {
 		}
 		//查询订单
 	    $order = $db->selectOrder($user_id);
+
+	    //查询推荐商品
+		$com_goods = $db->selectComGoods();
+		$this->assign('com_goods',$com_goods);
 	    $this->assign('order',$order);
 	    $this->display('order');
 		
