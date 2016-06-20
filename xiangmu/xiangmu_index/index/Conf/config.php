@@ -2,7 +2,7 @@
 return array(
 	//'配置项'=>'配置值'
 	'DB_TYPE'=>'mysql',
-	'DB_HOST'=>'localhost',
+	'DB_HOST'=>'192.168.1.162',
 	'DB_NAME'=>'da_hufupin',
 	'DB_USER'=>'root',
 	'DB_PWD'=>'root',
