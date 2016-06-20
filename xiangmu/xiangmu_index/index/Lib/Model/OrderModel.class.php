@@ -50,4 +50,12 @@ class OrderModel extends Model{
 		
 		return $data;
 	}
+	/**
+	 * 查询推荐商品
+	 */
+	public function selectComGoods(){
+		$model = M('goods_sku');
+		$data = $model->join('goods ON goods_sku.goods_id = goods.goods_id')->limit(10)->select();
+		return $data;
+	}
 }
