@@ -180,7 +180,7 @@ class Goods extends CI_Controller {
 	*/
 	function add_sku(){
 		$data['goods_id']=$_GET['goods_id'];
-		$this->load->view("goods/skuadd",$data);
+		$this->load->view("goods/sku_add",$data);
 	}
 
 	function sku(){
