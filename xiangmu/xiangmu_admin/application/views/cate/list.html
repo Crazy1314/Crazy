@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>『有主机上线』后台管理</title>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('public')?>/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('public')?>/css/main.css"/>
+    <script type="text/javascript" src="<?php echo base_url('public')?>/js/libs/modernizr.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url('public')?>/js/jquery-2.2.0.js"></script>
+</head>
+<body>
+
+<?php $this->load->view('pub.html'); ?>
+    <!--/sidebar-->
+    <div class="main-wrap">
+
+        <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">轮播图管理</span></div>
+        </div>
+        <div class="search-wrap">
+            <div class="search-content">
+                <form id="url" action="<?php echo site_url('Cycleimg/searchlist') ?>" method="get">
+                    <table class="search-tab">
+                        <tr>
+                            <th width="70">关键字:</th>
+                            <td><input class="common-text" placeholder="关键字" name="goods_name" id="goods_type_name" type="text"></td>
+                            <td><input class="btn btn-primary btn2" value="查询" type="button" id="search"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <div class="result-wrap">
+            <form name="myform" id="myform" method="post">
+                <div class="result-title">
+                    <div class="result-list">
+                        <a href="<?php echo site_url('Cate/insert')?>"><i class="icon-font"></i>新增轮播图</a>
+                        <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
+                        
+                    </div>
+                </div>
+                <div class="result-content">
+                    <table class="result-tab" width="100%">
+                        <tr id="first_row">
+                            <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
+                            <th>分类名称</th>
+                            
+                            <th>操作</th>
+                        </tr>
+                       
+                            <?php foreach($list as $v): ?>
+                            <tr cc="<?php echo $v['goods_type_id'] ?>">
+                                <td class="tc"><input name="id[]" value="59" type="checkbox"></td>
+                                <td class="change">
+                                    <?php echo $v['goods_type_name']; ?>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                    <a class="link-del" href="javascript:" v="<?php echo $v['goods_type_id']; ?>" >删除</a>
+                                </td>
+                            </tr>
+                            <?php endforeach ?>
+                      
+                    </table>
+                    <div class="list-page" id="page"> <?php echo $pages ?></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--/main-->
+</div>
+</body>
+<script>
+$('.link-del').click(function (){
+    var that = $(this);
+    var id = $(this).attr('v');
+    $.get(
+        "<?php echo site_url('Cate/dele'); ?>?id="+id,
+        function (msg)
+        {
+            // alert(msg)
+            if(msg==1)
+            {
+                alert('删除成功');
+                that.parent().parent().remove();
+            }
+            else
+            {
+                alert('删除失败');
+            }
+        }
+
+        );
+});
+
+
+$('#search').click(function (){
+    var goods_type_name =  $('#goods_type_name').val();
+    window.location.href="<?php echo site_url('Cate/searchlist') ?>/"+goods_type_name;
+})
+
+//即点即该
+
+// $('.change').click(function(){
+//     var id= $(this).parent().attr('cc');
+//     // alert(id);
+//     $('#s_'+id).html('');;
+//     $('#goods_type_name_'+id).show();
+//         $('#goods_type_name_'+id).blur(function(){
+//         alert(id)
+//     })
+// })
+
+$(function(){
+    $('.change').click(function(){
+        var $td=$(this);
+        //获取td的ID
+        var goood_type_id=$(this).parent().attr('cc');
+        var old_name=$(this).text();
+        var $input=$('<input type="text" />');
+        //替换成input表格
+        $(this).html($input);
+        //点击时显示原内容（可去掉两边空格）
+        $input.focus().val($.trim(old_name));
+        //防止再次点击
+        $input.click(function(){
+            return false;
+        });
+        $input.blur(function(){
+            var new_name=$(this).val();
+            // var ziduan=$(this).parent().attr('ziduan');
+            if(new_name!=old_name){
+                var url='<?php echo site_url('Cate/edit')?>';
+                $.get(url,{'goods_type_id':goood_type_id,'goods_type_name':new_name},function(status){
+                    //alert(status);
+                    if(status==1){
+                        $td.text(new_name);
+                    }else{
+                        $td.text(old_name);
+                        alert('修改失败');
+                    }
+                });
+            }else{
+                $td.text(old_name);
+            }
+        })
+    })
+ })
+
+</script>
+</html>
+ 
