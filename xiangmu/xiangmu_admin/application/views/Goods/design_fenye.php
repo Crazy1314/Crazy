@@ -1,3 +1,4 @@
+
 <table class="result-tab" width="100%">
         <tr>
             <th class="tc" width="5%"><input id="all" class="allChoose" type="checkbox"></th>
@@ -18,7 +19,7 @@
                 <td><?php echo $v['goods_id']?></td>
                 <td><?php echo $v['goods_name']?></td>
                 <td><?php echo $v['goods_content']?></td>
-                <td><img src="<?php echo "./Crazy/xiangmu/../../../../".$v['goods_img_path']?>" width="50px" height="50px"></td>
+                <td><img src="<?php echo "../".$v['goods_img_path']?>" width="50px" height="50px"></td>
                 <td><?php echo $v['brand_name']?></td>
                 <td><?php echo $v['goods_type_name']?></td>
                 <td><?php

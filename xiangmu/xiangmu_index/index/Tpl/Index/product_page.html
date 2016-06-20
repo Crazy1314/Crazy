@@ -361,8 +361,9 @@
        </div><!-- .sidebar -->
 
        <div id="content" class="grid_9">
-	      <h1 class="page_title">Candles Orange Vanilla</h1>
-
+       	<?php foreach($data as $k=>$v){?>
+	      <h1 class="page_title"><?php echo $v['goods_name']?></h1>
+		<?php }?>
 		<div class="product_page">
 			<div class="grid_4 img_slid" id="products">
 				<img class="sale" src="__PUBLIC__/images/sale.png" alt="Sale"/>

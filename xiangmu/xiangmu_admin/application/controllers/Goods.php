@@ -42,14 +42,15 @@ class Goods extends CI_Controller {
 	function add(){
 		//上传商品图片
 		$config['upload_path'] = 'xiangmu/../../public/goodsimg';
+
 		//echo $config['upload_path'];die;
 		$config['allowed_types'] = 'gif|jpg|png|jpeg';
 		$config['max_size'] = '';
 		$config['max_width']  = '';
 		$config['max_height']  = '';
 
-		$this->load->library('upload', $config);
-		 
+		$aa = $this->load->library('upload', $config);
+		// print_r($aa);die;
 		if ( ! $this->upload->do_upload('goods_img_path'))
 		{
 			$error = array('error' => $this->upload->display_errors());
@@ -59,7 +60,7 @@ class Goods extends CI_Controller {
 		{
 			$data = array('upload_data' => $this->upload->data());
 			//图片路径
-			$goods_img_path=$config['upload_path']."/".$data['upload_data']['file_name'];
+			$goods_img_path="../../public/goodsimg/".$data['upload_data']['file_name'];
 			//print_r($_POST);
 			$_POST['goods_img_path']=$goods_img_path;
 			$arr=$_POST;

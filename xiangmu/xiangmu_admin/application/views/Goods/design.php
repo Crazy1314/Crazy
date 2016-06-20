@@ -64,7 +64,7 @@
                                 <td><?php echo $v['goods_id']?></td>
                                 <td><?php echo $v['goods_name']?></td>
                                 <td><?php echo $v['goods_content']?></td>
-                                <td><img src="<?php echo "./Crazy/xiangmu/../../../../".$v['goods_img_path']?>" width="50px" height="50px"></td>
+                                <td><img src="<?php echo "../".$v['goods_img_path']?>" width="50px" height="50px"></td>
                                 <td><?php echo $v['brand_name']?></td>
                                 <td><?php echo $v['goods_type_name']?></td>
                                 <td><?php
@@ -91,6 +91,7 @@
                                 <td>
                                     <a class="link-update" href="<?php echo site_url("goods/up?goods_id=").$v['goods_id']?>">修改</a>
                                     <a class="link-del" href="<?php echo site_url("goods/add_sku?goods_id=").$v['goods_id']?>">添加属性</a>
+                                 
                                 </td>
                             </tr>
                      <?php endforeach;?>
