@@ -12,4 +12,11 @@ class Brand_model extends CI_Model {
 		$query=$this->db->get('brand');
 		return $query->result_array();
 	}
+
+
+      //查询品牌列表
+      public function brand_list(){
+            $res=$this->db->get('brand')->result_array();
+            return $res;
+      }
 }

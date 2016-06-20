@@ -14,4 +14,11 @@ class Brand extends CI_Controller {
 		}
 	}
 
+	//品牌列表显示
+	public function brand_list(){
+		$this->load->model("Brand_model");
+		$data['res']=$this->Brand_model->brand_list();
+		$this->load->view('brand/brand_list',$data);
+	}
+
 }
