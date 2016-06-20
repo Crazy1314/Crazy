@@ -39,11 +39,13 @@ class ProductModel extends Model{
 		return $data;
 	}
 
+	
 	/**
-	 * 删除购物车商品
+	 * 查询推荐商品
 	 */
-	public function del($goods_id){
-		$model = M('goods');
-
+	public function selectComGoods(){
+		$model = M('goods_sku');
+		$data = $model->join('goods ON goods_sku.goods_id = goods.goods_id')->limit(10)->select();
+		return $data;
 	}
 }
