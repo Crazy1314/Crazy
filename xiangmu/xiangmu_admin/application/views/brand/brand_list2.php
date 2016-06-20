@@ -1,19 +1,6 @@
 <!doctype html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>『有主机上线』后台管理</title>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('public')?>/css/common.css"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('public')?>/css/main.css"/>
-    <script type="text/javascript" src="<?php echo base_url('public')?>/js/libs/modernizr.min.js"></script>
-</head>
-<body>
-<!-- 载入公共文件 -->
-<?php $this->load->view('pub.html') ?>
-<!-- 载入公共文件 -->
-
-    <!--/sidebar-->
-    <div class="main-wrap" id="div2">
+    <div id="div2">
 
         <div class="crumb-wrap">
             <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin/design/">首页</a><span class="crumb-step">&gt;</span><a class="crumb-name" href="/jscss/admin/design/">作品管理</a><span class="crumb-step">&gt;</span><span>新增品牌</span></div>
@@ -41,7 +28,3 @@
     </div>
     <!--/main-->
 </div>
-</body>
-</html>
-<script src="<?php echo base_url('public/js/jquery-1.8.3.min.js')?>"></script>
-<script src="<?php echo base_url('public/js/brand.js')?>"></script>

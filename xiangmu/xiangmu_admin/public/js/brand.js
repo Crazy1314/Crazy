@@ -17,3 +17,15 @@ function check_all(){
         return true;
     }
 }
+
+    //分页
+function ajax_page(page){
+    $.ajax({
+        type:"GET",
+        url:"brand_list2",
+        data:{page:page},
+        success:function(msg){
+            $("#div2").html(msg)
+        }
+    })
+}
