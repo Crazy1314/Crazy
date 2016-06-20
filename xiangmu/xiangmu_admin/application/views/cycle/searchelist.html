@@ -1,0 +1,182 @@
+<head>
+    <meta charset="UTF-8">
+    <title>『有主机上线』后台管理</title>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('public')?>/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('public')?>/css/main.css"/>
+    <script type="text/javascript" src="<?php echo base_url('public')?>/js/libs/modernizr.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url('public')?>/js/jquery-2.2.0.js"></script>
+</head>
+<body>
+
+<?php $this->load->view('pub.html'); ?>
+    <!--/sidebar-->
+    <div class="main-wrap">
+
+        <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">轮播图管理</span></div>
+        </div>
+        <div class="search-wrap">
+            <div class="search-content">
+                <form id="url" action="<?php echo site_url('Cycleimg/searchlist') ?>" method="get">
+                    <table class="search-tab">
+                        <tr>
+                            <th width="70">关键字:</th>
+                            <td><input class="common-text" placeholder="关键字" name="goods_name" id="goods_name" type="text"></td>
+                            <td><input class="btn btn-primary btn2" value="查询" type="button" id="search"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <div class="result-wrap">
+            <form name="myform" id="myform" method="post">
+                <div class="result-title">
+                    <div class="result-list">
+                        <a href="<?php echo site_url('Cycleimg/insert')?>"><i class="icon-font"></i>新增轮播图</a>
+                        <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
+                        
+                    </div>
+                </div>
+                <div class="result-content">
+                    <table class="result-tab" width="100%">
+                        <tr id="first_row">
+                            <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
+                            <th>商品名称</th>
+                            <th>商品图片</th>
+                           
+                            <th>状态</th>
+                            
+                            <th>操作</th>
+                        </tr>
+                       
+                            <?php foreach($list as $v): ?>
+                            <tr ss="<?php echo $v['is_show'] ?>" cc="<?php echo $v['cycle_id'] ?>">
+                                <td class="tc"><input name="id[]" value="59" type="checkbox"></td>
+                                <td>
+                                    <?php echo $v['goods_name']; ?>
+                                </td>
+                                <td>
+                                     <img src="<?php echo "./Crazy/xiangmu/../../../../../".$v['goods_img_path']?>" width="50px" height="50px">
+
+                                </td>
+                                <td class="show">
+                                   
+                                    <?php if($v['is_show']==1){ ?>
+                                    <a href="javascript:">显示</a>
+                                    <?php }else{ ?>
+                                    <a href="javascript:">不显示</a>
+                                    <?php } ?>
+                                </td>
+                               
+                                <td>
+                                    
+                                    <a class="link-del" href="javascript:" v="<?php echo $v['cycle_id']; ?>" >删除</a>
+                                </td>
+                            </tr>
+                            <?php endforeach ?>
+                      
+                    </table>
+                    <div class="list-page" id="page"> <?php echo $pages ?></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--/main-->
+</div>
+</body>
+<script>
+$('.link-del').click(function (){
+    var that = $(this);
+    var id = $(this).attr('v');
+    $.get(
+        "<?php echo site_url('Cycleimg/dele'); ?>?id="+id,
+        function (msg)
+        {
+            // alert(msg)
+            if(msg==1)
+            {
+                alert('删除成功');
+                that.parent().parent().remove();
+            }
+            else
+            {
+                alert('删除失败');
+            }
+        }
+
+        );
+});
+
+
+$('#search').click(function (){
+    var goods_name =  $('#goods_name').val();
+    window.location.href="<?php echo site_url('Cycleimg/searchlist') ?>/"+goods_name;
+})
+//搜索
+// $('#search').click(function (){
+//     var goods_name = $('#goods_name').val();
+//     //alert(goods_name);
+//     $.get(
+//         "<?php echo site_url('Cycleimg/searchlist'); ?>/"+goods_name,
+//         function (msg)
+//         {
+//             var obj = eval('('+msg+')');
+//             alert(msg);
+//             var html =  '';
+//             $.each(obj.list,function(i,item){
+//                 html +='<tr>'
+//                 html += '<td class="tc"><input name="id[]" value="59" type="checkbox"></td>'
+//                 html +='<td>'
+//                 html += item.goods_name
+//                 html +='</td><td>'
+    
+//                 html += '<img src="" alt="无"></td><td>'
+    
+//                 if(item.is_show==1){
+//                 html += '显示' 
+//                         }else{
+//                 html += '不显示'
+//                         }
+//                 html += '</td><td>'
+//                 html += '<a class="link-del" href="javascript:" v="'+item.cycle_id+'" >删除</a></td></tr>'
+
+//             })
+//             //alert(html);
+//             $('#first_row').siblings().remove(); //把第一行之外的所有兄弟节点删除
+//             //alert(html);
+//             $('#first_row').after(html);
+
+//             $('#page').html(obj.pages);
+
+//         }
+
+//         );
+// })
+
+
+//修改状态
+$('.show').click(function (){
+    var is_show = $(this).parent().attr('ss');
+    var cycle_id = $(this).parent().attr('cc');
+    //alert(cycle_id);
+    //alert(cycle_id);
+    $.get(
+        "<?php echo site_url('Cycleimg/chang_status'); ?>?is_show="+is_show+'&cycle_id='+cycle_id,
+        function (msg)
+        {
+            if(msg==1)
+            {
+                alert('更改成功');
+                window.location.reload();
+            }
+            else
+            {
+                alert('更改失败');
+            }
+        }
+
+        );
+})
+</script>
+</html>
+ 
