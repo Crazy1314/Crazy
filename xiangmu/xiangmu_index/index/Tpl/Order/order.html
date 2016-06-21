@@ -1,6 +1,9 @@
 <!DOCTYPE HTML>
 <html>
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<!--载入前台公共头部-->
+<include file="./index/Tpl/public/pub.html" /> 
+<!--载入前台公共头部-->
 <head>
   <meta charset="UTF-8">
 
@@ -67,80 +70,7 @@
 
 </head>
 <body>
-  <div class="container_12">
-    <div id="top">
-      <div class="grid_3">
-        <div class="phone_top">
-          400-000-001
-        </div><!-- .phone_top -->
-      </div><!-- .grid_3 -->
-
-    </div><!-- #top -->
-
-    <div class="clear"></div>
-
-    <header id="branding">
-      <div class="grid_3">
-        <hgroup>
-          <h1 id="site_logo" ><a href="index/index.html" title=""><img src="__PUBLIC__/images/logo.png" alt="Online Store Theme Logo"/></a></h1>
-          <h2 id="site_description">在线商城</h2>
-        </hgroup>
-      </div><!-- .grid_3 -->
-
-      <div class="grid_3">
-        <form class="search">
-          <input type="text" name="search" class="entry_form" value="" placeholder="搜索商品"/>
-  </form>
-      </div><!-- .grid_3 -->
-
-      <div class="grid_6">
-        <ul id="cart_nav">
-          <li>
-            <a class="cart_li" href="#">购物车<span id="prices">{$total}</span></a>
-            <ul class="cart_cont">
-              <li class="no_border"><p>最近添加的商品</p></li>
-              <foreach name="goods" item="v">
-              <li>
-                <a href="product_page.html" class="prev_cart"><div class="cart_vert"><img src="__PUBLIC__/uploads/{$v.0.goods_img_path}" alt="" title="" /></div></a>
-                <div class="cont_cart">
-                  <h4>{$v.0.goods_name}</h4>
-                  <div class="price">{$v.goods_num} x {$v.0.goods_sku_price}</div>
-                </div>
-                <a title="close" class="close" href="#"></a>
-                <div class="clear"></div>
-              </li>
-              <li>
-                <div class="cont_cart">
-                <h4>邮费:10.00元</h4>
-                </div>
-              </li>
-              </foreach>
-             
-        <li class="no_border">
-    <a href="__APP__/Product/index" class="view_cart">查看购物车</a>
-    <a href="__APP__/Order/index" class="checkout">结账</a>
-        </li>
-            </ul>
-          </li>
-        </ul>
-
-        <nav class="private">
-          <ul>
-            <li><a href="#">我的账号</a></li>
-    <li class="separator">|</li>
-            <li><a href="#">我的清单</a></li>
-    <li class="separator">|</li>
-            <li><a href="login.html">登陆</a></li>
-    <li class="separator">|</li>
-            <li><a href="login.html">注册</a></li>
-          </ul>
-        </nav><!-- .private -->
-      </div><!-- .grid_6 -->
-    </header><!-- #branding -->
-  </div><!-- .container_12 -->
-
   <div class="clear"></div>
-
   <div id="block_nav_primary">
     <div class="container_12">
       <div class="grid_12">
@@ -189,7 +119,7 @@
   <section id="main" class="entire_width">
     <div class="container_12">
        <div class="grid_12">
-       <h1 class="page_title">订单</h1>
+       <h1 class="page_title">我的订单</h1>
 
        <table class="cart_product">
         <foreach name="order" item="v">
@@ -197,29 +127,30 @@
           <th colspan="2" align="left" style="padding-left:20px;" >订单号：{$v['border_number']}</th>
           <th  style="padding-right:20px;" >订单总价：<strong>{$v.border_total}元</strong></th>
           <th align="right" style="padding-right:20px;" >
-            <if condition="$v['border_state'] eq 0">
+            <if condition="$v['border_state'] eq 1">
             <a href="__APP__/Pay/pay?order_number={$v['border_number']}">立即付款</a>
-           <elseif condition="$v['border_state'] eq 1"/>
-            已付款等待商家发货
+            &nbsp;&nbsp;&nbsp;&nbsp;
+           <a title="close"  href="javascript:void(0)" id="closes" onclick="closes({$v['border_id']})">取消订单</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="javascript:void(0)" onclick="lookat({$v['border_id']})">查看订单</a>
            <elseif condition="$v['border_state'] eq 2"/>
-            商家已发货，等待确认收货
-           <else /> 
-            确认收货
-           </if>&nbsp;&nbsp;&nbsp;&nbsp;
+            已付款等待商家发货
+            &nbsp;&nbsp;&nbsp;&nbsp;
            <a title="close"  href="javascript:void(0)" id="closes" onclick="closes({$v['border_id']})">取消订单</a> 
+           &nbsp;&nbsp;&nbsp;&nbsp;
+            <a  href="javascript:void(0)" onclick="lookat({$v['border_id']})">查看订单</a>
+           <elseif condition="$v['border_state'] eq 3"/>
+            商家已发货，等待确认收货
+            &nbsp;&nbsp;&nbsp;&nbsp;
+           <a title="close"  href="javascript:void(0)" id="closes" onclick="closes({$v['border_id']})">取消订单</a>
+           &nbsp;&nbsp;&nbsp;&nbsp;
+            <a  href="javascript:void(0)" onclick="lookat({$v['border_id']})">查看订单</a> 
+           <else /> 
+            已确认收货&nbsp;&nbsp;&nbsp;&nbsp;
+            <a  href="javascript:void(0)" onclick="lookat({$v['border_id']})">查看订单</a>
+           </if>
           </th>
         </tr>
-        <foreach name="v['goods']" item="v1">
-        <tr>
-         <td class="images"><a href="__PUBLIC__/uploads/{$v1['goods_img_path']}"><img src="__PUBLIC__/images/{$v1['goods_img_path']}" alt="{$v1['goods_img_path']}" ></a></td>
-         <td class="bg price">{$v1['goods_name']}&nbsp;&nbsp;{$v1['goods_sku_nature']}</td>
-         <td class="bg price">{$v1['goods_sku_price']}元</td>
-         <td class="bg price">*&nbsp;{$v1['border_goods_count']}
-         </td>
-         
-         
-        </tr>
-        </foreach>
         </foreach>
         <tr>
          <td colspan="7" class="cart_but">
@@ -245,11 +176,14 @@
         function closes(border_id){
             var confirm = window.confirm('确定要删除吗？');
             if(confirm == true){
-              location.href="__APP__/Order/del?border_id="+border_id;
-              
+              location.href="__APP__/Order/del?border_id="+border_id; 
               }else{
               return false;
             }  
+          }
+        //查看订单详情
+         function lookat(border_id){
+              location.href="__APP__/Order/lookat?border_id="+border_id;
           }
       </script>
       <div class="clear"></div>
@@ -278,13 +212,13 @@
               <div class="grid_3 product">
                 
                 <div class="prev">
-                  <a href="__APP__/Goods/index?goods_sku_id={$v.goods_sku_id}"><img src="__PUBLIC__/uploads/{$v.goods_img_path}" alt="" title="" /></a>
+                  <a href="__APP__/Goods/index?goods_sku_id={$v.goods_sku_id}"><img src="<?php echo "../".$v['goods_img_path']?>" alt="" title="" /></a>
                 </div><!-- .prev -->
                 <h3 class="title">{$v.goods_name}</br>{$v.goods_sku_nature}</h3>
                 <div class="cart">
                   <div class="price">
                   <div class="vert">
-                    <div class="price_new">{$v.goods_sku_price}</div>
+                    <div class="price_new">$ {$v.goods_sku_price}</div>
                  
                   </div>
                   </div>
@@ -374,4 +308,3 @@
 <div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
 </html>
-
