@@ -4,111 +4,6 @@
 <!--载入前台公共头部-->
 <include file="./index/Tpl/public/pub.html" /> 
 <!--载入前台公共头部-->
-<head>
-  <meta charset="UTF-8">
-
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-
-  <title>Home</title>
-
-  <link rel="shortcut icon" href="favicon.ico">
-  <link href="__PUBLIC__/css/style.css" media="screen" rel="stylesheet" type="text/css">
-  <link href="__PUBLIC__/css/grid.css" media="screen" rel="stylesheet" type="text/css">
-
-  <script src="__PUBLIC__/js/jquery-1.7.2.min.js" ></script>
-  <script src="__PUBLIC__/js/html5.js" ></script>
-  <script src="__PUBLIC__/js/jflow.plus.js" ></script>
-  <script src="__PUBLIC__/js/jquery.carouFredSel-5.2.2-packed.js"></script>
-
-  <script>
-	$(document).ready(function(){
-	    $("#myController").jFlow({
-			controller: ".control", // must be class, use . sign
-			slideWrapper : "#jFlowSlider", // must be id, use # sign
-			slides: "#slider",  // the div where all your sliding divs are nested in
-			selectedWrapper: "jFlowSelected",  // just pure text, no sign
-			width: "984px",  // this is the width for the content-slider
-			height: "480px",  // this is the height for the content-slider
-			duration: 400,  // time in miliseconds to transition one slide
-			prev: ".slidprev", // must be class, use . sign
-			next: ".slidnext", // must be class, use . sign
-			auto: true
-    });
-  });
-  </script>
-  <script>
-	$(function() {
-	  $('#list_product').carouFredSel({
-		prev: '#prev_c1',
-		next: '#next_c1',
-		auto: false
-	  });
-          $('#list_product2').carouFredSel({
-		prev: '#prev_c2',
-		next: '#next_c2',
-		auto: false
-	  });
-	  $(window).resize();
-	});
-  </script>
-  <script>
-       $(document).ready(function(){
-	      $("button").click(function(){
-		     $(this).addClass('click')
-	      });
-       })
-  </script>
-  <!-- 客服 -->
-  <script>(function(){var c=document.createElement("script"),s=document.getElementsByTagName("script")[0];c.src="//kefu.qycn.com/vclient/state.php?webid=116862";s.parentNode.insertBefore(c,s);})();</script>
-
-</head>
-
-<body>
-
-
-  <div id="block_nav_primary">
-    <div class="container_12">
-      <div class="grid_12">
-        <nav class="primary">
-          <ul>
-            <li class="curent"><a href="__APP__/Index/index">家</a></li>
-            <li><a href="__APP__/Index/catalog_grid">固体</a></li>
-            <li><a href="__APP__/Index/catalog_grid">液体</a></li>
-            <li>
-              <a href="__APP__/Index/catalog_grid">Spray</a>
-              <ul class="sub">
-                <li><a href="__APP__/Index/catalog_grid">For home</a></li>
-                <li><a href="__APP__/Index/catalog_grid">For Garden</a></li>
-                <li><a href="__APP__/Index/catalog_grid">For Car</a></li>
-                <li><a href="__APP__/Index/catalog_grid">Other spray</a></li>
-              </ul>
-            </li>
-            <li><a href="__APP__/Index/catalog_grid">Electric</a></li>
-            <li><a href="__APP__/Index/catalog_grid">For cars</a></li>
-	    <li>
-              <a href="#">All pages</a>
-              <ul class="sub">
-                <li><a href="__APP__/Index/index">Home</a></li>
-                <li><a href="text_page.html">Typography and basic styles</a></li>
-		<li><a href="__APP__/Index/catalog_grid">Catalog (grid view)</a></li>
-		<li><a href="__APP__/Index/catalog_list">Catalog (list type view)</a></li>
-		<li><a href="__APP__/Index/product_page">Product view</a></li>
-		<li><a href="__APP__/Index/shopping_cart">Shoping cart</a></li>
-		<li><a href="__APP__/Index/checkout">Proceed to checkout</a></li>
-		<li><a href="__APP__/Index/compare">Products comparison</a></li>
-		<li><a href="__APP__/Login/login">Login</a></li>
-		<li><a href="__APP__/Index/contact_us">Contact us</a></li>
-		<li><a href="404.html">404</a></li>
-		<li><a href="blog.html">Blog posts</a></li>
-		<li><a href="blog_post.html">Blog post view</a></li>
-              </ul>
-            </li>
-          </ul>
-        </nav><!-- .primary -->
-      </div><!-- .grid_12 -->
-    </div><!-- .container_12 -->
-  </div><!-- .block_nav_primary -->
 
   <div class="clear"></div>
 
@@ -119,7 +14,7 @@
         <div id="slider">
         <?php foreach($arr as $key=>$v){ ?>
           <div id="slide<?php echo $key; ?>">
-            <img src="{$v.goods_img_path}">
+            <img src="__PUBLIC__/{$v.goods_img_path}">
 
 
             <div class="slid_text">

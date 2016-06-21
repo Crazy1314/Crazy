@@ -20,19 +20,13 @@
         </div>
         <div class="search-wrap">
             <div class="search-content">
-                <form action="/jscss/admin/design/index" method="post">
+                <form action="<?php echo site_url('User/sou')?>" method="post">
                     <table class="search-tab">
                         <tr>
-                            <th width="120">选择分类:</th>
-                            <td>
-                                <select name="search-sort" id="">
-                                    <option value="">全部</option>
-                                    <option value="19">精品界面</option><option value="20">推荐界面</option>
-                                </select>
-                            </td>
+
                             <th width="70">关键字:</th>
-                            <td><input class="common-text" placeholder="关键字" name="keywords" value="" id="" type="text"></td>
-                            <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
+                            <td><input class="common-text" placeholder="关键字"  name="name" type="text"></td>
+                            <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit" ></td>
                         </tr>
                     </table>
                 </form>
@@ -80,7 +74,7 @@
                         </tr>
                         <?php endforeach?>
                     </table>
-                    <div class="list-page"> 2 条 1/1 页</div>
+                    <div class="list-page"> </div>
                 </div>
             </form>
         </div>
@@ -89,7 +83,7 @@
 </div>
 </body>
 </html>
-<script src="<?php echo base_url('jquery-2.1.4.min.js')?>"></script>
+<script src="<?php echo base_url('Public/jquery.js')?>"></script>
 <script>
     function dian(user_id){
         $('#i'+user_id).show();
@@ -118,7 +112,6 @@
 
         }
     }
-
     function dian1(user_id){
         $('#i1'+user_id).show();
         $('#s1'+user_id).hide();
@@ -146,7 +139,17 @@
 
         }
     }
-
+//    function sou(){
+//        var name=$('#name').val();
+//        $.ajax({
+//            type:'post',
+//            url:'<?php //echo site_url('User/sou')?>//',
+//            data:'name='+name,
+//            success:function(data){
+//                alert(data);
+//            }
+//        })
+//    }
 
 
 </script>

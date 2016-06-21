@@ -37,6 +37,11 @@ class User extends CI_Controller {
         }else{
             echo 0;
         }
-
+    }
+    public function sou(){
+        $name=$_POST['name'];
+        //echo $name;die;
+        $res['re']=$this->db->query("select * from user where user_name='$name'")->result_array();
+        $this->load->view('user/design',$res);
     }
 }
