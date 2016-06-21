@@ -123,7 +123,7 @@
                     <div class="password">
                         <strong>密码：</strong><sup class="surely">*</sup><br/>
                         <!--<input type="text" class="admin_input_style" size="30"  name="user_pwd" />-->
-                        <input type="password" class="admin_input_style" size="30"  name="password"  required="required" placeholder="" form="grid_6" autofocus="autofocus" pattern='\d{3,6}'style="border: 1px solid #ccc;
+                        <input type="password" id="pwd1" class="admin_input_style" size="30"  name="password"  required="required" placeholder="" form="grid_6" autofocus="autofocus" pattern='\d{3,6}'style="border: 1px solid #ccc;
                         border-radius: 2px;
                         color: #777;
                         height: 33px;
@@ -131,15 +131,15 @@
                         width: 255px;"/>
                     </div><!-- .password -->
                     <div class="password">
-
                         <strong>确认密码：</strong><sup class="surely">*</sup><br/>
                         <!--<input type="text" class="admin_input_style" size="30"  name="user_pwd1" />-->
-                        <input type="password" class="admin_input_style" size="30"  name="password"  required="required" placeholder="" form="grid_6" autofocus="autofocus" pattern='\d{3,6}' style="border: 1px solid #ccc;
+                        <input type="password" id='pwd2' class="admin_input_style" size="30"  name="password"  required="required" placeholder="" form="grid_6" autofocus="autofocus" pattern='\d{3,6}' style="border: 1px solid #ccc;
                             border-radius: 2px;
                             color: #777;
                             height: 33px;
                             padding: 0 10px;margin: 5px 0 13px;
-                            width: 255px;"/>
+                            width: 255px;" onblur="queren()"/>
+                        <div id="pwd3" style="color: red"></div>
                     </div><!-- .password -->
                     <div class="remember">
                         <input class="niceCheck" type="checkbox" name="Remember_password" />
@@ -233,8 +233,15 @@
 <div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
 </html>
-<script src="__PUBLIC__/jquery-2.1.4.min.js"></script>
+
 <script>
-    function
+    function  queren(){
+        var pwd1=$('#pwd1').val();
+        var pwd2=$('#pwd2').val();
+        if(pwd1!=pwd2){
+            $('#pwd3').html("两次输入密码不同");
+        }
+
+    }
 </script>
 
