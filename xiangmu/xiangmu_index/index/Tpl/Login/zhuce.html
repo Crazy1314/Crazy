@@ -80,6 +80,7 @@
 
 
 
+
 <div class="clear"></div>
 
 <section id="main" class="entire_width">
@@ -99,30 +100,54 @@
             </div><!-- .grid_6 -->
 
             <div class="grid_6">
-                <form class="registed"  method="post" action="__APP__/Login/login_pro" id="grid_6">
-                    <h2>我要登陆</h2>
-                    <p>如果你有我们这里的账户,请登录。</p>
+                <form class="registed"  method="post" action="__APP__/Login/zhuce1" id="grid_6">
+                    <h2>注册客户</h2>
+                    <p>如果你没有我们这里的账户,请注册。</p>
                     <div class="email">
-                        <strong>用户名</strong><sup class="surely">*</sup><br/>
-                        <input type="text" class="admin_input_style" size="30"  name="user_name" id="name" required="required" placeholder="" form="grid_6" autofocus="autofocus" pattern='^[\u4e00-\u9fa5]{2,4}' onblur="name1()"/>
+                        <strong>用户名：</strong><sup class="surely">*</sup><br/>
+                        <!--<input type="text" class="admin_input_style" size="30"  name="user_name" />-->
+
+                        <input type="text" class="admin_input_style" size="30" id="name_p" name="user_name"  required="required" placeholder="" form="grid_6" autofocus="autofocus" pattern='^[\u4e00-\u9fa5]{2,4}' onblur="zhuce_name()"/>
                         <div id="name3" style="color: red"></div>
                     </div><!-- .email -->
+
                     <div class="password">
-                        <strong>密码:</strong><sup class="surely">*</sup><br/>
-                        <input type="password"  class="admin_input_style" size="30"  name="user_pwd" id="pwd" required="required" placeholder="" form="grid_6" autofocus="autofocus" pattern='\d{3,6}'style="border: 1px solid #ccc;
-    border-radius: 2px;
-    color: #777;
-    height: 33px;
-    padding: 0 10px;margin: 5px 0 13px;
-    width: 255px;"/>
-                        <a class="forgot" href="#">忘记密码?</a>
+                        <strong>手机号：</strong><sup class="surely">*</sup><br/>
+                        <!--<input type="text" class="admin_input_style" size="30"  name="user_phone" />-->
+                        <input type="text" class="admin_input_style" size="30"  name="user_phone"  required="required" placeholder="" form="grid_6" autofocus="autofocus" pattern='^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}'/>
+                    </div><!-- .password -->
+                    <div class="password">
+                        <strong>邮箱：</strong><sup class="surely">*</sup><br/>
+                        <!--<input type="text" class="admin_input_style" size="30"  name="email" />-->
+                        <input type="text" class="admin_input_style" size="30"  name="email"  required="required" placeholder="" form="grid_6" autofocus="autofocus" pattern='^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$'/>
+                    </div><!-- .password -->
+                    <div class="password">
+                        <strong>密码：</strong><sup class="surely">*</sup><br/>
+                        <!--<input type="text" class="admin_input_style" size="30"  name="user_pwd" />-->
+                        <input type="password" id="pwd1" class="admin_input_style" size="30"  name="password"  required="required" placeholder="" form="grid_6" autofocus="autofocus" pattern='\d{3,6}'style="border: 1px solid #ccc;
+                        border-radius: 2px;
+                        color: #777;
+                        height: 33px;
+                        padding: 0 10px;margin: 5px 0 13px;
+                        width: 255px;"/>
+                    </div><!-- .password -->
+                    <div class="password">
+                        <strong>确认密码：</strong><sup class="surely">*</sup><br/>
+                        <!--<input type="text" class="admin_input_style" size="30"  name="user_pwd1" />-->
+                        <input type="password" id='pwd2' class="admin_input_style" size="30"  name="password"  required="required" placeholder="" form="grid_6" autofocus="autofocus" pattern='\d{3,6}' style="border: 1px solid #ccc;
+                            border-radius: 2px;
+                            color: #777;
+                            height: 33px;
+                            padding: 0 10px;margin: 5px 0 13px;
+                            width: 255px;" onblur="queren()"/>
+                        <div id="pwd3" style="color: red"></div>
                     </div><!-- .password -->
                     <div class="remember">
                         <input class="niceCheck" type="checkbox" name="Remember_password" />
                         <span class="rem">Remember password</span>
                     </div><!-- .remember -->
                     <div class="submit">
-                        <input type="submit" value="登陆" />
+                        <input type="submit" value="注册" />
                         <sup class="surely">*</sup><span>Required Field</span>
                     </div><!-- .submit -->
                 </form><!-- .registed -->
@@ -211,21 +236,24 @@
 </html>
 
 <script>
-    function name1(){
-        var name=$('#name').val();
-        if(name==''){
-            $('#name3').html('不能为空');
-        }else{
-            $.ajax({
-                type:'post',
-                url:'__APP__/Login/name1',
-                data:'name='+name,
-                success:function(data){
-                    $('#name3').html(data);
-//                    alert(data);
-                }
-            })
+    function  queren(){
+        var pwd1=$('#pwd1').val();
+        var pwd2=$('#pwd2').val();
+        if(pwd1!=pwd2){
+            $('#pwd3').html("两次输入密码不同");
         }
 
     }
+    function zhuce_name(){
+        var name_p=$('#name_p').val();
+        $.ajax({
+            type:'post',
+            url:'__APP__/Login/name_p',
+            data:'name_p='+name_p,
+            success:function(data){
+                $('#name3').html(data);
+            }
+        })
+    }
 </script>
+
