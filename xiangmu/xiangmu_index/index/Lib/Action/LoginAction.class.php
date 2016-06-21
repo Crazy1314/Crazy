@@ -52,5 +52,13 @@ class LoginAction extends Action {
             echo "用户名不存在";
         }
     }
+    public function name_p(){
+        $name=$_POST['name_p'];
+        $obj=D('User');
+        $res=$obj->select_p($name);
+        if($res){
+            echo '用户名已存在';
+        }
+    }
 
 }
