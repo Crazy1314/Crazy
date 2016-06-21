@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+<html>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<!--载入前台公共头部-->
+<include file="./index/Tpl/public/pub.html" /> 
+<!--载入前台公共头部-->
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <title>订单</title>
+
+  <link rel="shortcut icon" href="favicon.ico">
+  <link href="__PUBLIC__/css/style.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="__PUBLIC__/css/grid.css" media="screen" rel="stylesheet" type="text/css">
+
+  <script src="__PUBLIC__/js/jquery-1.7.2.min.js" ></script>
+  <script src="__PUBLIC__/js/html5.js" ></script>
+  <script src="__PUBLIC__/js/jflow.plus.js" ></script>
+  <script src="__PUBLIC__/js/jquery.carouFredSel-5.2.2-packed.js"></script>
+  <script src="__PUBLIC__/js/checkbox.js"></script>
+  <script src="__PUBLIC__/js/radio.js"></script>
+  <script src="__PUBLIC__/js/selectBox.js"></script>
+
+  <script>
+       $(document).ready(function(){
+        $("#myController").jFlow({
+         controller: ".control", // must be class, use . sign
+         slideWrapper : "#jFlowSlider", // must be id, use # sign
+         slides: "#slider",  // the div where all your sliding divs are nested in
+         selectedWrapper: "jFlowSelected",  // just pure text, no sign
+         width: "984px",  // this is the width for the content-slider
+         height: "480px",  // this is the height for the content-slider
+         duration: 400,  // time in miliseconds to transition one slide
+         prev: ".slidprev", // must be class, use . sign
+         next: ".slidnext", // must be class, use . sign
+         auto: true
+        });
+       });
+  </script>
+
+</head>
+<body>
+  <div class="clear"></div>
+
+  <section id="main" class="entire_width">
+    <div class="container_12">
+       <div class="grid_12">
+       <h1 class="page_title">我的商品</h1>
+<table class="cart_product">
+<tr style="background:#eee">
+          <th colspan="2" align="left" style="padding-left:20px;" >商品名称</th>
+          <th colspan="2" align="left" style="padding-left:20px;" >商品图片</th>
+          <th colspan="2" align="left" style="padding-left:20px;" >商品品牌</th>
+          <th  style="padding-right:20px;" >商品单价<strong>（元）</strong></th>
+          <th align="right" style="padding-right:20px;" >购买数量</th>
+        </tr>
+<foreach name="order_one" item="v">
+        <tr style="background:#eee">
+          <th colspan="2" align="left" style="padding-left:20px;" >{$v['goods_name']}</th>
+          <th colspan="2" align="left" style="padding-left:20px;" ><img src="<?php echo "../".$v['goods_img_path']?>" width="60px" height="60px"></th>
+          <th colspan="2" align="left" style="padding-left:20px;" >{$v['brand_name']}</th>
+          <th  style="padding-right:20px;" ><strong>{$v['goods_sku_price']}元</strong></th>
+          <th align="right" style="padding-right:20px;" >{$v['border_goods_count']}</th>
+        </tr>
+  </foreach>
+        <tr>
+         <td colspan="7" class="cart_but">
+          <a href="__APP__/Order/CreatOrder"><button class="continue"><span>icon</span>返回我的订单</button></a>
+         </td>
+        </tr>
+       </table>
+       </div><!-- .grid_12 --> 
+
+       <script>
+        //删除订单下商品
+        function dele(border_goods_id){
+            var confirm = window.confirm('确定要删除吗？');
+            if(confirm == true){
+              location.href="__APP__/Order/dele?border_goods_id="+border_goods_id; 
+              }else{
+              return false;
+            }  
+          }
+       </script>
+      <div class="clear"></div>
+
+    </div><!-- .container_12 -->
+  </section><!-- #main -->
+
+  <div class="clear"></div>
+
+  <footer>
+    <div class="f_navigation">
+      <div class="container_12">
+        <div class="grid_3">
+          <h3>联系我们</h3>
+          <ul class="f_contact">
+            <li>49 Archdale, 2B Charlestone</li>
+            <li>+777 (100) 1234</li>
+            <li>mail@example.com</li>
+          </ul><!-- .f_contact -->
+        </div><!-- .grid_3 -->
+
+        <div class="grid_3">
+          <h3>信息</h3>
+          <nav class="f_menu">
+            <ul>
+              <li><a href="#">关于我们</a></li>
+              <li><a href="#">隐私政策</a></li>
+              <li><a href="#">条款和条件</a></li>
+              <li><a href="#">安全支付</a></li>
+            </ul>
+          </nav><!-- .private -->
+        </div><!-- .grid_3 -->
+
+        <div class="grid_3">
+          <h3>客户的服务</h3>
+          <nav class="f_menu">
+            <ul>
+              <li><a href="contact_us.html">Contact As</a></li>
+              <li><a href="#">返回</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">站点地图</a></li>
+            </ul>
+          </nav><!-- .private -->
+        </div><!-- .grid_3 -->
+
+        <div class="grid_3">
+          <h3>我的账户</h3>
+          <nav class="f_menu">
+            <ul>
+              <li><a href="#">我的账户</a></li>
+              <li><a href="#">订单历史</a></li>
+              <li><a href="#">清单</a></li>
+              <li><a href="#">通讯</a></li>
+            </ul>
+          </nav><!-- .private -->
+        </div><!-- .grid_3 -->
+
+        <div class="clear"></div>
+      </div><!-- .container_12 -->
+    </div><!-- .f_navigation -->
+
+    <div class="f_info">
+      <div class="container_12">
+        <div class="grid_6">
+          <p class="copyright">Copyright &copy; 2014.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/"></a></p>
+        </div><!-- .grid_6 -->
+
+        
+
+        <div class="clear"></div>
+      </div><!-- .container_12 -->
+    </div><!-- .f_info -->
+  </footer>
+
+<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+</body>
+</html>

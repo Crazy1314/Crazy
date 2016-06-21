@@ -5,17 +5,16 @@ class OrderAction extends Action {
 	 * 生成订单
 	 */
 	public function CreatOrder(){
-		$user_id = isset($_SESSION['user_id'])?$_SESSION['user_id']:'';
+		$user_id = isset($_SESSION['user_id'])?$_SESSION['user_id'] : '';
 		$db = D('Order');
 		if($_GET['total']){
 			$address_id = $_GET['address_id'];
 			$total = $_GET['total'];
-			
 			$order_number = $user_id.time();
 			$data=array(
 				'border_number'=>$order_number,
 				'border_total'=>$total,
-				'border_state'=>0,
+				'border_state'=>1,
 				'user_id'=>$user_id,
 				'address_id'=>$address_id,
 				);
@@ -58,5 +57,13 @@ class OrderAction extends Action {
 		$model = M('border');
 		$model->where('border_id ='.$border_id)->delete();
 		$this->redirect('CreatOrder');
+	}
+	//查看订单下商品
+	public function lookat(){
+		$border_id = $_GET['border_id'];
+		$dd =D('Order');
+		$goods=$dd->selectzne($border_id);
+		$this->assign('order_one',$goods);
+		$this->display('order_one');
 	}
 }
