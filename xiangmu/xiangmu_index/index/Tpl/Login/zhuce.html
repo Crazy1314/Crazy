@@ -107,7 +107,8 @@
                         <strong>用户名：</strong><sup class="surely">*</sup><br/>
                         <!--<input type="text" class="admin_input_style" size="30"  name="user_name" />-->
 
-                        <input type="text" class="admin_input_style" size="30"  name="user_name"  required="required" placeholder="" form="grid_6" autofocus="autofocus" pattern='^[\u4e00-\u9fa5]{2,4}'/>
+                        <input type="text" class="admin_input_style" size="30" id="name_p" name="user_name"  required="required" placeholder="" form="grid_6" autofocus="autofocus" pattern='^[\u4e00-\u9fa5]{2,4}' onblur="zhuce_name()"/>
+                        <div id="name3" style="color: red"></div>
                     </div><!-- .email -->
 
                     <div class="password">
@@ -242,6 +243,17 @@
             $('#pwd3').html("两次输入密码不同");
         }
 
+    }
+    function zhuce_name(){
+        var name_p=$('#name_p').val();
+        $.ajax({
+            type:'post',
+            url:'__APP__/Login/name_p',
+            data:'name_p='+name_p,
+            success:function(data){
+                $('#name3').html(data);
+            }
+        })
     }
 </script>
 
