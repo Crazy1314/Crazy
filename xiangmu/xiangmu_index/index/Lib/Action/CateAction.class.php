@@ -29,12 +29,14 @@ class CateAction extends Action {
 
         import("ORG.Util.Page");// 导入分页类
         $goods_type_id=$_GET['d'];
+        $p=$_GET['p'];
         if(isset($goods_type_id))
         {
-            $resCate=$goods->join("goods_type on goods.goods_type_id=goods_type.goods_type_id")->where("goods.goods_type_id=$goods_type_id")->select();
+            $res=$goods->join("goods_type on goods.goods_type_id=goods_type.goods_type_id")->where("goods.goods_type_id=$goods_type_id")->select();
+            $resCate=$goods->join("goods_type on goods.goods_type_id=goods_type.goods_type_id")->where("goods.goods_type_id=$goods_type_id")->limit($p,2)->select();
             $map=array('d'=>$goods_type_id);
-            $count = count($resCate);
-            $Page       = new Page($count,5);// 实例化分页类 传入总记录数和每页显示的记录数
+            $count = count($res);
+            $Page       = new Page($count,2);// 实例化分页类 传入总记录数和每页显示的记录数
             foreach($map as $key=>$val) 
             {
                 $Page->parameter   .=   "$key=".urlencode($val)."&";
@@ -43,9 +45,10 @@ class CateAction extends Action {
         }
         else
         {
-            $resCate=$goods->join("goods_type on goods.goods_type_id=goods_type.goods_type_id")->select();
-            $count = count($resCate);
-            $Page       = new Page($count,5);// 实例化分页类 传入总记录数和每页显示的记录数
+            $res=$goods->join("goods_type on goods.goods_type_id=goods_type.goods_type_id")->select();
+            $resCate=$goods->join("goods_type on goods.goods_type_id=goods_type.goods_type_id")->limit($p,2)->select();
+            $count = count($res);
+            $Page       = new Page($count,2);// 实例化分页类 传入总记录数和每页显示的记录数
         }
 
         
