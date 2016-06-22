@@ -59,8 +59,8 @@
         </tr>
 <foreach name="order_one" item="v">
         <tr style="background:#eee">
-          <th colspan="2" align="left" style="padding-left:20px;" >{$v['goods_name']}</th>
-          <th colspan="2" align="left" style="padding-left:20px;" ><img src="<?php echo "../".$v['goods_img_path']?>" width="60px" height="60px"></th>
+          <th colspan="2" align="left" style="padding-left:20px;" >{$v['goods_name']}（{$v['goods_sku_nature']}mL）</th>
+          <th colspan="2" align="left" style="padding-left:20px;" ><img src="__PUBLIC__/{$v.goods_img_path}" width="60px" height="60px"></th>
           <th colspan="2" align="left" style="padding-left:20px;" >{$v['brand_name']}</th>
           <th  style="padding-right:20px;" ><strong>{$v['goods_sku_price']}元</strong></th>
           <th align="right" style="padding-right:20px;" >{$v['border_goods_count']}</th>
