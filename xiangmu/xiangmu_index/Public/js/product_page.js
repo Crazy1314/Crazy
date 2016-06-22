@@ -11,7 +11,7 @@ function goods(goods_sku_id){
 	
 }
 
-function buy(goods_id){
+function cart(goods_id){
 	var user_id=$("#user_id").attr("value");
 	//alert(user_id);
 	var goods_sku_id=$("#test").attr("sku");
