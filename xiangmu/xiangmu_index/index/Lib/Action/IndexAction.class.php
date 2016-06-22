@@ -29,7 +29,7 @@ class IndexAction extends Action {
 	    $this->assign('arr',$arr);
         $this->assign('cates',$cates);
         $this->assign('brands',$brands);
-        $this->assign('new',$new);
+        $this->assign('hot',$hot);
         $this->assign('new',$new);
         $this->display('index');
     }

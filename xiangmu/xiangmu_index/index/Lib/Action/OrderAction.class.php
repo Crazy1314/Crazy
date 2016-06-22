@@ -5,7 +5,7 @@ class OrderAction extends Action {
 	 * 生成订单
 	 */
 	public function CreatOrder(){
-		$user_id = isset($_SESSION['user_id'])?$_SESSION['user_id'] : '';
+		$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
 		$db = D('Order');
 		if($_GET['total']){
 			$address_id = $_GET['address_id'];
