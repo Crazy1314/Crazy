@@ -4,70 +4,6 @@
 <!--载入前台公共头部-->
 <include file="./index/Tpl/public/pub.html" /> 
 <!--载入前台公共头部-->
-<head>
-  <meta charset="UTF-8">
-
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-
-  <title>Home</title>
-
-  <link rel="shortcut icon" href="favicon.ico">
-  <link href="__PUBLIC__/css/style.css" media="screen" rel="stylesheet" type="text/css">
-  <link href="__PUBLIC__/css/grid.css" media="screen" rel="stylesheet" type="text/css">
-
-  <script src="__PUBLIC__/js/jquery-1.7.2.min.js" ></script>
-  <script src="__PUBLIC__/js/html5.js" ></script>
-  <script src="__PUBLIC__/js/jflow.plus.js" ></script>
-  <script src="__PUBLIC__/js/jquery.carouFredSel-5.2.2-packed.js"></script>
-
-  <script>
-	$(document).ready(function(){
-	    $("#myController").jFlow({
-			controller: ".control", // must be class, use . sign
-			slideWrapper : "#jFlowSlider", // must be id, use # sign
-			slides: "#slider",  // the div where all your sliding divs are nested in
-			selectedWrapper: "jFlowSelected",  // just pure text, no sign
-			width: "984px",  // this is the width for the content-slider
-			height: "480px",  // this is the height for the content-slider
-			duration: 400,  // time in miliseconds to transition one slide
-			prev: ".slidprev", // must be class, use . sign
-			next: ".slidnext", // must be class, use . sign
-			auto: true
-    });
-  });
-  </script>
-  <script>
-	$(function() {
-	  $('#list_product').carouFredSel({
-		prev: '#prev_c1',
-		next: '#next_c1',
-		auto: false
-	  });
-          $('#list_product2').carouFredSel({
-		prev: '#prev_c2',
-		next: '#next_c2',
-		auto: false
-	  });
-	  $(window).resize();
-	});
-  </script>
-  <script>
-       $(document).ready(function(){
-	      $("button").click(function(){
-		     $(this).addClass('click')
-	      });
-       })
-  </script>
-  <!-- 客服 -->
-  <script>(function(){var c=document.createElement("script"),s=document.getElementsByTagName("script")[0];c.src="//kefu.qycn.com/vclient/state.php?webid=116862";s.parentNode.insertBefore(c,s);})();</script>
-
-</head>
-
-<body>
-
-
-
 
   <div class="clear"></div>
 
@@ -78,7 +14,7 @@
         <div id="slider">
         <?php foreach($arr as $key=>$v){ ?>
           <div id="slide<?php echo $key; ?>">
-            <img src="{$v.goods_img_path}">
+            <img src="__PUBLIC__/{$v.goods_img_path}">
 
 
             <div class="slid_text">
@@ -105,23 +41,23 @@
   <section id="main" class="home">
     <div class="container_12">
       <div id="top_button">
-        <!--<div class="grid_4">-->
-          <!--<a href="#" class="button_block best_price">-->
-            <!--<img src="__PUBLIC__/images/banner1.png" alt="Banner 1"/>-->
-          <!--</a>&lt;!&ndash; .best_price &ndash;&gt;-->
-        <!--</div>&lt;!&ndash; .grid_4 &ndash;&gt;-->
+        <div class="grid_4">
+          <a href="#" class="button_block best_price">
+            <img src="__PUBLIC__/images/banner1.png" alt="Banner 1"/>
+          </a><!-- .best_price -->
+        </div><!-- .grid_4 -->
 
-        <!--<div class="grid_4">-->
-          <!--<a href="#" class="button_block new_smells">-->
-            <!--<img src="__PUBLIC__/images/banner2.png" alt="Banner 2"/>-->
-          <!--</a>&lt;!&ndash; .new smells &ndash;&gt;-->
-        <!--</div>&lt;!&ndash; .grid_4 &ndash;&gt;-->
+        <div class="grid_4">
+          <a href="#" class="button_block new_smells">
+            <img src="__PUBLIC__/images/banner2.png" alt="Banner 2"/>
+          </a><!-- .new smells -->
+        </div><!-- .grid_4 -->
 
-        <!--<div class="grid_4">-->
-          <!--<a href="#" class="button_block only_natural">-->
-            <!--<img src="__PUBLIC__/images/banner3.png" alt="Banner 3"/>-->
-          <!--</a>&lt;!&ndash; .only_natural &ndash;&gt;-->
-        <!--</div>&lt;!&ndash; .grid_4 &ndash;&gt;-->
+        <div class="grid_4">
+          <a href="#" class="button_block only_natural">
+            <img src="__PUBLIC__/images/banner3.png" alt="Banner 3"/>
+          </a><!-- .only_natural -->
+        </div><!-- .grid_4 -->
 
         <div class="clear"></div>
       </div><!-- #top_button -->
