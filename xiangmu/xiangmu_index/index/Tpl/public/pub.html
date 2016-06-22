@@ -8,7 +8,12 @@
 
       <div class="grid_6">
         <div class="welcome">
-          欢迎光临，您可以 <a href="__APP__/Login/login">登录</a> 或 <a href="__APP__/Login/login">注册一个帐户。</a>
+            <?php if($_SESSION['user_id']==''){?>
+            欢迎光临，您可以 <a href="__APP__/Login/login">登录</a> 或 <a href="__APP__/Login/zhuce">注册一个帐户。</a>
+            <?php }else{?>
+            欢迎<?php echo $_SESSION['user_name']?>登陆&nbsp;&nbsp;&nbsp;<a href="__APP__/Login/destory">退出</a>
+            <?php }?>
+
         </div><!-- .welcome -->
       </div><!-- .grid_6 -->
 
@@ -91,8 +96,6 @@
             <li><a href="__APP__/Login/zhuce">注册</a></li>
           </ul>
         </nav><!-- .private -->
-
-
       </div><!-- .grid_6 -->
     </header><!-- #branding -->
   </div><!-- .container_12 -->
