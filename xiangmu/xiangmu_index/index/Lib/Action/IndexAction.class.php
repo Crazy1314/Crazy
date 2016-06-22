@@ -59,9 +59,13 @@ class IndexAction extends Action {
     public function contact_us(){
 	  $this->display();
     }
-    // 首页
+    // 商品详情页
     public function product_page(){
-	  $this->display();
+        // 评论展示
+        $cycle=M('review');
+        $review=$cycle->where('goods_id=1')->select();
+        $this->assign('review',$review);
+        $this->display();
     }
     // 首页
     public function shopping_cart(){

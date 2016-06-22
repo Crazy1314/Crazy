@@ -11,7 +11,12 @@
 
       <div class="grid_6">
         <div class="welcome">
-          欢迎光临，您可以 <a href="__APP__/Login/login">登录</a> 或 <a href="__APP__/Login/login">注册一个帐户。</a>
+            <?php if($_SESSION['user_id']==''){?>
+            欢迎光临，您可以 <a href="__APP__/Login/login">登录</a> 或 <a href="__APP__/Login/zhuce">注册一个帐户。</a>
+            <?php }else{?>
+            欢迎<?php echo $_SESSION['user_name']?>登陆&nbsp;&nbsp;&nbsp;<a href="__APP__/Login/destory">退出</a>
+            <?php }?>
+
         </div><!-- .welcome -->
       </div><!-- .grid_6 -->
 
@@ -65,8 +70,7 @@
                 <a title="close" class="close" href="#"></a>
                 <div class="clear"></div>
               </li>
-              
-              <li>
+                <li>
                 <a href="__APP__/Index/product_page" class="prev_cart"><div class="cart_vert"><img src="__PUBLIC__/images/produkt_slid1.png" alt="" title="" /></div></a>
                 <div class="cont_cart">
                   <h4>Caldrea Linen and Room Spray</h4>
@@ -91,7 +95,7 @@
 		<li class="separator">|</li>
             <li><a href="__APP__/Login/login">登录</a></li>
 		<li class="separator">|</li>
-            <li><a href="__APP__/Login/login">注册</a></li>
+            <li><a href="__APP__/Login/zhuce">注册</a></li>
           </ul>
         </nav><!-- .private -->
       </div><!-- .grid_6 -->

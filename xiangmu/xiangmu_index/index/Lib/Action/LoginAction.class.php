@@ -60,5 +60,9 @@ class LoginAction extends Action {
             echo '用户名已存在';
         }
     }
+    public function destory(){
+        session_unset();
+        $this->display('login');
+    }
 
 }
