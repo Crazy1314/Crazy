@@ -29,7 +29,7 @@ class CateAction extends Action {
 
         import("ORG.Util.Page");// 导入分页类
         $goods_type_id=$_GET['d'];
-        $p=$_GET['p'];
+        $p=isset($_GET['p'])?$_GET['p']:0;
         if(isset($goods_type_id))
         {
             $res=$goods->join("goods_type on goods.goods_type_id=goods_type.goods_type_id")->where("goods.goods_type_id=$goods_type_id")->select();
@@ -64,6 +64,71 @@ class CateAction extends Action {
         $this->assign('brands',$brands);
         $this->assign('show',$show);
         $this->display('catalog_list');
+    }
+    //改变样式
+    public function changeList()
+    {
+        $goods=D('goods');
+        //分类
+        $cate=D('goods_type');
+        $cates=$cate->limit(10)->select();
+        foreach($cates as $key=>$v)
+        {
+            $id = $v['goods_type_id'];
+            $res=$goods->where("goods_type_id = $id")->select();
+            $cates[$key]['num']=count($res);
+            $nums+=count($res);
+        }
+        //echo $nums;die;
+        $total=$goods->select();
+        $total=count($total);
+        $other=$total-$nums;
+        // print_r($cates);
+        // die;
+        //品牌
+        $brand=D('brand');
+        $brands=$brand->limit(10)->select();
+        //搜索
+        
+
+
+        import("ORG.Util.Page");// 导入分页类
+        $goods_type_id=$_GET['d'];
+        $p=isset($_GET['p'])?$_GET['p']:0;
+        if(isset($goods_type_id))
+        {
+            $res=$goods->join("goods_type on goods.goods_type_id=goods_type.goods_type_id")->where("goods.goods_type_id=$goods_type_id")->select();
+            $resCate=$goods->join("goods_type on goods.goods_type_id=goods_type.goods_type_id")->where("goods.goods_type_id=$goods_type_id")->limit($p,6)->select();
+            $map=array('d'=>$goods_type_id);
+            $count = count($res);
+            $Page       = new Page($count,6);// 实例化分页类 传入总记录数和每页显示的记录数
+            foreach($map as $key=>$val) 
+            {
+                $Page->parameter   .=   "$key=".urlencode($val)."&";
+
+            }
+        }
+        else
+        {
+            $res=$goods->join("goods_type on goods.goods_type_id=goods_type.goods_type_id")->select();
+            $resCate=$goods->join("goods_type on goods.goods_type_id=goods_type.goods_type_id")->limit($p,6)->select();
+            $count = count($res);
+            $Page       = new Page($count,6);// 实例化分页类 传入总记录数和每页显示的记录数
+        }
+
+        
+        
+
+        $show       = $Page->show();// 分页显示输出
+        //echo $show;die;
+        //echo $goods->getlastsql();
+        //print_r($resCate);die;
+        $this->assign('res', $resCate);
+        $this->assign('cates', $cates);
+        $this->assign('other', $other);
+        $this->assign('brands',$brands);
+        $this->assign('show',$show);
+        $this->display('catalog_grid');
     }
 
 
