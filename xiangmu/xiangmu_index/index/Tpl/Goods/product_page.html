@@ -428,8 +428,7 @@
 						
 						<div class="cart" >
 							<input type="hidden" id="user_id" value="<?php echo $_SESSION['user_id']?>">
-							<a href="javascript:void(0)" onclick="buy(<?php echo $data['0']['goods_id']?>)" class="bay">立即购买</a>
-							<a href="javascript:void(0)" onclick="cart()" class="bay">添加到购物车</a>
+							<a href="javascript:void(0)" onclick="cart(<?php echo $data['0']['goods_id']?>)" class="bay">添加到购物车</a>
 							<!--<input type="text" name="" class="number" value="1" />
 							<span>Quantity:</span>-->
 						</div>
