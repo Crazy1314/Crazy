@@ -489,72 +489,72 @@
 					<div class="clear"></div>
 					</div><!-- .tab1 .tab_body -->
 
-					<div class="tab2 tab_body">
-						<h4>Customer reviews</h4>
-						<ul class="comments">
-							<?php foreach($review as $key=>$v){ ?>
-							<li>
-								<div class="autor">Mike Example</div>, <time datetime="<?php echo $v['time']; ?>"><?php echo $v['time']; ?></time>
+                    <div class="tab2 tab_body">
+                        <h4>Customer reviews</h4>
+                        <ul class="comments">
+                            <?php foreach($review as $key=>$v){ ?>
+                            <li>
+                                <div class="autor">Mike Example</div>, <time datetime="<?php echo $v['time']; ?>"><?php echo $v['time']; ?></time>
 
-								<div class="evaluation">
-									<div class="quality">
-										<strong>质量</strong>
-										<?php for($i=0;$i<$v['quality'];$i++){ ?>
-												<a class="plus" href="#"></a>
-										<?php }?>
-										<?php for($i=0;$i<5-$v['quality'];$i++){ ?>
-												<a  href="#"></a>
-										<?php }?>
-									</div>
-									<div class="price">
-										<strong>价格</strong>
-										<?php for($i=0;$i<$v['price'];$i++){ ?>
-												<a class="plus" href="#"></a>
-										<?php }?>
-										<?php for($i=0;$i<5-$v['price'];$i++){ ?>
-												<a  href="#"></a>
-										<?php }?>
-									</div>
-									<div class="clear"></div>
-								</div><!-- .evaluation -->
+                                <div class="evaluation">
+                                    <div class="quality">
+                                        <strong>质量</strong>
+                                        <?php for($i=0;$i<$v['quality'];$i++){ ?>
+                                        <a class="plus" href="#"></a>
+                                        <?php }?>
+                                        <?php for($i=0;$i<5-$v['quality'];$i++){ ?>
+                                        <a  href="#"></a>
+                                        <?php }?>
+                                    </div>
+                                    <div class="price">
+                                        <strong>价格</strong>
+                                        <?php for($i=0;$i<$v['price'];$i++){ ?>
+                                        <a class="plus" href="#"></a>
+                                        <?php }?>
+                                        <?php for($i=0;$i<5-$v['price'];$i++){ ?>
+                                        <a  href="#"></a>
+                                        <?php }?>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div><!-- .evaluation -->
 
-								<p><?php echo $v['text']; ?></p>
-							</li>
-							<?php } ?>
-							
-						</ul><!-- .comments -->
-						<form class="add_comments" action="__APP__/Review/addreview" method="post">
-							<h4>Write Your Own Review</h4>
-							<input type="hidden" value="1" name="goods_id">
-					
-							<div class="evaluation">
-								<div class="quality">
-									<strong>质量</strong><sup class="surely">*</sup>
-									<input class="niceRadio" type="radio" name="quality" value="1" /><span class="eva_num">1</span>
-									<input class="niceRadio" type="radio" name="quality" value="2" /><span class="eva_num">2</span>
-									<input class="niceRadio" type="radio" name="quality" value="3" /><span class="eva_num">3</span>
-									<input class="niceRadio" type="radio" name="quality" value="4" /><span class="eva_num">4</span>
-									<input class="niceRadio" type="radio" name="quality" value="5" /><span class="eva_num">5</span>
-								</div>
-								<div class="price">
-									<strong>价格</strong><sup class="surely">*</sup>
-									<input class="niceRadio" type="radio" name="price" value="1" /><span class="eva_num">1</span>
-									<input class="niceRadio" type="radio" name="price" value="2" /><span class="eva_num">2</span>
-									<input class="niceRadio" type="radio" name="price" value="3" /><span class="eva_num">3</span>
-									<input class="niceRadio" type="radio" name="price" value="4" /><span class="eva_num">4</span>
-									<input class="niceRadio" type="radio" name="price" value="5" /><span class="eva_num">5</span>
-								</div>
-								<div class="clear"></div>
-							</div><!-- .evaluation -->
-							<div class="text_review">
-								<strong>评价</strong><sup class="surely">*</sup><br/>
-								<textarea name="text"></textarea>
-							</div><!-- .text_review -->
+                                <p><?php echo $v['text']; ?></p>
+                            </li>
+                            <?php } ?>
 
-							<input type="submit" value="提交评价" />
-						</form><!-- .add_comments -->
-					<div class="clear"></div>
-					</div><!-- .tab2 .tab_body -->
+                        </ul><!-- .comments -->
+                        <form class="add_comments" action="__APP__/Review/addreview" method="post">
+                            <h4>Write Your Own Review</h4>
+                            <input type="hidden" value="1" name="goods_id">
+
+                            <div class="evaluation">
+                                <div class="quality">
+                                    <strong>质量</strong><sup class="surely">*</sup>
+                                    <input class="niceRadio" type="radio" name="quality" value="1" /><span class="eva_num">1</span>
+                                    <input class="niceRadio" type="radio" name="quality" value="2" /><span class="eva_num">2</span>
+                                    <input class="niceRadio" type="radio" name="quality" value="3" /><span class="eva_num">3</span>
+                                    <input class="niceRadio" type="radio" name="quality" value="4" /><span class="eva_num">4</span>
+                                    <input class="niceRadio" type="radio" name="quality" value="5" /><span class="eva_num">5</span>
+                                </div>
+                                <div class="price">
+                                    <strong>价格</strong><sup class="surely">*</sup>
+                                    <input class="niceRadio" type="radio" name="price" value="1" /><span class="eva_num">1</span>
+                                    <input class="niceRadio" type="radio" name="price" value="2" /><span class="eva_num">2</span>
+                                    <input class="niceRadio" type="radio" name="price" value="3" /><span class="eva_num">3</span>
+                                    <input class="niceRadio" type="radio" name="price" value="4" /><span class="eva_num">4</span>
+                                    <input class="niceRadio" type="radio" name="price" value="5" /><span class="eva_num">5</span>
+                                </div>
+                                <div class="clear"></div>
+                            </div><!-- .evaluation -->
+                            <div class="text_review">
+                                <strong>评价</strong><sup class="surely">*</sup><br/>
+                                <textarea name="text"></textarea>
+                            </div><!-- .text_review -->
+
+                            <input type="submit" value="提交评价" />
+                        </form><!-- .add_comments -->
+                        <div class="clear"></div>
+                    </div><!-- .tab2 .tab_body -->
 
 					<div class="tab3 tab_body">
 						<h4>Custom Tab</h4>
