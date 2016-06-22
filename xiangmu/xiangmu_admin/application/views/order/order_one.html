@@ -50,7 +50,7 @@
                         <?php foreach ($arr as $v) { ?>
                         <tr>
                             <td class="tc"><input name="id[]" type="checkbox" disabled="disabled"></td>
-                            <td><?php echo $v['goods_name'] ?></td>
+                            <td><?php echo $v['goods_name'] ?>（<?php echo $v['goods_sku_nature'] ?>mL）</td>
                             <td><img src="<?php echo "../".$v['goods_img_path']?>" width="60px" height="60px"></td>
                             <td><?php echo $v['brand_name'] ?></td>
                             <td><?php echo $v['goods_type_name'] ?></td>
