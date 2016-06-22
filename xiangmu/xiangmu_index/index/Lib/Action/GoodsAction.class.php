@@ -17,6 +17,16 @@ class GoodsAction extends Action {
         $this->assign("related",$related);
 		// print_r($data);die;
 		$this->assign("data",$data);
+
+
+        // 评论展示
+        $cycle=M('review');
+        $review=$cycle->where('goods_id=1')->select();
+        $this->assign('review',$review);
+
+
+
+
 		$this->display('product_page');
 	}
 
