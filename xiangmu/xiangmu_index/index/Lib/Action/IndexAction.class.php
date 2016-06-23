@@ -29,7 +29,7 @@ class IndexAction extends Action {
 	    $this->assign('arr',$arr);
         $this->assign('cates',$cates);
         $this->assign('brands',$brands);
-        $this->assign('new',$new);
+        $this->assign('hot',$hot);
         $this->assign('new',$new);
         $this->display('index');
     }
@@ -59,9 +59,13 @@ class IndexAction extends Action {
     public function contact_us(){
 	  $this->display();
     }
-    // 首页
+    // 商品详情页
     public function product_page(){
-	  $this->display();
+        // 评论展示
+        $cycle=M('review');
+        $review=$cycle->where('goods_id=1')->select();
+        $this->assign('review',$review);
+        $this->display();
     }
     // 首页
     public function shopping_cart(){

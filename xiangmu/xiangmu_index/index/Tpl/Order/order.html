@@ -76,7 +76,6 @@
     <div class="container_12">
        <div class="grid_12">
        <h1 class="page_title">我的订单</h1>
-
        <table class="cart_product">
         <foreach name="order" item="v">
         <tr style="background:#eee">
@@ -110,8 +109,7 @@
         </foreach>
         <tr>
          <td colspan="7" class="cart_but">
-          <button class="continue"><span>icon</span>继续购物</button>
-          
+          <a href="__APP__/Index/index"><button class="continue"><span>icon</span>继续购物</button></a>
          </td>
         </tr>
        </table>
@@ -168,7 +166,7 @@
               <div class="grid_3 product">
                 
                 <div class="prev">
-                  <a href="__APP__/Goods/index?goods_sku_id={$v.goods_sku_id}"><img src="<?php echo "../".$v['goods_img_path']?>" alt="" title="" /></a>
+                  <a href="__APP__/Goods/product_page?goods_id={$v.goods_id}"><img src="__PUBLIC__/{$v.goods_img_path}" alt="" title="" /></a>
                 </div><!-- .prev -->
                 <h3 class="title">{$v.goods_name}</br>{$v.goods_sku_nature}</h3>
                 <div class="cart">
