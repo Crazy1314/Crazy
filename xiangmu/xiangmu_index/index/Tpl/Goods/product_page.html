@@ -464,7 +464,7 @@
                         <ul class="comments">
                             <?php foreach($review as $key=>$v){ ?>
                             <li>
-                                <div class="autor">Mike Example</div>, <time datetime="<?php echo $v['time']; ?>"><?php echo $v['time']; ?></time>
+                                <div class="autor"><?php echo $v['user_name'];?></div>, <time datetime="<?php echo $v['time']; ?>"><?php echo $v['time']; ?></time>
 
                                 <div class="evaluation">
                                     <div class="quality">
@@ -495,7 +495,7 @@
                         </ul><!-- .comments -->
                         <form class="add_comments" action="__APP__/Review/addreview" method="post">
                             <h4>Write Your Own Review</h4>
-                            <input type="hidden" value="1" name="goods_id">
+                            <input type="hidden" value="<?php echo $data['0']['goods_id'];?>" name="goods_id">
 
                             <div class="evaluation">
                                 <div class="quality">
