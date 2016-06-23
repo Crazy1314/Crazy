@@ -10,7 +10,7 @@ class OrderAction extends Action {
 		if($_GET['total']){
 			$address_id = $_GET['address_id'];
 			$total = $_GET['total'];
-			$order_number = $user_id.time();
+			$order_number = $user_id.rand(1000000,9999999);
 			$data=array(
 				'border_number'=>$order_number,
 				'border_total'=>$total,
