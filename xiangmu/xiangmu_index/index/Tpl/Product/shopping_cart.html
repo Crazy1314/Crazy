@@ -294,7 +294,7 @@
           <td>总计</td><td class="price" id="price"></td><td>元</td>
          </tr>
         </table>
-      <button class="checkout">结账</button>
+      <button class="checkout" id="suan">结账</button>
       <script>
         //总价的计算
         $(function(){
@@ -365,8 +365,17 @@
             var total = $("#price").html();
             var address_id = $("#address").val();
             if(address_id){
-              location.href="__APP__/Order/CreatOrder?address_id="+address_id+"&total="+total;
-              
+              $("#suan").click(function(){
+                    $.ajax({
+                     type: "POST",
+                     url: "__APP__/Order/CreatOrder",
+                     data: "address_id="+address_id+"&total="+total, 
+                     success:function(data){
+                          location.href="__APP__/Order/CreatOrder";
+                     }
+                  });
+              })
+              //location.href="__APP__/Order/CreatOrder?address_id="+address_id+"&total="+total; 
             }else{
               alert('请选择收货地址');
             }
