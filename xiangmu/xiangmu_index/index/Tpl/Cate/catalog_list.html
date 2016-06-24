@@ -97,13 +97,13 @@
 					<img class="sale" src="__PUBLIC__/images/new.png" alt="New"/>
 				<?php endif ?>
 					<div class="prev">
-						<a href="__APP__/Index/product_page"><img src="__PUBLIC__/{$r['goods_img_path']}" alt="" title="" /></a>
+						<a href="__APP__/Goods/product_page?goods_id=<?php echo $r['goods_id']?>"><img src="__PUBLIC__/{$r['goods_img_path']}" alt="" title="" /></a>
 					</div><!-- .prev -->
 				</div><!-- .grid_3 -->
 				
 				<div class="grid_4">
 					<div class="entry_content">
-						<a href="__APP__/Index/product_page"><h3 class="title"><font color="red">{$r['goods_type_name']}</font>--{$r['goods_name']}</h3></a>
+						<a href="__APP__/Goods/product_page?goods_id=<?php echo $r['goods_id']?>"><h3 class="title"><font color="red">{$r['goods_type_name']}</font>--{$r['goods_name']}</h3></a>
 						<div class="review">
 							<a class="plus" href="#"></a>
 							<a class="plus" href="#"></a>
@@ -120,10 +120,10 @@
 				<div class="grid_2">
 					<div class="cart">
 						<div class="price">
-							<div class="price_new">￥{$r['']}</div>
-							<div class="price_old">$725.00</div>
+							<div class="price_new">${$r['goods_sku_price']}</div>
+							
 						</div>
-						<a href="#" class="bay">Add to Cart</a>
+						<a href="__APP__/Goods/product_page?goods_id=<?php echo $r['goods_id']?>" class="bay">Add to Cart</a>
 						<a href="#" class="obn"></a>
 						<a href="#" class="like"></a>
 					</div><!-- .cart -->
