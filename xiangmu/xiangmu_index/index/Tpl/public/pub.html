@@ -172,16 +172,7 @@
         <nav class="primary">
           <ul>
             <li class="curent"><a href="__APP__/Index/index">HOME</a></li>
-            <li>
-              <a href="__APP__/Index/catalog_grid">商品品牌</a>
-              <ul class="sub">
-                <?php foreach($brands as $brand): ?>
-                <li><a href="__APP__/Brand/index?brand_id={$brand['brand_id']}">{$brand['brand_name']}</a></li>
-              
-               <?php endforeach ?>
-                
-              </ul>
-            </li>
+            
             <li>
               <a href="__APP__/Cate/index">商品分类</a>
               <ul class="sub">
