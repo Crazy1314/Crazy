@@ -7,9 +7,9 @@ class OrderAction extends Action {
 	public function CreatOrder(){
 		$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
 		$db = D('Order');
-		if($_GET['total']){
-			$address_id = $_GET['address_id'];
-			$total = $_GET['total'];
+		if($_POST['total']){
+			$address_id = $_POST['address_id'];
+			$total = $_POST['total'];
 			$order_number = $user_id.rand(1000000,9999999);
 			$data=array(
 				'border_number'=>$order_number,
