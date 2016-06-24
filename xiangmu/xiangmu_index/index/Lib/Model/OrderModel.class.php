@@ -37,7 +37,7 @@ class OrderModel extends Model{
 	public function selectOrder($user_id){
 		$model = M('border');
 		$db =M('border_goods');
-		$data = $model->where('user_id='.$user_id)->select();
+		$data = $model->order('border_id desc')->where('user_id='.$user_id)->select();
 		foreach ($data as $k => $v) {
 			$border_id = $v['border_id'];
 			$data[$k]['goods'] = $db->join('border ON border.border_id = border_goods.border_id')
