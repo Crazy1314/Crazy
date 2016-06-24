@@ -21,7 +21,7 @@ class GoodsAction extends Action {
 
         // 评论展示
         $cycle=M('review');
-        $review=$cycle->where('goods_id=1')->select();
+        $review=$cycle->where("goods_id=$goods_id")->select();
         $this->assign('review',$review);
 
 
