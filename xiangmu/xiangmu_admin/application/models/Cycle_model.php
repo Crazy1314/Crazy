@@ -113,4 +113,14 @@ class Cycle_model extends CI_Model {
         return $res;
     }
 
+
+    //查询商品
+    public function review_goods($goods_id)
+    {
+        $this->db->where('goods_id', "$goods_id");
+        $arr=$this->db->get('goods')->result_array();
+        return $arr;
+    }
+
+
 }
