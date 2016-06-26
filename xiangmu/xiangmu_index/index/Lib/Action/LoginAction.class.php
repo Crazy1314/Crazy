@@ -31,7 +31,8 @@ class LoginAction extends Action {
         $user_name=$_POST['user_name'];
         $user_phone=$_POST['user_phone'];
         $email=$_POST['email'];
-        $user_pwd=$_POST['user_pwd'];
+        $user_pwd=$_POST['password'];
+        //echo $user_pwd;die;
         $time=date('Y-m-d H:i:s',time());
         $obj=D('User');
         $res=$obj->insert_pro($user_name,$user_pwd,$user_phone,$email,$time);
