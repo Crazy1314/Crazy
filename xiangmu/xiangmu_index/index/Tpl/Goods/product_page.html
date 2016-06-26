@@ -99,17 +99,16 @@
 	      <aside id="categories_nav">
 		     <h3>Categories</h3>
 
-		     <nav class="left_menu">
-			    <ul>
-				   <li><a href="#">Solids <span>(21)</span></a></li>
-				   <li><a href="#">Liquids <span> (27)</span></a></li>
-				   <li><a href="#">Spray <span>(33)</span></a></li>
-				   <li><a href="#">Electric <span>(17)</span></a></li>
-				   <li><a href="#">For Cars <span>(23)</span></a></li>
-				   <li><a href="#">For Room <span>(7)</span></a></li>
-				   <li class="last"><a href="#">Other <span>(135)</span></a></li>
-			    </ul>
-		     </nav><!-- .left_menu -->
+			  <nav class="left_menu">
+				  <ul>
+
+					  <?php foreach($cates as $cate): ?>
+					  <li><a href="__APP__/Cate/index?d={$cate['goods_type_id']}">{$cate['goods_type_name']}<span>({$cate['num']})</span></a></li>
+
+					  <?php endforeach ?>
+					  <li class="last"><a href="#">Other <span>({$other})</span></a></li>
+				  </ul>
+			  </nav><!-- .left_menu -->
 	      </aside><!-- #categories_nav -->
 
 	      <aside id="specials" class="specials">
