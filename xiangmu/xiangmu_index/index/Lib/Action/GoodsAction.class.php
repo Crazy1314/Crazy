@@ -24,7 +24,22 @@ class GoodsAction extends Action {
         $review=$cycle->where("goods_id=$goods_id")->select();
         $this->assign('review',$review);
 
-
+		//左侧菜单栏
+		$cate=D('goods_type');
+		$cates=$cate->limit(10)->select();
+		foreach($cates as $key=>$v)
+		{
+			$id = $v['goods_type_id'];
+			$res=$goods->where("goods_type_id = $id")->select();
+			$cates[$key]['num']=count($res);
+			$nums+=count($res);
+		}
+		//echo $nums;die;
+		$total=$goods->select();
+		$total=count($total);
+		$other=$total-$nums;
+		$this->assign('cates', $cates);
+		$this->assign('other', $other);
 
 
 		$this->display('product_page');
