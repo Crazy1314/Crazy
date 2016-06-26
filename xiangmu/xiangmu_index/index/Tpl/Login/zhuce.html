@@ -134,7 +134,7 @@
                     <div class="password">
                         <strong>确认密码：</strong><sup class="surely">*</sup><br/>
                         <!--<input type="text" class="admin_input_style" size="30"  name="user_pwd1" />-->
-                        <input type="password" id='pwd2' class="admin_input_style" size="30"  name="password"  required="required" placeholder="" form="grid_6" autofocus="autofocus" pattern='\d{3,6}' style="border: 1px solid #ccc;
+                        <input type="password"  id='pwd2'  size="30"   required="required" form="grid_6" autofocus="autofocus" pattern='\d{3,6}' style="border: 1px solid #ccc;
                             border-radius: 2px;
                             color: #777;
                             height: 33px;
@@ -242,7 +242,6 @@
         if(pwd1!=pwd2){
             $('#pwd3').html("两次输入密码不同");
         }
-
     }
     function zhuce_name(){
         var name_p=$('#name_p').val();
