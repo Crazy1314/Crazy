@@ -3,7 +3,7 @@
     <div id="div2">
 
         <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin/design/">首页</a><span class="crumb-step">&gt;</span><a class="crumb-name" href="/jscss/admin/design/">作品管理</a><span class="crumb-step">&gt;</span><span>新增品牌</span></div>
+            <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin/design/">首页</a><span class="crumb-step">&gt;</span><a class="crumb-name" href="/jscss/admin/design/">品牌管理</a><span class="crumb-step">&gt;</span><span>新增品牌</span></div>
         </div>
         <div class="result-wrap">
             <div class="result-content">
@@ -28,3 +28,4 @@
     </div>
     <!--/main-->
 </div>
+</html>
