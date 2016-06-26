@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>『有主机上线』后台管理</title>
+    <title>后台管理</title>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('public')?>/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('public')?>/css/main.css"/>
     <script type="text/javascript" src="<?php echo base_url('public')?>/js/libs/modernizr.min.js"></script>
@@ -16,7 +16,7 @@
     <div class="main-wrap">
 
         <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin/design/">首页</a><span class="crumb-step">&gt;</span><a class="crumb-name" href="/jscss/admin/design/">作品管理</a><span class="crumb-step">&gt;</span><span>新增品牌</span></div>
+            <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin/design/">首页</a><span class="crumb-step">&gt;</span><a class="crumb-name" href="/jscss/admin/design/">品牌管理</a><span class="crumb-step">&gt;</span><span>新增品牌</span></div>
         </div>
         <div class="result-wrap">
             <div class="result-content">
