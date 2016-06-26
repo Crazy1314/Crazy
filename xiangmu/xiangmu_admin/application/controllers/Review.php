@@ -26,6 +26,7 @@ class Review extends CI_Controller {
 		$this->load->model('Brand_model');
 		$this->load->model('Type_model');
 		$this->load->model('Sku_model');
+		$this->load->model('Cycle_model');
 	}
 
 	 public function insert(){
@@ -79,10 +80,16 @@ class Review extends CI_Controller {
 		$search=isset($_COOKIE['search'])?$_COOKIE['search']:1;
 		//查询商品的所有数据
 		$data['review']=$this->Review_model->review_data($search);
-    	if(is_array($data)){
+
+		foreach ($data['review'] as $key => $v) {
+			$data['goods_name'][$key]=$this->Cycle_model->review_goods($v['goods_id']);
+
+		}
+		if(is_array($data)){
 			$this->load->view('review/design',$data);
 		}
 	}
+
 
 	/**
 	*	分页
